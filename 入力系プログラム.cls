@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Form_D_o‰×EˆÚ“®ƒf[ƒ^“ü—Í"
+Attribute VB_Name = "Form_ãƒ‡ãƒ¼ã‚¿å…¥åŠ›"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = True
@@ -21,10 +21,10 @@ On Error GoTo Err_Form_Open
     PreForm = AFNAME
     AFNAME = Me.name
 
-    Application.SetOption KEYMACRO, "“ü—ÍƒL["
+    Application.SetOption KEYMACRO, "å…¥åŠ›ã‚­ãƒ¼"
 '    Me.Visible = True
 
-    Call ‰Šúİ’è(Me.name)
+    Call åˆæœŸè¨­å®š(Me.name)
     
     frmWidth = Me.WindowWidth
     frmHeight = Me.WindowHeight
@@ -38,7 +38,7 @@ Exit_Form_Open:
     
 Err_Form_Open:
     MsgBox Err.Description, , "Form_Open"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "Form_Open", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Form_Open", Err.Number, Err.Description)
     Resume Exit_Form_Open
 End Sub
 
@@ -66,18 +66,18 @@ On Error Resume Next
 
     Set ctl = Nothing
     
-    Call ƒ‚[ƒh•ÏX(Me.MODE, "V‹K")
+    Call ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´(Me.MODE, "æ–°è¦")
     
-    Me.HêŒ³CD = FACTORY
-    Me.ˆ—“ú = Date
-    Me.“ú•t = Date
-    Me.“ÇFLG = False
+    Me.å·¥å ´å…ƒCD = FACTORY
+    Me.å‡¦ç†æ—¥ = Date
+    Me.æ—¥ä»˜ = Date
+    Me.èª­è¾¼FLG = False
     
-    Me.ˆ—‹æ•ª = 3
-    Call ˆ—‹æ•ª_AfterUpdate
+    Me.å‡¦ç†åŒºåˆ† = 3
+    Call å‡¦ç†åŒºåˆ†_AfterUpdate
     
-    Call D_DEL(CurrentDb, "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®")
-    Call D_DEL(CurrentDb, "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×")
+    Call D_DEL(CurrentDb, "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•")
+    Call D_DEL(CurrentDb, "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·")
     
     Me.SUB.Form.Requery
     
@@ -94,89 +94,89 @@ On Error GoTo Err_FORMFOCUS
     Me.P9.Enabled = False
     Me.P10.Enabled = False
     
-    Me.ˆ—‹æ•ª.Enabled = False
-    Me.HêŒ³CD.Enabled = False
-    Me.HêæCD.Enabled = False
-    Me.o‰×æCD.Enabled = False
-    Me.’S“–ÒCD.Enabled = False
-    Me.ˆ—“ú.Enabled = False
-    Me.“ú•t.Enabled = False
-    Me.“`•[”Ô†.Enabled = False
+    Me.å‡¦ç†åŒºåˆ†.Enabled = False
+    Me.å·¥å ´å…ƒCD.Enabled = False
+    Me.å·¥å ´å…ˆCD.Enabled = False
+    Me.å‡ºè·å…ˆCD.Enabled = False
+    Me.æ‹…å½“è€…CD.Enabled = False
+    Me.å‡¦ç†æ—¥.Enabled = False
+    Me.æ—¥ä»˜.Enabled = False
+    Me.ä¼ç¥¨ç•ªå·.Enabled = False
     
-    Me.ˆóüÏ‚İ1.Visible = False
-    Me.ˆóüÏ‚İ2.Visible = False
-    Me.ˆóüÏ‚İ3.Visible = False
+    Me.å°åˆ·æ¸ˆã¿1.Visible = False
+    Me.å°åˆ·æ¸ˆã¿2.Visible = False
+    Me.å°åˆ·æ¸ˆã¿3.Visible = False
     Me.MSG1.Visible = False
     Me.MSG2.Visible = False
     Me.MSG3.Visible = False
 
     If Nz(Me.MODE, "") = "" Then
-    ElseIf Nz(Me.MODE, "") = "V‹K" Then
+    ElseIf Nz(Me.MODE, "") = "æ–°è¦" Then
         Me.P5.Enabled = True
         Me.P7.Enabled = True
         Me.P8.Enabled = True
         Me.P9.Enabled = True
         Me.P10.Enabled = True
         
-        Me.ˆ—‹æ•ª.Enabled = True
-        Me.HêŒ³CD.Enabled = True
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            Me.HêæCD.Enabled = True
+        Me.å‡¦ç†åŒºåˆ†.Enabled = True
+        Me.å·¥å ´å…ƒCD.Enabled = True
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            Me.å·¥å ´å…ˆCD.Enabled = True
         Else
-            Me.o‰×æCD.Enabled = True
+            Me.å‡ºè·å…ˆCD.Enabled = True
         End If
         
-        Me.’S“–ÒCD.Enabled = True
-        Me.ˆ—“ú.Enabled = True
-        Me.“ú•t.Enabled = True
+        Me.æ‹…å½“è€…CD.Enabled = True
+        Me.å‡¦ç†æ—¥.Enabled = True
+        Me.æ—¥ä»˜.Enabled = True
         
-        Me.SUB.Form.ˆ—˜A”Ô.Locked = False
-    ElseIf Nz(Me.MODE, "") = "C³" Then
+        Me.SUB.Form.å‡¦ç†é€£ç•ª.Locked = False
+    ElseIf Nz(Me.MODE, "") = "ä¿®æ­£" Then
         Me.P5.Enabled = True
         Me.P6.Enabled = True
         Me.P8.Enabled = True
         Me.P9.Enabled = True
         Me.P10.Enabled = True
         
-        Me.ˆ—‹æ•ª.Enabled = True
-        Me.HêŒ³CD.Enabled = True
-        Me.ˆ—“ú.Enabled = True
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            Me.HêæCD.Enabled = True
+        Me.å‡¦ç†åŒºåˆ†.Enabled = True
+        Me.å·¥å ´å…ƒCD.Enabled = True
+        Me.å‡¦ç†æ—¥.Enabled = True
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            Me.å·¥å ´å…ˆCD.Enabled = True
         Else
-            Me.ˆóüÏ‚İ1.Visible = True
-            Me.ˆóüÏ‚İ2.Visible = True
-            Me.ˆóüÏ‚İ3.Visible = True
+            Me.å°åˆ·æ¸ˆã¿1.Visible = True
+            Me.å°åˆ·æ¸ˆã¿2.Visible = True
+            Me.å°åˆ·æ¸ˆã¿3.Visible = True
             Me.MSG1.Visible = True
             Me.MSG2.Visible = True
             Me.MSG3.Visible = True
         End If
-        Me.“`•[”Ô†.Enabled = True
+        Me.ä¼ç¥¨ç•ªå·.Enabled = True
         
-        Me.SUB.Form.ˆ—˜A”Ô.Locked = False
-    ElseIf Nz(Me.MODE, "") = "íœ" Then
+        Me.SUB.Form.å‡¦ç†é€£ç•ª.Locked = False
+    ElseIf Nz(Me.MODE, "") = "å‰Šé™¤" Then
         Me.P5.Enabled = True
         Me.P6.Enabled = True
         Me.P7.Enabled = True
         
-        Me.ˆ—‹æ•ª.Enabled = True
-        Me.HêŒ³CD.Enabled = True
-        Me.ˆ—“ú.Enabled = True
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            Me.HêæCD.Enabled = True
+        Me.å‡¦ç†åŒºåˆ†.Enabled = True
+        Me.å·¥å ´å…ƒCD.Enabled = True
+        Me.å‡¦ç†æ—¥.Enabled = True
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            Me.å·¥å ´å…ˆCD.Enabled = True
         End If
-        Me.“`•[”Ô†.Enabled = True
+        Me.ä¼ç¥¨ç•ªå·.Enabled = True
         
-        Me.SUB.Form.ˆ—˜A”Ô.Locked = True
+        Me.SUB.Form.å‡¦ç†é€£ç•ª.Locked = True
     End If
     
-    Me.HêŒ³CD.SetFocus
+    Me.å·¥å ´å…ƒCD.SetFocus
 
 Exit_FORMFOCUS:
     Exit Function
 Err_FORMFOCUS:
     MsgBox Err.Description, , "FORMFOCUS"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "FORMFOCUS", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "FORMFOCUS", Err.Number, Err.Description)
     Resume Exit_FORMFOCUS
 End Function
 
@@ -188,16 +188,16 @@ On Error GoTo Err_DATAREAD1
     Dim cnn As ADODB.Connection
     Dim rst As ADODB.Recordset
     Dim Sql As String
-    Dim s”Ô† As Long
+    Dim è¡Œç•ªå· As Long
 
     DATAREAD1 = False
     DoCmd.Hourglass True
     
     Set MyDB = CurrentDb
     
-    Call D_DEL(MyDB, "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®")
+    Call D_DEL(MyDB, "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•")
     
-    Set WKDB = MyDB.OpenRecordset("W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®")
+    Set WKDB = MyDB.OpenRecordset("W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•")
     
     Set cnn = New ADODB.Connection
     Set rst = New ADODB.Recordset
@@ -211,40 +211,40 @@ On Error GoTo Err_DATAREAD1
     Sql = Sql & " SM04.* "
     Sql = Sql & " FROM KSD17IDOU AS SD17 "
     Sql = Sql & " LEFT JOIN KSM04SEIH AS SM04 ON (SD17.SD17011 = SM04.SM04001 AND SD17.SD17012 = SM04.SM04002) "
-    Sql = Sql & " WHERE SD17.SD17002 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+    Sql = Sql & " WHERE SD17.SD17002 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
     Sql = Sql & " ORDER BY SD17.SD17003 "
     
     rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
     
     If rst.EOF Then
-        MsgBox "ƒf[ƒ^‚ª1Œ‚à‚ ‚è‚Ü‚¹‚ñB", vbOKOnly, "Šm”F"
+        MsgBox "ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚", vbOKOnly, "ç¢ºèª"
         
         Call FRMCLS
         
-        ' DELETE 2025/02/28 SUZUKI ƒtƒH[ƒJƒXƒGƒ‰[”­¶‚Ì‚½‚ß
-'        Me.“`•[”Ô†.SetFocus
+        ' DELETE 2025/02/28 SUZUKI ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿã®ãŸã‚
+'        Me.ä¼ç¥¨ç•ªå·.SetFocus
 
         GoTo Exit_DATAREAD1
     End If
     
-    s”Ô† = 1
+    è¡Œç•ªå· = 1
     Do Until rst.EOF
-        ' 1s–Ú‚Ìî•ñ‚ğƒwƒbƒ_[‚É•\¦
+        ' 1è¡Œç›®ã®æƒ…å ±ã‚’ãƒ˜ãƒƒãƒ€ãƒ¼ã«è¡¨ç¤º
         If rst!SD17003 = 1 Then
-            Me.HêŒ³CD = rst!SD17005
-            Me.HêæCD = rst!SD17007
+            Me.å·¥å ´å…ƒCD = rst!SD17005
+            Me.å·¥å ´å…ˆCD = rst!SD17007
             If Trim(Nz(rst!SD17010, "")) <> "" Then
-                Me.’S“–ÒCD = rst!SD17010
+                Me.æ‹…å½“è€…CD = rst!SD17010
             End If
-            Me.ˆ—“ú = DateSerial(Left(rst!SD17008, 4), Mid(rst!SD17008, 5, 2), Right(rst!SD17008, 2))
-            Me.“ú•t = DateSerial(Left(rst!SD17006, 4), Mid(rst!SD17006, 5, 2), Right(rst!SD17006, 2))
+            Me.å‡¦ç†æ—¥ = DateSerial(Left(rst!SD17008, 4), Mid(rst!SD17008, 5, 2), Right(rst!SD17008, 2))
+            Me.æ—¥ä»˜ = DateSerial(Left(rst!SD17006, 4), Mid(rst!SD17006, 5, 2), Right(rst!SD17006, 2))
         End If
         
         WKDB.AddNew
             
             WKDB!SD17001 = rst!SD17001
             WKDB!SD17002 = rst!SD17002
-            WKDB!SD17003 = s”Ô†
+            WKDB!SD17003 = è¡Œç•ªå·
             WKDB!SD17004 = rst!SD17004
             WKDB!SD17005 = rst!SD17005
             WKDB!SD17006 = rst!SD17006
@@ -265,28 +265,28 @@ On Error GoTo Err_DATAREAD1
             WKDB!SD17021 = rst!SD17021
             WKDB!SD17022 = rst!SD17022
             
-            WKDB!“o˜^“ú = rst!“o˜^“ú
-            WKDB!•ÏX“ú = rst!•ÏX“ú
+            WKDB!ç™»éŒ²æ—¥ = rst!ç™»éŒ²æ—¥
+            WKDB!å¤‰æ›´æ—¥ = rst!å¤‰æ›´æ—¥
             
-            WKDB!»•i–¼ = rst!SM04003
+            WKDB!è£½å“å = rst!SM04003
             
-            WKDB!“o˜^Ï = True
+            WKDB!ç™»éŒ²æ¸ˆ = True
             
-            WKDB!‹Œˆ—˜A”Ô = rst!SD17001
+            WKDB!æ—§å‡¦ç†é€£ç•ª = rst!SD17001
             
         WKDB.Update
         
-        If s”Ô† Mod LINEUNIT = 0 Then
+        If è¡Œç•ªå· Mod LINEUNIT = 0 Then
             Me.SUB.Form.Requery
             DoEvents
         End If
         
-        s”Ô† = s”Ô† + 1
+        è¡Œç•ªå· = è¡Œç•ªå· + 1
         
         rst.MoveNext
     Loop
     
-    Me.“ÇFLG = True
+    Me.èª­è¾¼FLG = True
     
     Call FORMFOCUS
     
@@ -294,7 +294,7 @@ On Error GoTo Err_DATAREAD1
     
 Exit_DATAREAD1:
     Me.SUB.Form.Requery
-    Me.SUB.Form.ˆ—˜A”Ô.SetFocus
+    Me.SUB.Form.å‡¦ç†é€£ç•ª.SetFocus
     
     Call CloseADORecordset(rst)
     Call CloseADOConnection(cnn)
@@ -306,7 +306,7 @@ Exit_DATAREAD1:
 Err_DATAREAD1:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "DATAREAD1"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "DATAREAD1", Err.Number, Err.Description, "SqlF" & Sql)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "DATAREAD1", Err.Number, Err.Description, "Sqlï¼š" & Sql)
     Resume Exit_DATAREAD1
 End Function
 
@@ -318,16 +318,16 @@ On Error GoTo Err_DATAREAD2
     Dim cnn As ADODB.Connection
     Dim rst As ADODB.Recordset
     Dim Sql As String
-    Dim s”Ô† As Long
+    Dim è¡Œç•ªå· As Long
 
     DATAREAD2 = False
     DoCmd.Hourglass True
     
     Set MyDB = CurrentDb
     
-    Call D_DEL(MyDB, "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×")
+    Call D_DEL(MyDB, "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·")
     
-    Set WKDB = MyDB.OpenRecordset("W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×")
+    Set WKDB = MyDB.OpenRecordset("W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·")
     
     Set cnn = New ADODB.Connection
     Set rst = New ADODB.Recordset
@@ -341,31 +341,31 @@ On Error GoTo Err_DATAREAD2
     Sql = Sql & " SM04.* "
     Sql = Sql & " FROM KSD18SYUK AS SD18 "
     Sql = Sql & " LEFT JOIN KSM04SEIH AS SM04 ON (SD18.SD18008 = SM04.SM04001 AND SD18.SD18009 = SM04.SM04002) "
-    Sql = Sql & " WHERE SD18.SD18005 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+    Sql = Sql & " WHERE SD18.SD18005 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
     Sql = Sql & " ORDER BY SD18.SD18006 "
     
     rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
     
     If rst.EOF Then
-        MsgBox "ƒf[ƒ^‚ª1Œ‚à‚ ‚è‚Ü‚¹‚ñB", vbOKOnly, "Šm”F"
+        MsgBox "ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚", vbOKOnly, "ç¢ºèª"
         
-        ' DELETE 2025/02/28 SUZUKI ƒtƒH[ƒJƒXƒGƒ‰[”­¶‚Ì‚½‚ß
-'        Me.“`•[”Ô†.SetFocus
+        ' DELETE 2025/02/28 SUZUKI ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿã®ãŸã‚
+'        Me.ä¼ç¥¨ç•ªå·.SetFocus
 
         GoTo Exit_DATAREAD2
     End If
     
-    s”Ô† = 1
+    è¡Œç•ªå· = 1
     Do Until rst.EOF
-        ' 1s–Ú‚Ìî•ñ‚ğƒwƒbƒ_[‚É•\¦
+        ' 1è¡Œç›®ã®æƒ…å ±ã‚’ãƒ˜ãƒƒãƒ€ãƒ¼ã«è¡¨ç¤º
         If rst!SD18006 = 1 Then
-            Me.HêŒ³CD = rst!SD18002
-            Me.o‰×æCD = rst!SD18004
+            Me.å·¥å ´å…ƒCD = rst!SD18002
+            Me.å‡ºè·å…ˆCD = rst!SD18004
             If Trim(Nz(rst!SD18007, "")) <> "" Then
-                Me.’S“–ÒCD = rst!SD18007
+                Me.æ‹…å½“è€…CD = rst!SD18007
             End If
-            Me.ˆ—“ú = DateSerial(Left(rst!SD18018, 4), Mid(rst!SD18018, 5, 2), Right(rst!SD18018, 2))
-            Me.“ú•t = DateSerial(Left(rst!SD18003, 4), Mid(rst!SD18003, 5, 2), Right(rst!SD18003, 2))
+            Me.å‡¦ç†æ—¥ = DateSerial(Left(rst!SD18018, 4), Mid(rst!SD18018, 5, 2), Right(rst!SD18018, 2))
+            Me.æ—¥ä»˜ = DateSerial(Left(rst!SD18003, 4), Mid(rst!SD18003, 5, 2), Right(rst!SD18003, 2))
         End If
         
         WKDB.AddNew
@@ -375,7 +375,7 @@ On Error GoTo Err_DATAREAD2
             WKDB!SD18003 = rst!SD18003
             WKDB!SD18004 = rst!SD18004
             WKDB!SD18005 = rst!SD18005
-            WKDB!SD18006 = s”Ô†
+            WKDB!SD18006 = è¡Œç•ªå·
             WKDB!SD18007 = rst!SD18007
             WKDB!SD18008 = rst!SD18008
             WKDB!SD18009 = rst!SD18009
@@ -394,28 +394,28 @@ On Error GoTo Err_DATAREAD2
             WKDB!SD18022 = rst!SD18022
             WKDB!SD18023 = rst!SD18023
             
-            WKDB!“o˜^“ú = rst!“o˜^“ú
-            WKDB!•ÏX“ú = rst!•ÏX“ú
+            WKDB!ç™»éŒ²æ—¥ = rst!ç™»éŒ²æ—¥
+            WKDB!å¤‰æ›´æ—¥ = rst!å¤‰æ›´æ—¥
             
-            WKDB!»•i–¼ = rst!SM04003
+            WKDB!è£½å“å = rst!SM04003
             
-            WKDB!“o˜^Ï = True
+            WKDB!ç™»éŒ²æ¸ˆ = True
             
-            WKDB!‹Œˆ—˜A”Ô = rst!SD18001
+            WKDB!æ—§å‡¦ç†é€£ç•ª = rst!SD18001
             
         WKDB.Update
         
-        If s”Ô† Mod LINEUNIT = 0 Then
+        If è¡Œç•ªå· Mod LINEUNIT = 0 Then
             Me.SUB.Form.Requery
             DoEvents
         End If
         
-        s”Ô† = s”Ô† + 1
+        è¡Œç•ªå· = è¡Œç•ªå· + 1
         
         rst.MoveNext
     Loop
     
-    Me.“ÇFLG = True
+    Me.èª­è¾¼FLG = True
     
     Call FORMFOCUS
     
@@ -423,9 +423,9 @@ On Error GoTo Err_DATAREAD2
     
 Exit_DATAREAD2:
     Me.SUB.Form.Requery
-    Me.SUB.Form.ˆ—˜A”Ô.SetFocus
+    Me.SUB.Form.å‡¦ç†é€£ç•ª.SetFocus
     
-    Call –¢”­sXV
+    Call æœªç™ºè¡Œæ›´æ–°
     
     Call CloseADORecordset(rst)
     Call CloseADOConnection(cnn)
@@ -437,7 +437,7 @@ Exit_DATAREAD2:
 Err_DATAREAD2:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "DATAREAD2"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "DATAREAD2", Err.Number, Err.Description, "SqlF" & Sql)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "DATAREAD2", Err.Number, Err.Description, "Sqlï¼š" & Sql)
     Resume Exit_DATAREAD2
 End Function
 
@@ -450,9 +450,9 @@ On Error GoTo Err_DATAWRITE1
     Dim rst As ADODB.Recordset
     Dim rst2 As ADODB.Recordset
     Dim Sql As String
-    Dim s”Ô† As Long
+    Dim è¡Œç•ªå· As Long
     
-    If “ü—Íƒ`ƒFƒbƒN() = False Then
+    If å…¥åŠ›ãƒã‚§ãƒƒã‚¯() = False Then
         Exit Function
     End If
     
@@ -461,7 +461,7 @@ On Error GoTo Err_DATAWRITE1
     
     Set MyDB = CurrentDb()
     
-    Set WKDB = MyDB.OpenRecordset("SELECT * FROM W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“® WHERE SD17001 <> 0 AND SD17001 IS NOT NULL ORDER BY SD17003")
+    Set WKDB = MyDB.OpenRecordset("SELECT * FROM W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹• WHERE SD17001 <> 0 AND SD17001 IS NOT NULL ORDER BY SD17003")
     
     Set cnn = New ADODB.Connection
     Set rst = New ADODB.Recordset
@@ -473,80 +473,80 @@ On Error GoTo Err_DATAWRITE1
     
     cnn.BeginTrans
     
-    ' V‹K‚Ìê‡‚Í“`•[”Ô†‚ğÄæ“¾‚·‚é
-    If Me.MODE = "V‹K" Then
-        Call “`•[”Ô†æ“¾(True)
-        If Nz(Me.“`•[”Ô†, "") = "" Then
-            MsgBox "ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", vbCritical, "“`•[”Ô†Ì”ÔƒGƒ‰["
+    ' æ–°è¦ã®å ´åˆã¯ä¼ç¥¨ç•ªå·ã‚’å†å–å¾—ã™ã‚‹
+    If Me.MODE = "æ–°è¦" Then
+        Call ä¼ç¥¨ç•ªå·å–å¾—(True)
+        If Nz(Me.ä¼ç¥¨ç•ªå·, "") = "" Then
+            MsgBox "ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", vbCritical, "ä¼ç¥¨ç•ªå·æ¡ç•ªã‚¨ãƒ©ãƒ¼"
             GoTo Exit_DATAWRITE1
         End If
     
-    ' •ÒW‚Ìê‡‚Íˆê“xƒf[ƒ^‚ğíœ‚µ‚Ä‘S‚ÄAddNew‚·‚é
-    ElseIf Me.MODE = "C³" Then
+    ' ç·¨é›†ã®å ´åˆã¯ä¸€åº¦ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã—ã¦å…¨ã¦AddNewã™ã‚‹
+    ElseIf Me.MODE = "ä¿®æ­£" Then
         Sql = ""
         Sql = Sql & " DELETE FROM KSD17IDOU "
-        Sql = Sql & " WHERE SD17002 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+        Sql = Sql & " WHERE SD17002 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
         
         Call cnn.Execute(Sql)
     
-    ' íœ‚Ìê‡‚Í‚·‚×‚Äíœ
-    ElseIf Me.MODE = "íœ" Then
+    ' å‰Šé™¤ã®å ´åˆã¯ã™ã¹ã¦å‰Šé™¤
+    ElseIf Me.MODE = "å‰Šé™¤" Then
         Sql = ""
         Sql = Sql & " DELETE FROM KSD17IDOU "
-        Sql = Sql & " WHERE SD17002 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+        Sql = Sql & " WHERE SD17002 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
         
         Call cnn.Execute(Sql)
     End If
     
     Sql = ""
     Sql = Sql & " SELECT * FROM KSD17IDOU "
-    Sql = Sql & " WHERE SD17002 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+    Sql = Sql & " WHERE SD17002 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
     
     rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
     
-    s”Ô† = 1
+    è¡Œç•ªå· = 1
     Do Until WKDB.EOF
-        If WKDB!íœ = False Then
+        If WKDB!å‰Šé™¤ = False Then
             rst.AddNew
                 
-                rst!SD17001 = WKDB!SD17001                  ' ˆ—˜A”Ô
-                rst!SD17002 = Me.“`•[”Ô†                   ' “`•[‡‚
-                rst!SD17003 = s”Ô†                        ' s‡‚
-                rst!SD17004 = Me.ˆ—‹æ•ª                   ' ˆÚ“®‹æ•ª
-                rst!SD17005 = Me.HêŒ³CD                   ' “ü—ÍHê
-                rst!SD17006 = Format(Me.“ú•t, "yyyymmdd")   ' “`•[“ú•t
-                rst!SD17007 = Me.HêæCD                   ' “üoŒÉHê
-                rst!SD17008 = Format(Me.ˆ—“ú, "yyyymmdd") ' XV“ú
-                rst!SD17009 = Nz(WKDB!SD17009, Format(Now(), "hhmmss")) ' ˆ—
-                If Nz(Me.’S“–ÒCD, "") <> "" Then
-                    rst!SD17010 = Trim(Me.’S“–ÒCD)         ' ’S“–ÒƒR[ƒh
+                rst!SD17001 = WKDB!SD17001                  ' å‡¦ç†é€£ç•ª
+                rst!SD17002 = Me.ä¼ç¥¨ç•ªå·                   ' ä¼ç¥¨â„–
+                rst!SD17003 = è¡Œç•ªå·                        ' è¡Œâ„–
+                rst!SD17004 = Me.å‡¦ç†åŒºåˆ†                   ' ç§»å‹•åŒºåˆ†
+                rst!SD17005 = Me.å·¥å ´å…ƒCD                   ' å…¥åŠ›å·¥å ´
+                rst!SD17006 = Format(Me.æ—¥ä»˜, "yyyymmdd")   ' ä¼ç¥¨æ—¥ä»˜
+                rst!SD17007 = Me.å·¥å ´å…ˆCD                   ' å…¥å‡ºåº«å·¥å ´
+                rst!SD17008 = Format(Me.å‡¦ç†æ—¥, "yyyymmdd") ' æ›´æ–°æ—¥
+                rst!SD17009 = Nz(WKDB!SD17009, Format(Now(), "hhmmss")) ' å‡¦ç†æ™‚åˆ»
+                If Nz(Me.æ‹…å½“è€…CD, "") <> "" Then
+                    rst!SD17010 = Trim(Me.æ‹…å½“è€…CD)         ' æ‹…å½“è€…ã‚³ãƒ¼ãƒ‰
                 End If
-                rst!SD17011 = WKDB!SD17011                  ' »•i‹æ•ª
-                rst!SD17012 = WKDB!SD17012                  ' »•iƒR[ƒh
-                rst!SD17013 = Nz(WKDB!SD17013, 0)           ' ” ‡‚
-                rst!SD17014 = WKDB!SD17014                  ' M/CƒR[ƒh
-                rst!SD17015 = WKDB!SD17015                  ' ƒƒbƒg“ú
-                rst!SD17016 = WKDB!SD17016                  ' ƒƒbƒg‡‚“ú•t
-                rst!SD17017 = Nz(WKDB!SD17017, 0)           ' ”—Ê
-                rst!SD17018 = Nz(WKDB!SD17018, 0) / 1000    ' ’P‰¿
-                rst!SD17019 = Nz(WKDB!SD17019, 0)           ' ‹àŠz
+                rst!SD17011 = WKDB!SD17011                  ' è£½å“åŒºåˆ†
+                rst!SD17012 = WKDB!SD17012                  ' è£½å“ã‚³ãƒ¼ãƒ‰
+                rst!SD17013 = Nz(WKDB!SD17013, 0)           ' ç®±â„–
+                rst!SD17014 = WKDB!SD17014                  ' M/Cã‚³ãƒ¼ãƒ‰
+                rst!SD17015 = WKDB!SD17015                  ' ãƒ­ãƒƒãƒˆæ—¥
+                rst!SD17016 = WKDB!SD17016                  ' ãƒ­ãƒƒãƒˆâ„–æ—¥ä»˜
+                rst!SD17017 = Nz(WKDB!SD17017, 0)           ' æ•°é‡
+                rst!SD17018 = Nz(WKDB!SD17018, 0) / 1000    ' å˜ä¾¡
+                rst!SD17019 = Nz(WKDB!SD17019, 0)           ' é‡‘é¡
                 rst!SD17020 = Nz(WKDB!SD17020, "00")        ' POT-ID
-                rst!SD17021 = Nz(WKDB!SD17021, 0)           ' ‰±‡‚
-                rst!SD17022 = Nz(WKDB!SD17022, 0)           ' o‰×æƒR[ƒh
+                rst!SD17021 = Nz(WKDB!SD17021, 0)           ' æ¡¶â„–
+                rst!SD17022 = Nz(WKDB!SD17022, 0)           ' å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰
                 
-                If WKDB!“o˜^Ï = False Then
-                    rst!“o˜^“ú = Now()
+                If WKDB!ç™»éŒ²æ¸ˆ = False Then
+                    rst!ç™»éŒ²æ—¥ = Now()
                 Else
-                    rst!“o˜^“ú = WKDB!“o˜^“ú
-                    rst!•ÏX“ú = Now()
+                    rst!ç™»éŒ²æ—¥ = WKDB!ç™»éŒ²æ—¥
+                    rst!å¤‰æ›´æ—¥ = Now()
                 End If
                 
             rst.Update
             
-            s”Ô† = s”Ô† + 1
+            è¡Œç•ªå· = è¡Œç•ªå· + 1
             
-            ' ƒŠ[ƒh
-            If Me.HêŒ³CD.Column(2) = 1 Then
+            ' ãƒªãƒ¼ãƒ‰
+            If Me.å·¥å ´å…ƒCD.Column(2) = 1 Then
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD04KOUT "
                 Sql = Sql & " WHERE SD04001 = " & Nz(WKDB!SD17001, 0)
@@ -554,17 +554,17 @@ On Error GoTo Err_DATAWRITE1
                 rst2.Open Sql, cnn, adOpenKeyset, adLockOptimistic
                 
                 If rst2.EOF = False Then
-                    ' ˆÚ“®o‰×
-                    If Me.ˆ—‹æ•ª = 1 Then
-                        rst2!SD04017 = Me.HêæCD
-                        rst2!SD04030 = Format(Me.“ú•t, "yyyymmdd")
+                    ' ç§»å‹•å‡ºè·
+                    If Me.å‡¦ç†åŒºåˆ† = 1 Then
+                        rst2!SD04017 = Me.å·¥å ´å…ˆCD
+                        rst2!SD04030 = Format(Me.æ—¥ä»˜, "yyyymmdd")
                         
                         rst2.Update
                         
-                    ' ˆÚ“®“ü‰×
-                    ElseIf Me.ˆ—‹æ•ª = 2 Then
-                        rst2!SD04017 = Me.HêŒ³CD
-                        rst2!SD04030 = Format(Me.“ú•t, "yyyymmdd")
+                    ' ç§»å‹•å…¥è·
+                    ElseIf Me.å‡¦ç†åŒºåˆ† = 2 Then
+                        rst2!SD04017 = Me.å·¥å ´å…ƒCD
+                        rst2!SD04030 = Format(Me.æ—¥ä»˜, "yyyymmdd")
                         
                         rst2.Update
                     End If
@@ -572,7 +572,7 @@ On Error GoTo Err_DATAWRITE1
                 
                 rst2.Close
                 
-            ' ƒP[ƒX
+            ' ã‚±ãƒ¼ã‚¹
             Else
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD05KOUT "
@@ -581,17 +581,17 @@ On Error GoTo Err_DATAWRITE1
                 rst2.Open Sql, cnn, adOpenKeyset, adLockOptimistic
                 
                 If rst2.EOF = False Then
-                    ' ˆÚ“®o‰×
-                    If Me.ˆ—‹æ•ª = 1 Then
-                        rst2!SD05016 = Me.HêæCD
-                        rst2!SD05029 = Format(Me.“ú•t, "yyyymmdd")
+                    ' ç§»å‹•å‡ºè·
+                    If Me.å‡¦ç†åŒºåˆ† = 1 Then
+                        rst2!SD05016 = Me.å·¥å ´å…ˆCD
+                        rst2!SD05029 = Format(Me.æ—¥ä»˜, "yyyymmdd")
                         
                         rst2.Update
                         
-                    ' ˆÚ“®“ü‰×
-                    ElseIf Me.ˆ—‹æ•ª = 2 Then
-                        rst2!SD05016 = Me.HêŒ³CD
-                        rst2!SD05029 = Format(Me.“ú•t, "yyyymmdd")
+                    ' ç§»å‹•å…¥è·
+                    ElseIf Me.å‡¦ç†åŒºåˆ† = 2 Then
+                        rst2!SD05016 = Me.å·¥å ´å…ƒCD
+                        rst2!SD05029 = Format(Me.æ—¥ä»˜, "yyyymmdd")
                         
                         rst2.Update
                     End If
@@ -600,10 +600,10 @@ On Error GoTo Err_DATAWRITE1
                 rst2.Close
             End If
         
-        ' “o˜^Ï‚İ‚Ìsíœ(‰æ–Ê‚ÅV‹K’Ç‰Á‚³‚ê‚½s‚Í–¢ˆ—‚È‚Ì‚Ål—¶‚µ‚È‚¢)
-        ElseIf WKDB!“o˜^Ï = True Then
-            ' ƒŠ[ƒh
-            If Me.HêŒ³CD.Column(2) = 1 Then
+        ' ç™»éŒ²æ¸ˆã¿ã®è¡Œå‰Šé™¤(ç”»é¢ã§æ–°è¦è¿½åŠ ã•ã‚ŒãŸè¡Œã¯æœªå‡¦ç†ãªã®ã§è€ƒæ…®ã—ãªã„)
+        ElseIf WKDB!ç™»éŒ²æ¸ˆ = True Then
+            ' ãƒªãƒ¼ãƒ‰
+            If Me.å·¥å ´å…ƒCD.Column(2) = 1 Then
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD04KOUT "
                 Sql = Sql & " WHERE SD04001 = " & Nz(WKDB!SD17001, 0)
@@ -611,16 +611,16 @@ On Error GoTo Err_DATAWRITE1
                 rst2.Open Sql, cnn, adOpenKeyset, adLockOptimistic
                 
                 If rst2.EOF = False Then
-                    ' ˆÚ“®o‰×
-                    If Me.ˆ—‹æ•ª = 1 Then
-                        rst2!SD04017 = Me.HêŒ³CD
+                    ' ç§»å‹•å‡ºè·
+                    If Me.å‡¦ç†åŒºåˆ† = 1 Then
+                        rst2!SD04017 = Me.å·¥å ´å…ƒCD
                         rst2!SD04030 = WKDB!SD17006
                         
                         rst2.Update
                         
-                    ' ˆÚ“®“ü‰×
-                    ElseIf Me.ˆ—‹æ•ª = 2 Then
-                        rst2!SD04017 = Me.HêæCD
+                    ' ç§»å‹•å…¥è·
+                    ElseIf Me.å‡¦ç†åŒºåˆ† = 2 Then
+                        rst2!SD04017 = Me.å·¥å ´å…ˆCD
                         rst2!SD04030 = WKDB!SD17006
                         
                         rst2.Update
@@ -629,7 +629,7 @@ On Error GoTo Err_DATAWRITE1
                 
                 rst2.Close
                 
-            ' ƒP[ƒX
+            ' ã‚±ãƒ¼ã‚¹
             Else
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD05KOUT "
@@ -638,16 +638,16 @@ On Error GoTo Err_DATAWRITE1
                 rst2.Open Sql, cnn, adOpenKeyset, adLockOptimistic
                 
                 If rst2.EOF = False Then
-                    ' ˆÚ“®o‰×
-                    If Me.ˆ—‹æ•ª = 1 Then
-                        rst2!SD05016 = Me.HêŒ³CD
+                    ' ç§»å‹•å‡ºè·
+                    If Me.å‡¦ç†åŒºåˆ† = 1 Then
+                        rst2!SD05016 = Me.å·¥å ´å…ƒCD
                         rst2!SD05029 = WKDB!SD17006
                         
                         rst2.Update
                         
-                    ' ˆÚ“®“ü‰×
-                    ElseIf Me.ˆ—‹æ•ª = 2 Then
-                        rst2!SD05016 = Me.HêæCD
+                    ' ç§»å‹•å…¥è·
+                    ElseIf Me.å‡¦ç†åŒºåˆ† = 2 Then
+                        rst2!SD05016 = Me.å·¥å ´å…ˆCD
                         rst2!SD05029 = WKDB!SD17006
                         
                         rst2.Update
@@ -680,7 +680,7 @@ Err_DATAWRITE1:
     cnn.RollbackTrans
     DoCmd.Hourglass False
     MsgBox Err.Description, , "DATAWRITE1"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "DATAWRITE1", Err.Number, Err.Description, "SqlF" & Sql)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "DATAWRITE1", Err.Number, Err.Description, "Sqlï¼š" & Sql)
     Resume Exit_DATAWRITE1
 End Function
 
@@ -693,9 +693,9 @@ On Error GoTo Err_DATAWRITE2
     Dim rst As ADODB.Recordset
     Dim rst2 As ADODB.Recordset
     Dim Sql As String
-    Dim s”Ô† As Long
+    Dim è¡Œç•ªå· As Long
     
-    If “ü—Íƒ`ƒFƒbƒN() = False Then
+    If å…¥åŠ›ãƒã‚§ãƒƒã‚¯() = False Then
         Exit Function
     End If
     
@@ -704,7 +704,7 @@ On Error GoTo Err_DATAWRITE2
     
     Set MyDB = CurrentDb()
     
-    Set WKDB = MyDB.OpenRecordset("SELECT * FROM W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰× WHERE SD18001 <> 0 AND SD18001 IS NOT NULL ORDER BY SD18006")
+    Set WKDB = MyDB.OpenRecordset("SELECT * FROM W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè· WHERE SD18001 <> 0 AND SD18001 IS NOT NULL ORDER BY SD18006")
     
     Set cnn = New ADODB.Connection
     Set rst = New ADODB.Recordset
@@ -716,81 +716,81 @@ On Error GoTo Err_DATAWRITE2
     
     cnn.BeginTrans
     
-    ' V‹K‚Ìê‡‚Í“`•[”Ô†‚ğÄæ“¾‚·‚é
-    If Me.MODE = "V‹K" Then
-        Call “`•[”Ô†æ“¾(True)
-        If Nz(Me.“`•[”Ô†, "") = "" Then
-            MsgBox "ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", vbCritical, "“`•[”Ô†Ì”ÔƒGƒ‰["
+    ' æ–°è¦ã®å ´åˆã¯ä¼ç¥¨ç•ªå·ã‚’å†å–å¾—ã™ã‚‹
+    If Me.MODE = "æ–°è¦" Then
+        Call ä¼ç¥¨ç•ªå·å–å¾—(True)
+        If Nz(Me.ä¼ç¥¨ç•ªå·, "") = "" Then
+            MsgBox "ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", vbCritical, "ä¼ç¥¨ç•ªå·æ¡ç•ªã‚¨ãƒ©ãƒ¼"
             GoTo Exit_DATAWRITE2
         End If
     
-    ' •ÒW‚Ìê‡‚Íˆê“xƒf[ƒ^‚ğíœ‚µ‚Ä‘S‚ÄAddNew‚·‚é
-    ElseIf Me.MODE = "C³" Then
+    ' ç·¨é›†ã®å ´åˆã¯ä¸€åº¦ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã—ã¦å…¨ã¦AddNewã™ã‚‹
+    ElseIf Me.MODE = "ä¿®æ­£" Then
         Sql = ""
         Sql = Sql & " DELETE FROM KSD18SYUK "
-        Sql = Sql & " WHERE SD18005 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+        Sql = Sql & " WHERE SD18005 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
         
         Call cnn.Execute(Sql)
     
-    ' íœ‚Ìê‡‚Í‚·‚×‚Äíœ
-    ElseIf Me.MODE = "íœ" Then
+    ' å‰Šé™¤ã®å ´åˆã¯ã™ã¹ã¦å‰Šé™¤
+    ElseIf Me.MODE = "å‰Šé™¤" Then
         Sql = ""
         Sql = Sql & " DELETE FROM KSD18SYUK "
-        Sql = Sql & " WHERE SD18005 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+        Sql = Sql & " WHERE SD18005 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
         
         Call cnn.Execute(Sql)
     End If
     
     Sql = ""
     Sql = Sql & " SELECT * FROM KSD18SYUK "
-    Sql = Sql & " WHERE SD18005 = " & SQL_MOJICHK(Me.“`•[”Ô†)
+    Sql = Sql & " WHERE SD18005 = " & SQL_MOJICHK(Me.ä¼ç¥¨ç•ªå·)
     
     rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
     
-    s”Ô† = 1
+    è¡Œç•ªå· = 1
     Do Until WKDB.EOF
-        If WKDB!íœ = False Then
+        If WKDB!å‰Šé™¤ = False Then
             rst.AddNew
                 
-                rst!SD18001 = WKDB!SD18001                  ' ˆ—˜A”Ô
-                rst!SD18002 = Me.HêŒ³CD                   ' HêƒR[ƒh
-                rst!SD18003 = Format(Me.“ú•t, "yyyymmdd")   ' “`•[“ú•t
-                rst!SD18004 = Me.o‰×æCD                   ' o‰×æƒR[ƒh
-                rst!SD18005 = Me.“`•[”Ô†                   ' “`•[‡‚
-                rst!SD18006 = s”Ô†                        ' s‡‚
-                If Nz(Me.’S“–ÒCD, "") <> "" Then
-                    rst!SD18007 = Trim(Me.’S“–ÒCD)         ' ’S“–ÒƒR[ƒh
+                rst!SD18001 = WKDB!SD18001                  ' å‡¦ç†é€£ç•ª
+                rst!SD18002 = Me.å·¥å ´å…ƒCD                   ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+                rst!SD18003 = Format(Me.æ—¥ä»˜, "yyyymmdd")   ' ä¼ç¥¨æ—¥ä»˜
+                rst!SD18004 = Me.å‡ºè·å…ˆCD                   ' å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰
+                rst!SD18005 = Me.ä¼ç¥¨ç•ªå·                   ' ä¼ç¥¨â„–
+                rst!SD18006 = è¡Œç•ªå·                        ' è¡Œâ„–
+                If Nz(Me.æ‹…å½“è€…CD, "") <> "" Then
+                    rst!SD18007 = Trim(Me.æ‹…å½“è€…CD)         ' æ‹…å½“è€…ã‚³ãƒ¼ãƒ‰
                 End If
-                rst!SD18008 = WKDB!SD18008                  ' »•i‹æ•ª
-                rst!SD18009 = WKDB!SD18009                  ' »•iƒR[ƒh
-                rst!SD18010 = Nz(WKDB!SD18010, 0)           ' ” ‡‚
-                rst!SD18011 = WKDB!SD18011                  ' M/CƒR[ƒh
-                rst!SD18012 = WKDB!SD18012                  ' ƒƒbƒg“ú
-                rst!SD18013 = WKDB!SD18013                  ' ƒƒbƒg‡‚“ú•t
-                rst!SD18014 = Nz(WKDB!SD18014, 0)           ' ”—Ê
-                rst!SD18015 = Nz(WKDB!SD18015, 0) / 1000    ' ’P‰¿
-                rst!SD18016 = Nz(WKDB!SD18016, 0)           ' ‹àŠz
-                rst!SD18017 = WKDB!SD18017                  ' »‘¢HêƒR[ƒh
-                rst!SD18018 = Format(Me.ˆ—“ú, "yyyymmdd") ' XV“ú
+                rst!SD18008 = WKDB!SD18008                  ' è£½å“åŒºåˆ†
+                rst!SD18009 = WKDB!SD18009                  ' è£½å“ã‚³ãƒ¼ãƒ‰
+                rst!SD18010 = Nz(WKDB!SD18010, 0)           ' ç®±â„–
+                rst!SD18011 = WKDB!SD18011                  ' M/Cã‚³ãƒ¼ãƒ‰
+                rst!SD18012 = WKDB!SD18012                  ' ãƒ­ãƒƒãƒˆæ—¥
+                rst!SD18013 = WKDB!SD18013                  ' ãƒ­ãƒƒãƒˆâ„–æ—¥ä»˜
+                rst!SD18014 = Nz(WKDB!SD18014, 0)           ' æ•°é‡
+                rst!SD18015 = Nz(WKDB!SD18015, 0) / 1000    ' å˜ä¾¡
+                rst!SD18016 = Nz(WKDB!SD18016, 0)           ' é‡‘é¡
+                rst!SD18017 = WKDB!SD18017                  ' è£½é€ å·¥å ´ã‚³ãƒ¼ãƒ‰
+                rst!SD18018 = Format(Me.å‡¦ç†æ—¥, "yyyymmdd") ' æ›´æ–°æ—¥
                 rst!SD18019 = Nz(WKDB!SD18019, "00")        ' POT-ID
-                rst!SD18020 = Nz(WKDB!SD18020, 0)           ' «•ï–¾×”­s‹æ•ª
-                rst!SD18021 = Nz(WKDB!SD18021, 0)           ' o‰×–¾×”­s‹æ•ª
-                rst!SD18022 = Nz(WKDB!SD18022, 0)           ' –{Ğ“`•[”­s‹æ•ª
-                rst!SD18023 = Nz(WKDB!SD18023, 0)           ' ‰±‡‚
+                rst!SD18020 = Nz(WKDB!SD18020, 0)           ' æ¢±åŒ…æ˜ç´°ç™ºè¡ŒåŒºåˆ†
+                rst!SD18021 = Nz(WKDB!SD18021, 0)           ' å‡ºè·æ˜ç´°ç™ºè¡ŒåŒºåˆ†
+                rst!SD18022 = Nz(WKDB!SD18022, 0)           ' æœ¬ç¤¾ä¼ç¥¨ç™ºè¡ŒåŒºåˆ†
+                rst!SD18023 = Nz(WKDB!SD18023, 0)           ' æ¡¶â„–
                 
-                If WKDB!“o˜^Ï = False Then
-                    rst!“o˜^“ú = Now()
+                If WKDB!ç™»éŒ²æ¸ˆ = False Then
+                    rst!ç™»éŒ²æ—¥ = Now()
                 Else
-                    rst!“o˜^“ú = WKDB!“o˜^“ú
-                    rst!•ÏX“ú = Now()
+                    rst!ç™»éŒ²æ—¥ = WKDB!ç™»éŒ²æ—¥
+                    rst!å¤‰æ›´æ—¥ = Now()
                 End If
                 
             rst.Update
             
-            s”Ô† = s”Ô† + 1
+            è¡Œç•ªå· = è¡Œç•ªå· + 1
             
-            ' ƒŠ[ƒh
-            If Me.HêŒ³CD.Column(2) = 1 Then
+            ' ãƒªãƒ¼ãƒ‰
+            If Me.å·¥å ´å…ƒCD.Column(2) = 1 Then
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD04KOUT "
                 Sql = Sql & " WHERE SD04001 = " & Nz(WKDB!SD18001, 0)
@@ -799,15 +799,15 @@ On Error GoTo Err_DATAWRITE2
                 
                 If rst2.EOF = False Then
                     rst2!SD04008 = Nz(WKDB!SD18015, 0) / 1000
-                    rst2!SD04028 = Format(Me.“ú•t, "yyyymmdd")
-                    rst2!SD04029 = Me.HêŒ³CD
+                    rst2!SD04028 = Format(Me.æ—¥ä»˜, "yyyymmdd")
+                    rst2!SD04029 = Me.å·¥å ´å…ƒCD
                     
                     rst2.Update
                 End If
                 
                 rst2.Close
                 
-            ' ƒP[ƒX
+            ' ã‚±ãƒ¼ã‚¹
             Else
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD05KOUT "
@@ -817,8 +817,8 @@ On Error GoTo Err_DATAWRITE2
                 
                 If rst2.EOF = False Then
                     rst2!SD05008 = Nz(WKDB!SD18015, 0) / 1000
-                    rst2!SD05027 = Format(Me.“ú•t, "yyyymmdd")
-                    rst2!SD05028 = Me.HêŒ³CD
+                    rst2!SD05027 = Format(Me.æ—¥ä»˜, "yyyymmdd")
+                    rst2!SD05028 = Me.å·¥å ´å…ƒCD
                     
                     rst2.Update
                 End If
@@ -826,10 +826,10 @@ On Error GoTo Err_DATAWRITE2
                 rst2.Close
             End If
         
-        ' “o˜^Ï‚İ‚Ìsíœ(‰æ–Ê‚ÅV‹K’Ç‰Á‚³‚ê‚½s‚Í–¢ˆ—‚È‚Ì‚Ål—¶‚µ‚È‚¢)
-        ElseIf WKDB!“o˜^Ï = True Then
-            ' ƒŠ[ƒh
-            If Me.HêŒ³CD.Column(2) = 1 Then
+        ' ç™»éŒ²æ¸ˆã¿ã®è¡Œå‰Šé™¤(ç”»é¢ã§æ–°è¦è¿½åŠ ã•ã‚ŒãŸè¡Œã¯æœªå‡¦ç†ãªã®ã§è€ƒæ…®ã—ãªã„)
+        ElseIf WKDB!ç™»éŒ²æ¸ˆ = True Then
+            ' ãƒªãƒ¼ãƒ‰
+            If Me.å·¥å ´å…ƒCD.Column(2) = 1 Then
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD04KOUT "
                 Sql = Sql & " WHERE SD04001 = " & Nz(WKDB!SD18001, 0)
@@ -845,7 +845,7 @@ On Error GoTo Err_DATAWRITE2
                 
                 rst2.Close
                 
-            ' ƒP[ƒX
+            ' ã‚±ãƒ¼ã‚¹
             Else
                 Sql = ""
                 Sql = Sql & " SELECT * FROM KSD05KOUT "
@@ -886,108 +886,108 @@ Err_DATAWRITE2:
     cnn.RollbackTrans
     DoCmd.Hourglass False
     MsgBox Err.Description, , "DATAWRITE2"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "DATAWRITE2", Err.Number, Err.Description, "SqlF" & Sql)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "DATAWRITE2", Err.Number, Err.Description, "Sqlï¼š" & Sql)
     Resume Exit_DATAWRITE2
 End Function
 
-Public Function “ü—Íƒ`ƒFƒbƒN() As Boolean
-On Error GoTo Err_“ü—Íƒ`ƒFƒbƒN
+Public Function å…¥åŠ›ãƒã‚§ãƒƒã‚¯() As Boolean
+On Error GoTo Err_å…¥åŠ›ãƒã‚§ãƒƒã‚¯
     
-    “ü—Íƒ`ƒFƒbƒN = False
+    å…¥åŠ›ãƒã‚§ãƒƒã‚¯ = False
     
     If Nz(Me.MODE, "") = "" Then
-        MsgBox "MODE‚ª•s³‚Å‚·", vbCritical, "ƒGƒ‰["
+        MsgBox "MODEãŒä¸æ­£ã§ã™", vbCritical, "ã‚¨ãƒ©ãƒ¼"
         Exit Function
     End If
     
-    If Nz(Me.ˆ—‹æ•ª, 0) = 0 Then
-        MsgBox "ˆ—‹æ•ª‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-        Me.ˆ—‹æ•ª.SetFocus
+    If Nz(Me.å‡¦ç†åŒºåˆ†, 0) = 0 Then
+        MsgBox "å‡¦ç†åŒºåˆ†ã‚’é¸æŠã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+        Me.å‡¦ç†åŒºåˆ†.SetFocus
         Exit Function
     End If
     
-    If Me.MODE = "V‹K" Then
-        If Nz(Me.HêŒ³CD, 0) = 0 Then
-            MsgBox "HêŒ³‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-            Me.HêŒ³CD.SetFocus
+    If Me.MODE = "æ–°è¦" Then
+        If Nz(Me.å·¥å ´å…ƒCD, 0) = 0 Then
+            MsgBox "å·¥å ´å…ƒã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+            Me.å·¥å ´å…ƒCD.SetFocus
             Exit Function
         End If
         
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            If Nz(Me.HêæCD, 0) = 0 Then
-                MsgBox "Hêæ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-                Me.HêæCD.SetFocus
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            If Nz(Me.å·¥å ´å…ˆCD, 0) = 0 Then
+                MsgBox "å·¥å ´å…ˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+                Me.å·¥å ´å…ˆCD.SetFocus
                 Exit Function
             End If
         Else
-            If Nz(Me.o‰×æCD, 0) = 0 Then
-                MsgBox "o‰×æ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-                Me.o‰×æCD.SetFocus
+            If Nz(Me.å‡ºè·å…ˆCD, 0) = 0 Then
+                MsgBox "å‡ºè·å…ˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+                Me.å‡ºè·å…ˆCD.SetFocus
                 Exit Function
             End If
         End If
         
-        If Nz(Me.MODE, "") = "V‹K" Then
-            If Nz(Me.’S“–ÒCD, "") = "" Then
-                MsgBox "’S“–Ò‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-                Me.’S“–ÒCD.SetFocus
+        If Nz(Me.MODE, "") = "æ–°è¦" Then
+            If Nz(Me.æ‹…å½“è€…CD, "") = "" Then
+                MsgBox "æ‹…å½“è€…ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+                Me.æ‹…å½“è€…CD.SetFocus
                 Exit Function
             End If
         End If
         
-        If Nz(Me.ˆ—“ú, "") = "" Then
-            MsgBox "ˆ—“ú‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-            Me.ˆ—“ú.SetFocus
+        If Nz(Me.å‡¦ç†æ—¥, "") = "" Then
+            MsgBox "å‡¦ç†æ—¥ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+            Me.å‡¦ç†æ—¥.SetFocus
             Exit Function
         End If
         
-        If Nz(Me.“ú•t, "") = "" Then
-            MsgBox "“ú•t‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-            Me.“ú•t.SetFocus
+        If Nz(Me.æ—¥ä»˜, "") = "" Then
+            MsgBox "æ—¥ä»˜ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+            Me.æ—¥ä»˜.SetFocus
             Exit Function
         End If
     Else
-        If Me.“ÇFLG = False Then
+        If Me.èª­è¾¼FLG = False Then
             Exit Function
         End If
     End If
     
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®") = 0 Then
-            MsgBox "–¾×‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ", vbCritical, "ƒGƒ‰["
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•") = 0 Then
+            MsgBox "æ˜ç´°ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“", vbCritical, "ã‚¨ãƒ©ãƒ¼"
             Me.SUB.SetFocus
             Exit Function
         End If
         
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®", "SD17001 = 0 OR SD17001 IS NULL") > 0 Then
-            MsgBox "ˆ—˜A”Ô‚ª“ü—Í‚³‚ê‚Ä‚¢‚È‚¢s‚ª‚ ‚è‚Ü‚·", vbCritical, "ƒGƒ‰["
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•", "SD17001 = 0 OR SD17001 IS NULL") > 0 Then
+            MsgBox "å‡¦ç†é€£ç•ªãŒå…¥åŠ›ã•ã‚Œã¦ã„ãªã„è¡ŒãŒã‚ã‚Šã¾ã™", vbCritical, "ã‚¨ãƒ©ãƒ¼"
             Me.SUB.SetFocus
             Exit Function
         End If
     Else
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×") = 0 Then
-            MsgBox "–¾×‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ", vbCritical, "ƒGƒ‰["
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·") = 0 Then
+            MsgBox "æ˜ç´°ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“", vbCritical, "ã‚¨ãƒ©ãƒ¼"
             Me.SUB.SetFocus
             Exit Function
         End If
         
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×", "SD18001 = 0 OR SD18001 IS NULL") > 0 Then
-            MsgBox "ˆ—˜A”Ô‚ª“ü—Í‚³‚ê‚Ä‚¢‚È‚¢s‚ª‚ ‚è‚Ü‚·", vbCritical, "ƒGƒ‰["
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·", "SD18001 = 0 OR SD18001 IS NULL") > 0 Then
+            MsgBox "å‡¦ç†é€£ç•ªãŒå…¥åŠ›ã•ã‚Œã¦ã„ãªã„è¡ŒãŒã‚ã‚Šã¾ã™", vbCritical, "ã‚¨ãƒ©ãƒ¼"
             Me.SUB.SetFocus
             Exit Function
         End If
     End If
     
-    “ü—Íƒ`ƒFƒbƒN = True
+    å…¥åŠ›ãƒã‚§ãƒƒã‚¯ = True
     
-Exit_“ü—Íƒ`ƒFƒbƒN:
+Exit_å…¥åŠ›ãƒã‚§ãƒƒã‚¯:
     Exit Function
 
-Err_“ü—Íƒ`ƒFƒbƒN:
+Err_å…¥åŠ›ãƒã‚§ãƒƒã‚¯:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "“ü—Íƒ`ƒFƒbƒN"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "“ü—Íƒ`ƒFƒbƒN", Err.Number, Err.Description)
-    Resume Exit_“ü—Íƒ`ƒFƒbƒN
+    MsgBox Err.Description, , "å…¥åŠ›ãƒã‚§ãƒƒã‚¯"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å…¥åŠ›ãƒã‚§ãƒƒã‚¯", Err.Number, Err.Description)
+    Resume Exit_å…¥åŠ›ãƒã‚§ãƒƒã‚¯
 End Function
 
 Private Sub P3_Click()
@@ -1001,7 +1001,7 @@ Exit_P3_Click:
 Err_P3_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P3_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P3_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P3_Click", Err.Number, Err.Description)
     Resume Exit_P3_Click
 End Sub
 
@@ -1009,16 +1009,16 @@ Private Sub P4_Click()
 On Error GoTo Err_P4_Click
     
     Select Case ActCon
-        Case "HêŒ³CD"
-            Call HêŒ³CD_DblClick(False)
-        Case "HêæCD"
-            Call HêæCD_DblClick(False)
-        Case "o‰×æCD"
-            Call o‰×æCD_DblClick(False)
-        Case "’S“–ÒCD"
-            Call ’S“–ÒCD_DblClick(False)
-        Case "“`•[”Ô†"
-            Call “`•[”Ô†_DblClick(False)
+        Case "å·¥å ´å…ƒCD"
+            Call å·¥å ´å…ƒCD_DblClick(False)
+        Case "å·¥å ´å…ˆCD"
+            Call å·¥å ´å…ˆCD_DblClick(False)
+        Case "å‡ºè·å…ˆCD"
+            Call å‡ºè·å…ˆCD_DblClick(False)
+        Case "æ‹…å½“è€…CD"
+            Call æ‹…å½“è€…CD_DblClick(False)
+        Case "ä¼ç¥¨ç•ªå·"
+            Call ä¼ç¥¨ç•ªå·_DblClick(False)
     End Select
 
 Exit_P4_Click:
@@ -1027,45 +1027,45 @@ Exit_P4_Click:
 Err_P4_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P4_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P4_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P4_Click", Err.Number, Err.Description)
     Resume Exit_P4_Click
 End Sub
 
 Private Sub P5_Click()
 On Error GoTo Err_P5_Click
     
-    If Me.MODE <> "íœ" Then
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
+    If Me.MODE <> "å‰Šé™¤" Then
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
             Call DATAWRITE1
         Else
             Call DATAWRITE2
         End If
     Else
-        If “ü—Íƒ`ƒFƒbƒN() = False Then
+        If å…¥åŠ›ãƒã‚§ãƒƒã‚¯() = False Then
             Exit Sub
         End If
         
-        Call ƒAƒNƒVƒ‡ƒ“ƒƒO‹L˜^(4, Me.name, "ƒf[ƒ^íœ@“`•[”Ô†F" & Me.“`•[”Ô†)
+        Call ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ãƒ­ã‚°è¨˜éŒ²(4, Me.name, "ãƒ‡ãƒ¼ã‚¿å‰Šé™¤ã€€ä¼ç¥¨ç•ªå·ï¼š" & Me.ä¼ç¥¨ç•ªå·)
         
-        ' ‰æ–Êã‚Å‘€ì‚µ‚Ä‚©‚çíœ‚³‚ê‚é‚ÆŠ®‘S‚Éíœ‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚é‚Ì‚ÅA
-        ' Ä“x“Ç‚µ‚Äíœƒtƒ‰ƒO‚ğ—§‚Ä‚Ä“o˜^ˆ—‚ğs‚¤B
+        ' ç”»é¢ä¸Šã§æ“ä½œã—ã¦ã‹ã‚‰å‰Šé™¤ã•ã‚Œã‚‹ã¨å®Œå…¨ã«å‰Šé™¤ã§ããªã„å¯èƒ½æ€§ãŒã‚ã‚‹ã®ã§ã€
+        ' å†åº¦èª­è¾¼ã—ã¦å‰Šé™¤ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã¦ç™»éŒ²å‡¦ç†ã‚’è¡Œã†ã€‚
         
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
             If DATAREAD1() = False Then
-                MsgBox "íœ’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", vbCritical, "ƒGƒ‰["
+                MsgBox "å‰Šé™¤ä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", vbCritical, "ã‚¨ãƒ©ãƒ¼"
                 Exit Sub
             End If
             
-            Call CurrentDb.Execute("UPDATE W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“® SET íœ = TRUE")
+            Call CurrentDb.Execute("UPDATE W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹• SET å‰Šé™¤ = TRUE")
             
             Call DATAWRITE1
         Else
             If DATAREAD2() = False Then
-                MsgBox "íœ’†‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½", vbCritical, "ƒGƒ‰["
+                MsgBox "å‰Šé™¤ä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ", vbCritical, "ã‚¨ãƒ©ãƒ¼"
                 Exit Sub
             End If
             
-            Call CurrentDb.Execute("UPDATE W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰× SET íœ = TRUE")
+            Call CurrentDb.Execute("UPDATE W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè· SET å‰Šé™¤ = TRUE")
             
             Call DATAWRITE2
         End If
@@ -1079,14 +1079,14 @@ Exit_P5_Click:
 Err_P5_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P5_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P5_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P5_Click", Err.Number, Err.Description)
     Resume Exit_P5_Click
 End Sub
 
 Private Sub P6_Click()
 On Error GoTo Err_P6_Click
     
-    If Me.MODE <> "V‹K" Then
+    If Me.MODE <> "æ–°è¦" Then
         Call FRMCLS
     End If
 
@@ -1096,17 +1096,17 @@ Exit_P6_Click:
 Err_P6_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P6_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P6_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P6_Click", Err.Number, Err.Description)
     Resume Exit_P6_Click
 End Sub
 
 Private Sub P7_Click()
 On Error GoTo Err_P7_Click
     
-    If Me.MODE <> "C³" Then
+    If Me.MODE <> "ä¿®æ­£" Then
         Call FRMCLS
         
-        Call ƒ‚[ƒh•ÏX(Me.MODE, "C³")
+        Call ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´(Me.MODE, "ä¿®æ­£")
         
         Call FORMFOCUS
     End If
@@ -1117,17 +1117,17 @@ Exit_P7_Click:
 Err_P7_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P7_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P7_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P7_Click", Err.Number, Err.Description)
     Resume Exit_P7_Click
 End Sub
 
 Private Sub P8_Click()
 On Error GoTo Err_P8_Click
     
-    If Me.MODE <> "íœ" Then
+    If Me.MODE <> "å‰Šé™¤" Then
         Call FRMCLS
         
-        Call ƒ‚[ƒh•ÏX(Me.MODE, "íœ")
+        Call ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´(Me.MODE, "å‰Šé™¤")
         
         Call FORMFOCUS
     End If
@@ -1138,7 +1138,7 @@ Exit_P8_Click:
 Err_P8_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P8_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P8_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P8_Click", Err.Number, Err.Description)
     Resume Exit_P8_Click
 End Sub
 
@@ -1152,17 +1152,17 @@ On Error GoTo Err_P9_Click
     
     Set MyDB = CurrentDb
     
-    num = Nz(Me.SUB.Form.s”Ô†, 0)
+    num = Nz(Me.SUB.Form.è¡Œç•ªå·, 0)
     
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®") = 0 Then
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•") = 0 Then
             Exit Sub
         End If
         
         Sql = ""
-        Sql = Sql & " SELECT * FROM W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“® "
+        Sql = Sql & " SELECT * FROM W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹• "
         Sql = Sql & " WHERE SD17003 >= " & num
-        Sql = Sql & "   AND íœ = FALSE "
+        Sql = Sql & "   AND å‰Šé™¤ = FALSE "
         Sql = Sql & " ORDER BY SD17003 DESC "
         
         Set WKDB = MyDB.OpenRecordset(Sql)
@@ -1183,14 +1183,14 @@ On Error GoTo Err_P9_Click
             
         WKDB.Update
     Else
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×") = 0 Then
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·") = 0 Then
             Exit Sub
         End If
         
         Sql = ""
-        Sql = Sql & " SELECT * FROM W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰× "
+        Sql = Sql & " SELECT * FROM W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè· "
         Sql = Sql & " WHERE SD18006 >= " & num
-        Sql = Sql & "   AND íœ = FALSE "
+        Sql = Sql & "   AND å‰Šé™¤ = FALSE "
         Sql = Sql & " ORDER BY SD18006 DESC "
         
         Set WKDB = MyDB.OpenRecordset(Sql)
@@ -1226,7 +1226,7 @@ Exit_P9_Click:
 Err_P9_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P9_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P9_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P9_Click", Err.Number, Err.Description)
     Resume Exit_P9_Click
 End Sub
 
@@ -1238,7 +1238,7 @@ On Error GoTo Err_P10_Click
     Dim Sql As String
     Dim num As Long
     
-    num = Nz(Me.SUB.Form.s”Ô†, 0)
+    num = Nz(Me.SUB.Form.è¡Œç•ªå·, 0)
     
     If Me.SUB.Form.NewRecord Then
         On Error Resume Next
@@ -1250,28 +1250,28 @@ On Error GoTo Err_P10_Click
     
     Set MyDB = CurrentDb
     
-    ' “o˜^Ï‚İ‚Ìƒf[ƒ^‚Ìsíœ‚Ìê‡‚ÍAH’öŠÇ—ƒtƒ@ƒCƒ‹‚ÌXV‚Ì“s‡ãƒ[ƒNƒe[ƒuƒ‹‚Ìíœ‚Ís‚í‚È‚¢
-    If Me.SUB.Form.“o˜^Ï = True Then
-        Me.SUB.Form.íœ = True
+    ' ç™»éŒ²æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿ã®è¡Œå‰Šé™¤ã®å ´åˆã¯ã€å·¥ç¨‹ç®¡ç†ãƒ•ã‚¡ã‚¤ãƒ«ã®æ›´æ–°ã®éƒ½åˆä¸Šãƒ¯ãƒ¼ã‚¯ãƒ†ãƒ¼ãƒ–ãƒ«ã®å‰Šé™¤ã¯è¡Œã‚ãªã„
+    If Me.SUB.Form.ç™»éŒ²æ¸ˆ = True Then
+        Me.SUB.Form.å‰Šé™¤ = True
     Else
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            Call D_DEL(MyDB, "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®", "SD17003 = " & num & " AND íœ = FALSE")
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            Call D_DEL(MyDB, "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•", "SD17003 = " & num & " AND å‰Šé™¤ = FALSE")
         Else
-            Call D_DEL(MyDB, "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×", "SD18006 = " & num & " AND íœ = FALSE")
+            Call D_DEL(MyDB, "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·", "SD18006 = " & num & " AND å‰Šé™¤ = FALSE")
         End If
     End If
     
     Me.SUB.Form.Requery
     
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®") = 0 Then
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•") = 0 Then
             Exit Sub
         End If
         
         Sql = ""
-        Sql = Sql & " SELECT * FROM W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“® "
+        Sql = Sql & " SELECT * FROM W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹• "
         Sql = Sql & " WHERE SD17003 > " & num
-        Sql = Sql & "   AND íœ = FALSE "
+        Sql = Sql & "   AND å‰Šé™¤ = FALSE "
         Sql = Sql & " ORDER BY SD17003 "
         
         Set WKDB = MyDB.OpenRecordset(Sql)
@@ -1286,14 +1286,14 @@ On Error GoTo Err_P10_Click
             WKDB.MoveNext
         Loop
     Else
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×") = 0 Then
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·") = 0 Then
             Exit Sub
         End If
         
         Sql = ""
-        Sql = Sql & " SELECT * FROM W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰× "
+        Sql = Sql & " SELECT * FROM W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè· "
         Sql = Sql & " WHERE SD18006 > " & num
-        Sql = Sql & "   AND íœ = FALSE "
+        Sql = Sql & "   AND å‰Šé™¤ = FALSE "
         Sql = Sql & " ORDER BY SD18006 "
         
         Set WKDB = MyDB.OpenRecordset(Sql)
@@ -1323,14 +1323,14 @@ Exit_P10_Click:
 Err_P10_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P10_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P10_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P10_Click", Err.Number, Err.Description)
     Resume Exit_P10_Click
 End Sub
 
 Private Sub P12_Click()
 On Error GoTo Err_P12_Click
 
-    Call •Â‚¶‚é
+    Call é–‰ã˜ã‚‹
 
 Exit_P12_Click:
     Exit Sub
@@ -1338,355 +1338,355 @@ Exit_P12_Click:
 Err_P12_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P12_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P12_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P12_Click", Err.Number, Err.Description)
     Resume Exit_P12_Click
 End Sub
 
 Private Sub SUB_Enter()
 On Error Resume Next
     
-    If Me.MODE = "V‹K" Then
-        If Nz(Me.HêŒ³CD, "") = "" Then
-            MsgBox "æ‚ÉHêŒ³‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "Šm”F"
-            Me.HêŒ³CD.SetFocus
+    If Me.MODE = "æ–°è¦" Then
+        If Nz(Me.å·¥å ´å…ƒCD, "") = "" Then
+            MsgBox "å…ˆã«å·¥å ´å…ƒã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ç¢ºèª"
+            Me.å·¥å ´å…ƒCD.SetFocus
             Exit Sub
         End If
         
-        ' ˆÚ“®
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            If Nz(Me.HêæCD, "") = "" Then
-                MsgBox "æ‚ÉHêæ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "Šm”F"
-                Me.HêæCD.SetFocus
+        ' ç§»å‹•
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            If Nz(Me.å·¥å ´å…ˆCD, "") = "" Then
+                MsgBox "å…ˆã«å·¥å ´å…ˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ç¢ºèª"
+                Me.å·¥å ´å…ˆCD.SetFocus
                 Exit Sub
             End If
             
-            If Me.HêŒ³CD.Column(2) <> Me.HêæCD.Column(2) Then
-                MsgBox "»•i‹æ•ª‚ªˆÙ‚È‚éHê“¯m‚ÌˆÚ“®‚Í‚Å‚«‚Ü‚¹‚ñ", vbCritical, "Šm”F"
-                Me.HêæCD.SetFocus
+            If Me.å·¥å ´å…ƒCD.Column(2) <> Me.å·¥å ´å…ˆCD.Column(2) Then
+                MsgBox "è£½å“åŒºåˆ†ãŒç•°ãªã‚‹å·¥å ´åŒå£«ã®ç§»å‹•ã¯ã§ãã¾ã›ã‚“", vbCritical, "ç¢ºèª"
+                Me.å·¥å ´å…ˆCD.SetFocus
                 Exit Sub
             End If
         
-        ' o‰×
+        ' å‡ºè·
         Else
-            If Nz(Me.o‰×æCD, "") = "" Then
-                MsgBox "æ‚Éo‰×æ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "Šm”F"
-                Me.o‰×æCD.SetFocus
+            If Nz(Me.å‡ºè·å…ˆCD, "") = "" Then
+                MsgBox "å…ˆã«å‡ºè·å…ˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ç¢ºèª"
+                Me.å‡ºè·å…ˆCD.SetFocus
                 Exit Sub
             End If
         End If
     Else
-        If Me.“ÇFLG = False Then
-            Call “`•[”Ô†_DblClick(False)
+        If Me.èª­è¾¼FLG = False Then
+            Call ä¼ç¥¨ç•ªå·_DblClick(False)
         End If
     End If
     
     Call GETACTIVE
 End Sub
 
-Private Sub HêŒ³CD_DblClick(Cancel As Integer)
-On Error GoTo Err_HêŒ³CD_DblClick
+Private Sub å·¥å ´å…ƒCD_DblClick(Cancel As Integer)
+On Error GoTo Err_å·¥å ´å…ƒCD_DblClick
 
-    ŒŸõCD = Null
-    DoCmd.OpenForm "K_HêŒŸõ", , , , , acDialog
+    æ¤œç´¢CD = Null
+    DoCmd.OpenForm "K_å·¥å ´æ¤œç´¢", , , , , acDialog
     
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.HêŒ³CD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.å·¥å ´å…ƒCD.SetFocus
     Else
-        Me.HêŒ³CD = CLng(ŒŸõCD)
-        Me.HêŒ³CD.SetFocus
-        Call HêŒ³CD_AfterUpdate
+        Me.å·¥å ´å…ƒCD = CLng(æ¤œç´¢CD)
+        Me.å·¥å ´å…ƒCD.SetFocus
+        Call å·¥å ´å…ƒCD_AfterUpdate
     End If
     
-Exit_HêŒ³CD_DblClick:
+Exit_å·¥å ´å…ƒCD_DblClick:
     Exit Sub
 
-Err_HêŒ³CD_DblClick:
+Err_å·¥å ´å…ƒCD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "HêŒ³CD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "HêŒ³CD_DblClick", Err.Number, Err.Description)
-    Resume Exit_HêŒ³CD_DblClick
+    MsgBox Err.Description, , "å·¥å ´å…ƒCD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å·¥å ´å…ƒCD_DblClick", Err.Number, Err.Description)
+    Resume Exit_å·¥å ´å…ƒCD_DblClick
 End Sub
 
-Private Sub HêæCD_DblClick(Cancel As Integer)
-On Error GoTo Err_HêæCD_DblClick
+Private Sub å·¥å ´å…ˆCD_DblClick(Cancel As Integer)
+On Error GoTo Err_å·¥å ´å…ˆCD_DblClick
 
-    ŒŸõCD = Null
-    DoCmd.OpenForm "K_HêŒŸõ", , , , , acDialog
+    æ¤œç´¢CD = Null
+    DoCmd.OpenForm "K_å·¥å ´æ¤œç´¢", , , , , acDialog
     
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.HêæCD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.å·¥å ´å…ˆCD.SetFocus
     Else
-        Me.HêæCD = CLng(ŒŸõCD)
-        Me.HêæCD.SetFocus
+        Me.å·¥å ´å…ˆCD = CLng(æ¤œç´¢CD)
+        Me.å·¥å ´å…ˆCD.SetFocus
     End If
     
-Exit_HêæCD_DblClick:
+Exit_å·¥å ´å…ˆCD_DblClick:
     Exit Sub
 
-Err_HêæCD_DblClick:
+Err_å·¥å ´å…ˆCD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "HêæCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "HêæCD_DblClick", Err.Number, Err.Description)
-    Resume Exit_HêæCD_DblClick
+    MsgBox Err.Description, , "å·¥å ´å…ˆCD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å·¥å ´å…ˆCD_DblClick", Err.Number, Err.Description)
+    Resume Exit_å·¥å ´å…ˆCD_DblClick
 End Sub
 
-Private Sub o‰×æCD_BeforeUpdate(Cancel As Integer)
+Private Sub å‡ºè·å…ˆCD_BeforeUpdate(Cancel As Integer)
 On Error Resume Next
     
-    If o‰×æƒ`ƒFƒbƒN(True) = False Then
+    If å‡ºè·å…ˆãƒã‚§ãƒƒã‚¯(True) = False Then
         Cancel = True
     End If
 End Sub
 
-Private Sub o‰×æCD_AfterUpdate()
-On Error GoTo Exit_o‰×æCD_AfterUpdate
+Private Sub å‡ºè·å…ˆCD_AfterUpdate()
+On Error GoTo Exit_å‡ºè·å…ˆCD_AfterUpdate
     
-    If IsNumeric(Me.o‰×æCD) Then
-        Me.o‰×æCD = CLng(Me.o‰×æCD)
+    If IsNumeric(Me.å‡ºè·å…ˆCD) Then
+        Me.å‡ºè·å…ˆCD = CLng(Me.å‡ºè·å…ˆCD)
     End If
 
-Exit_o‰×æCD_AfterUpdate:
+Exit_å‡ºè·å…ˆCD_AfterUpdate:
     Exit Sub
 
-Err_o‰×æCD_AfterUpdate:
+Err_å‡ºè·å…ˆCD_AfterUpdate:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "o‰×æCD_AfterUpdate"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "o‰×æCD_AfterUpdate", Err.Number, Err.Description)
-    Resume Exit_o‰×æCD_AfterUpdate
+    MsgBox Err.Description, , "å‡ºè·å…ˆCD_AfterUpdate"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å‡ºè·å…ˆCD_AfterUpdate", Err.Number, Err.Description)
+    Resume Exit_å‡ºè·å…ˆCD_AfterUpdate
 End Sub
 
-Private Sub o‰×æCD_DblClick(Cancel As Integer)
-On Error GoTo Err_o‰×æCD_DblClick
+Private Sub å‡ºè·å…ˆCD_DblClick(Cancel As Integer)
+On Error GoTo Err_å‡ºè·å…ˆCD_DblClick
 
-    ŒŸõCD = Null
-    DoCmd.OpenForm "K_o‰×æŒŸõ", , , , , acDialog
+    æ¤œç´¢CD = Null
+    DoCmd.OpenForm "K_å‡ºè·å…ˆæ¤œç´¢", , , , , acDialog
     
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.o‰×æCD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.å‡ºè·å…ˆCD.SetFocus
     Else
-        Me.o‰×æCD = CLng(ŒŸõCD)
-        Me.o‰×æCD.SetFocus
+        Me.å‡ºè·å…ˆCD = CLng(æ¤œç´¢CD)
+        Me.å‡ºè·å…ˆCD.SetFocus
     End If
     
-Exit_o‰×æCD_DblClick:
+Exit_å‡ºè·å…ˆCD_DblClick:
     Exit Sub
 
-Err_o‰×æCD_DblClick:
+Err_å‡ºè·å…ˆCD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "o‰×æCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "o‰×æCD_DblClick", Err.Number, Err.Description)
-    Resume Exit_o‰×æCD_DblClick
+    MsgBox Err.Description, , "å‡ºè·å…ˆCD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å‡ºè·å…ˆCD_DblClick", Err.Number, Err.Description)
+    Resume Exit_å‡ºè·å…ˆCD_DblClick
 End Sub
 
-Private Sub ˆ—‹æ•ª_AfterUpdate()
+Private Sub å‡¦ç†åŒºåˆ†_AfterUpdate()
 On Error Resume Next
     
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-        Me.SUB.SourceObject = "D_o‰×EˆÚ“®ƒf[ƒ^“ü—ÍSUB_ˆÚ“®"
-        Me.o‰×æCD = Null
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+        Me.SUB.SourceObject = "D_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›SUB_ç§»å‹•"
+        Me.å‡ºè·å…ˆCD = Null
     Else
-        Me.SUB.SourceObject = "D_o‰×EˆÚ“®ƒf[ƒ^“ü—ÍSUB_o‰×"
-        Me.HêæCD = Null
+        Me.SUB.SourceObject = "D_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›SUB_å‡ºè·"
+        Me.å·¥å ´å…ˆCD = Null
     End If
     
-    Call HêŒ³CD_AfterUpdate
+    Call å·¥å ´å…ƒCD_AfterUpdate
     
     Call FORMFOCUS
 End Sub
 
-Private Sub ˆ—“ú_AfterUpdate()
+Private Sub å‡¦ç†æ—¥_AfterUpdate()
 On Error Resume Next
     
-    If Nz(Me.ˆ—“ú, "") <> "" Then
-        Me.“ú•t = Me.ˆ—“ú
+    If Nz(Me.å‡¦ç†æ—¥, "") <> "" Then
+        Me.æ—¥ä»˜ = Me.å‡¦ç†æ—¥
     End If
 End Sub
 
-Private Sub ˆ—“ú_DblClick(Cancel As Integer)
+Private Sub å‡¦ç†æ—¥_DblClick(Cancel As Integer)
 On Error Resume Next
 
     Call CallCalendar
     
-    Call ˆ—“ú_AfterUpdate
+    Call å‡¦ç†æ—¥_AfterUpdate
 End Sub
 
-Private Sub “ú•t_DblClick(Cancel As Integer)
+Private Sub æ—¥ä»˜_DblClick(Cancel As Integer)
 On Error Resume Next
 
     Call CallCalendar
 End Sub
 
-Private Sub ’S“–ÒCD_DblClick(Cancel As Integer)
-On Error GoTo Err_’S“–ÒCD_DblClick
+Private Sub æ‹…å½“è€…CD_DblClick(Cancel As Integer)
+On Error GoTo Err_æ‹…å½“è€…CD_DblClick
 
-    ŒŸõCD = Null
-    DoCmd.OpenForm "K_’S“–ÒŒŸõ", , , , , acDialog
+    æ¤œç´¢CD = Null
+    DoCmd.OpenForm "K_æ‹…å½“è€…æ¤œç´¢", , , , , acDialog
     
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.’S“–ÒCD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.æ‹…å½“è€…CD.SetFocus
     Else
-        Me.’S“–ÒCD = ŒŸõCD
-        Me.’S“–ÒCD.SetFocus
+        Me.æ‹…å½“è€…CD = æ¤œç´¢CD
+        Me.æ‹…å½“è€…CD.SetFocus
     End If
     
-Exit_’S“–ÒCD_DblClick:
+Exit_æ‹…å½“è€…CD_DblClick:
     Exit Sub
 
-Err_’S“–ÒCD_DblClick:
+Err_æ‹…å½“è€…CD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "’S“–ÒCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "’S“–ÒCD_DblClick", Err.Number, Err.Description)
-    Resume Exit_’S“–ÒCD_DblClick
+    MsgBox Err.Description, , "æ‹…å½“è€…CD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "æ‹…å½“è€…CD_DblClick", Err.Number, Err.Description)
+    Resume Exit_æ‹…å½“è€…CD_DblClick
 End Sub
 
-Private Sub “`•[”Ô†_AfterUpdate()
-On Error GoTo Err_“`•[”Ô†_DblClick
+Private Sub ä¼ç¥¨ç•ªå·_AfterUpdate()
+On Error GoTo Err_ä¼ç¥¨ç•ªå·_DblClick
     
-    If Nz(Me.ˆ—‹æ•ª, 0) = 0 Then
-        MsgBox "ˆ—‹æ•ª‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-        Me.ˆ—‹æ•ª.SetFocus
+    If Nz(Me.å‡¦ç†åŒºåˆ†, 0) = 0 Then
+        MsgBox "å‡¦ç†åŒºåˆ†ã‚’é¸æŠã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+        Me.å‡¦ç†åŒºåˆ†.SetFocus
         Exit Sub
     End If
     
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
         Call DATAREAD1
     Else
         Call DATAREAD2
     End If
     
-Exit_“`•[”Ô†_DblClick:
+Exit_ä¼ç¥¨ç•ªå·_DblClick:
     Exit Sub
 
-Err_“`•[”Ô†_DblClick:
+Err_ä¼ç¥¨ç•ªå·_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "“`•[”Ô†_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "“`•[”Ô†_DblClick", Err.Number, Err.Description)
-    Resume Exit_“`•[”Ô†_DblClick
+    MsgBox Err.Description, , "ä¼ç¥¨ç•ªå·_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "ä¼ç¥¨ç•ªå·_DblClick", Err.Number, Err.Description)
+    Resume Exit_ä¼ç¥¨ç•ªå·_DblClick
 End Sub
 
-Private Sub “`•[”Ô†_DblClick(Cancel As Integer)
-On Error GoTo Err_“`•[”Ô†_DblClick
+Private Sub ä¼ç¥¨ç•ªå·_DblClick(Cancel As Integer)
+On Error GoTo Err_ä¼ç¥¨ç•ªå·_DblClick
     
-    If Nz(Me.ˆ—‹æ•ª, 0) = 0 Then
-        MsgBox "ˆ—‹æ•ª‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-        Me.ˆ—‹æ•ª.SetFocus
+    If Nz(Me.å‡¦ç†åŒºåˆ†, 0) = 0 Then
+        MsgBox "å‡¦ç†åŒºåˆ†ã‚’é¸æŠã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+        Me.å‡¦ç†åŒºåˆ†.SetFocus
         Exit Sub
     End If
     
-    If Nz(Me.HêŒ³CD, 0) = 0 Then
-        MsgBox "HêŒ³‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-        Me.HêŒ³CD.SetFocus
+    If Nz(Me.å·¥å ´å…ƒCD, 0) = 0 Then
+        MsgBox "å·¥å ´å…ƒã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+        Me.å·¥å ´å…ƒCD.SetFocus
         Exit Sub
     End If
     
-    If Nz(Me.ˆ—“ú, "") = "" Then
-        MsgBox "ˆ—“ú‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-        Me.ˆ—“ú.SetFocus
+    If Nz(Me.å‡¦ç†æ—¥, "") = "" Then
+        MsgBox "å‡¦ç†æ—¥ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+        Me.å‡¦ç†æ—¥.SetFocus
         Exit Sub
     End If
     
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-        If Nz(Me.HêæCD, 0) = 0 Then
-            MsgBox "Hêæ‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
-            Me.HêæCD.SetFocus
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+        If Nz(Me.å·¥å ´å…ˆCD, 0) = 0 Then
+            MsgBox "å·¥å ´å…ˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
+            Me.å·¥å ´å…ˆCD.SetFocus
             Exit Sub
         End If
     Else
         
     End If
 
-    ŒŸõCD = Null
+    æ¤œç´¢CD = Null
     
-    P_CODE = Me.ˆ—‹æ•ª
-    P_CODE2 = Me.HêŒ³CD
-    P_CODE3 = Me.ˆ—“ú
+    P_CODE = Me.å‡¦ç†åŒºåˆ†
+    P_CODE2 = Me.å·¥å ´å…ƒCD
+    P_CODE3 = Me.å‡¦ç†æ—¥
     
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-        P_CODE4 = Me.HêæCD
-        DoCmd.OpenForm "K_ˆÚ“®ƒf[ƒ^ŒŸõ", , , , , acDialog
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+        P_CODE4 = Me.å·¥å ´å…ˆCD
+        DoCmd.OpenForm "K_ç§»å‹•ãƒ‡ãƒ¼ã‚¿æ¤œç´¢", , , , , acDialog
         
-        If Nz(ŒŸõCD, "") = "" Then
-            Me.“`•[”Ô†.SetFocus
+        If Nz(æ¤œç´¢CD, "") = "" Then
+            Me.ä¼ç¥¨ç•ªå·.SetFocus
         Else
-            Me.“`•[”Ô† = ŒŸõCD
+            Me.ä¼ç¥¨ç•ªå· = æ¤œç´¢CD
             Call DATAREAD1
         End If
     Else
         P_CODE4 = Null
-        DoCmd.OpenForm "K_o‰×ƒf[ƒ^ŒŸõ", , , , , acDialog
+        DoCmd.OpenForm "K_å‡ºè·ãƒ‡ãƒ¼ã‚¿æ¤œç´¢", , , , , acDialog
         
-        If Nz(ŒŸõCD, "") = "" Then
-            Me.“`•[”Ô†.SetFocus
+        If Nz(æ¤œç´¢CD, "") = "" Then
+            Me.ä¼ç¥¨ç•ªå·.SetFocus
         Else
-            Me.“`•[”Ô† = ŒŸõCD
+            Me.ä¼ç¥¨ç•ªå· = æ¤œç´¢CD
             Call DATAREAD2
         End If
     End If
     
-Exit_“`•[”Ô†_DblClick:
+Exit_ä¼ç¥¨ç•ªå·_DblClick:
     Exit Sub
 
-Err_“`•[”Ô†_DblClick:
+Err_ä¼ç¥¨ç•ªå·_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "“`•[”Ô†_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "“`•[”Ô†_DblClick", Err.Number, Err.Description)
-    Resume Exit_“`•[”Ô†_DblClick
+    MsgBox Err.Description, , "ä¼ç¥¨ç•ªå·_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "ä¼ç¥¨ç•ªå·_DblClick", Err.Number, Err.Description)
+    Resume Exit_ä¼ç¥¨ç•ªå·_DblClick
 End Sub
 
-Private Sub HêŒ³CD_AfterUpdate()
+Private Sub å·¥å ´å…ƒCD_AfterUpdate()
 On Error Resume Next
     
-    If Nz(Me.HêŒ³CD, "") <> "" Then
-        ' ƒŠ[ƒh
-        If Me.HêŒ³CD.Column(2) = 1 Then
-            Me.SUB.Form.”Ô†ƒ‰ƒxƒ‹.Caption = "” ‡‚"
+    If Nz(Me.å·¥å ´å…ƒCD, "") <> "" Then
+        ' ãƒªãƒ¼ãƒ‰
+        If Me.å·¥å ´å…ƒCD.Column(2) = 1 Then
+            Me.SUB.Form.ç•ªå·ãƒ©ãƒ™ãƒ«.Caption = "ç®±â„–"
             
-            If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-                Me.SUB.Form.”Ô†.ControlSource = "SD17013"
+            If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+                Me.SUB.Form.ç•ªå·.ControlSource = "SD17013"
             Else
-                Me.SUB.Form.”Ô†.ControlSource = "SD18010"
+                Me.SUB.Form.ç•ªå·.ControlSource = "SD18010"
             End If
             
-        ' ƒP[ƒX
+        ' ã‚±ãƒ¼ã‚¹
         Else
-            Me.SUB.Form.”Ô†ƒ‰ƒxƒ‹.Caption = "‰±‡‚"
+            Me.SUB.Form.ç•ªå·ãƒ©ãƒ™ãƒ«.Caption = "æ¡¶â„–"
             
-            If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-                Me.SUB.Form.”Ô†.ControlSource = "SD17021"
+            If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+                Me.SUB.Form.ç•ªå·.ControlSource = "SD17021"
             Else
-                Me.SUB.Form.”Ô†.ControlSource = "SD18023"
+                Me.SUB.Form.ç•ªå·.ControlSource = "SD18023"
             End If
         End If
     End If
     
-    Call “`•[”Ô†æ“¾
+    Call ä¼ç¥¨ç•ªå·å–å¾—
 End Sub
 
-Private Function “`•[”Ô†æ“¾(Optional UPDFLG As Boolean = False)
-    If Nz(Me.HêŒ³CD, "") <> "" Then
-        ' ƒŠ[ƒh
-        If Me.HêŒ³CD.Column(2) = 1 Then
-            If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-                Me.“`•[”Ô† = ˆÚ“®o‰×˜A”Ôæ“¾(1, 1, UPDFLG)
+Private Function ä¼ç¥¨ç•ªå·å–å¾—(Optional UPDFLG As Boolean = False)
+    If Nz(Me.å·¥å ´å…ƒCD, "") <> "" Then
+        ' ãƒªãƒ¼ãƒ‰
+        If Me.å·¥å ´å…ƒCD.Column(2) = 1 Then
+            If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+                Me.ä¼ç¥¨ç•ªå· = ç§»å‹•å‡ºè·é€£ç•ªå–å¾—(1, 1, UPDFLG)
             Else
-                Me.“`•[”Ô† = ˆÚ“®o‰×˜A”Ôæ“¾(1, 2, UPDFLG)
+                Me.ä¼ç¥¨ç•ªå· = ç§»å‹•å‡ºè·é€£ç•ªå–å¾—(1, 2, UPDFLG)
             End If
             
-        ' ƒP[ƒX
+        ' ã‚±ãƒ¼ã‚¹
         Else
-            If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-                Me.“`•[”Ô† = ˆÚ“®o‰×˜A”Ôæ“¾(2, 1, UPDFLG)
+            If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+                Me.ä¼ç¥¨ç•ªå· = ç§»å‹•å‡ºè·é€£ç•ªå–å¾—(2, 1, UPDFLG)
             Else
-                Me.“`•[”Ô† = ˆÚ“®o‰×˜A”Ôæ“¾(2, 2, UPDFLG)
+                Me.ä¼ç¥¨ç•ªå· = ç§»å‹•å‡ºè·é€£ç•ªå–å¾—(2, 2, UPDFLG)
             End If
         End If
     Else
-        Me.“`•[”Ô† = Null
+        Me.ä¼ç¥¨ç•ªå· = Null
     End If
 End Function
 
-Public Function ˆ—˜A”Ôƒf[ƒ^æ“¾() As Boolean
-On Error GoTo Err_ˆ—˜A”Ôƒf[ƒ^æ“¾
+Public Function å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—() As Boolean
+On Error GoTo Err_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
     
     Dim cnn As ADODB.Connection
     Dim rst As ADODB.Recordset
@@ -1694,44 +1694,44 @@ On Error GoTo Err_ˆ—˜A”Ôƒf[ƒ^æ“¾
     Dim subSql As String
     Dim num As Long
     
-    ˆ—˜A”Ôƒf[ƒ^æ“¾ = False
+    å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = False
     
-    If Nz(Me.SUB.Form.ˆ—˜A”Ô, "") = "" Then
-'        Me.SUB.Form.ˆ—˜A”Ô = Null
-        Me.SUB.Form.»•i‹æ•ª = Null
-        Me.SUB.Form.»•iCD = Null
-        Me.SUB.Form.»•i–¼ = Null
-        Me.SUB.Form.”Ô† = Null
-        Me.SUB.Form.ƒƒbƒg”Ô† = Null
-        Me.SUB.Form.ƒƒbƒg”Ô†“ú•t = Null
-        Me.SUB.Form.ƒ}ƒVƒ“ƒR[ƒh = Null
-        Me.SUB.Form.”—Ê = Null
-        Me.SUB.Form.’P‰¿ = Null
-        Me.SUB.Form.‹àŠz = Null
-        Me.SUB.Form.o‰×æCD = Null
-        ' o‰×
-        If Me.ˆ—‹æ•ª = 3 Then
-            Me.SUB.Form.»‘¢HêƒR[ƒh = Null
+    If Nz(Me.SUB.Form.å‡¦ç†é€£ç•ª, "") = "" Then
+'        Me.SUB.Form.å‡¦ç†é€£ç•ª = Null
+        Me.SUB.Form.è£½å“åŒºåˆ† = Null
+        Me.SUB.Form.è£½å“CD = Null
+        Me.SUB.Form.è£½å“å = Null
+        Me.SUB.Form.ç•ªå· = Null
+        Me.SUB.Form.ãƒ­ãƒƒãƒˆç•ªå· = Null
+        Me.SUB.Form.ãƒ­ãƒƒãƒˆç•ªå·æ—¥ä»˜ = Null
+        Me.SUB.Form.ãƒã‚·ãƒ³ã‚³ãƒ¼ãƒ‰ = Null
+        Me.SUB.Form.æ•°é‡ = Null
+        Me.SUB.Form.å˜ä¾¡ = Null
+        Me.SUB.Form.é‡‘é¡ = Null
+        Me.SUB.Form.å‡ºè·å…ˆCD = Null
+        ' å‡ºè·
+        If Me.å‡¦ç†åŒºåˆ† = 3 Then
+            Me.SUB.Form.è£½é€ å·¥å ´ã‚³ãƒ¼ãƒ‰ = Null
         End If
-        GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+        GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
     End If
     
-    num = Me.SUB.Form.s”Ô†
+    num = Me.SUB.Form.è¡Œç•ªå·
     
-    ' ˆÚ“®
-    If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_ˆÚ“®", "SD17001 = " & Nz(Me.SUB.Form.ˆ—˜A”Ô, 0) & " AND íœ = FALSE AND SD17003 <> " & num) > 0 Then
-            ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-            MsgBox "ˆ—˜A”Ô‚ªŠù‚É“ü—Í‚³‚ê‚Ä‚¢‚Ü‚·", vbCritical, "Šm”F"
-            GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+    ' ç§»å‹•
+    If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_ç§»å‹•", "SD17001 = " & Nz(Me.SUB.Form.å‡¦ç†é€£ç•ª, 0) & " AND å‰Šé™¤ = FALSE AND SD17003 <> " & num) > 0 Then
+            å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+            MsgBox "å‡¦ç†é€£ç•ªãŒæ—¢ã«å…¥åŠ›ã•ã‚Œã¦ã„ã¾ã™", vbCritical, "ç¢ºèª"
+            GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
         End If
     
-    ' o‰×
+    ' å‡ºè·
     Else
-        If DCount("*", "W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰×", "SD18001 = " & Nz(Me.SUB.Form.ˆ—˜A”Ô, 0) & " AND íœ = FALSE AND SD18006 <> " & num) > 0 Then
-            ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-            MsgBox "ˆ—˜A”Ô‚ªŠù‚É“ü—Í‚³‚ê‚Ä‚¢‚Ü‚·", vbCritical, "Šm”F"
-            GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+        If DCount("*", "W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè·", "SD18001 = " & Nz(Me.SUB.Form.å‡¦ç†é€£ç•ª, 0) & " AND å‰Šé™¤ = FALSE AND SD18006 <> " & num) > 0 Then
+            å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+            MsgBox "å‡¦ç†é€£ç•ªãŒæ—¢ã«å…¥åŠ›ã•ã‚Œã¦ã„ã¾ã™", vbCritical, "ç¢ºèª"
+            GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
         End If
     End If
     
@@ -1742,300 +1742,301 @@ On Error GoTo Err_ˆ—˜A”Ôƒf[ƒ^æ“¾
     cnn.CommandTimeout = Timeout
     cnn.Open
     
-    ' ƒŠ[ƒh
-    If Me.HêŒ³CD.Column(2) = 1 Then
+    ' ãƒªãƒ¼ãƒ‰
+    If Me.å·¥å ´å…ƒCD.Column(2) = 1 Then
         Sql = ""
         Sql = Sql & " SELECT SD04.*, "
         Sql = Sql & " SM05.* "
         Sql = Sql & " FROM KSD04KOUT AS SD04 "
         
-        ' ˆÚ“®o‰×EˆÚ“®“ü‰×
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            ' »•i’P‰¿ƒ}ƒXƒ^@»•i‹æ•ªAo‰×æƒR[ƒhA»•iƒR[ƒh
+        ' ç§»å‹•å‡ºè·ãƒ»ç§»å‹•å…¥è·
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            ' è£½å“å˜ä¾¡ãƒã‚¹ã‚¿ã€€è£½å“åŒºåˆ†ã€å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰ã€è£½å“ã‚³ãƒ¼ãƒ‰
             Sql = Sql & " LEFT JOIN KSM05STAN AS SM05 ON (CAST(SD04.SD04010 AS INTEGER) = SM05.SM05001 AND CAST(SD04.SD04003 AS INTEGER) = SM05.SM05002 AND SD04.SD04004 = SM05.SM05003) "
         
-        ' o‰×
+        ' å‡ºè·
         Else
-            ' »•i’P‰¿ƒ}ƒXƒ^@»•i‹æ•ªA»•iƒR[ƒh@¦o‰×æ‚Í‰æ–Êã‚ÌƒR[ƒh‚Å’Šo
+            ' è£½å“å˜ä¾¡ãƒã‚¹ã‚¿ã€€è£½å“åŒºåˆ†ã€è£½å“ã‚³ãƒ¼ãƒ‰ã€€â€»å‡ºè·å…ˆã¯ç”»é¢ä¸Šã®ã‚³ãƒ¼ãƒ‰ã§æŠ½å‡º
             subSql = ""
             subSql = subSql & " SELECT * FROM KSM05STAN "
-            subSql = subSql & " WHERE SM05002 = " & Nz(Me.o‰×æCD, 0)
+            subSql = subSql & " WHERE SM05002 = " & Nz(Me.å‡ºè·å…ˆCD, 0)
             Sql = Sql & " LEFT JOIN (" & subSql & ") AS SM05 ON (CAST(SD04.SD04010 AS INTEGER) = SM05.SM05001 AND SD04.SD04004 = SM05.SM05003) "
         End If
         
-        Sql = Sql & " WHERE SD04001 = " & Nz(Me.SUB.Form.ˆ—˜A”Ô, 0)
+        Sql = Sql & " WHERE SD04001 = " & Nz(Me.SUB.Form.å‡¦ç†é€£ç•ª, 0)
         
         rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
         
         If rst.EOF Then
-            ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-            MsgBox "ƒf[ƒ^‚ª1Œ‚à‚ ‚è‚Ü‚¹‚ñB", vbOKOnly, "Šm”F"
-            GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+            å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+            MsgBox "ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚", vbOKOnly, "ç¢ºèª"
+            GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
         Else
             If Nz(rst!SD04028, 0) <> 0 Then
-                ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                MsgBox "o‰×Ï‚İ‚Å‚·", vbCritical, "Šm”F"
-                GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+                å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                MsgBox "å‡ºè·æ¸ˆã¿ã§ã™", vbCritical, "ç¢ºèª"
+                GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
             End If
             
-            ' o‰×
-            If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 3 Then
-                If Nz(rst!SD04017, 0) <> Nz(Me.HêŒ³CD, 0) Then
-                    ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                    MsgBox "İŒÉHê‚ªˆá‚¢‚Ü‚·", vbCritical, "Šm”F"
-                    GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+            ' å‡ºè·
+            If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 3 Then
+                If Nz(rst!SD04017, 0) <> Nz(Me.å·¥å ´å…ƒCD, 0) Then
+                    å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                    MsgBox "åœ¨åº«å·¥å ´ãŒé•ã„ã¾ã™", vbCritical, "ç¢ºèª"
+                    GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
                 End If
             
-            ' “ü‰×
+            ' å…¥è·
             Else
-                If Nz(rst!SD04017, 0) <> Nz(Me.HêæCD, 0) Then
-                    ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                    MsgBox "İŒÉHê‚ªˆá‚¢‚Ü‚·", vbCritical, "Šm”F"
-                    GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+                If Nz(rst!SD04017, 0) <> Nz(Me.å·¥å ´å…ˆCD, 0) Then
+                    å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                    MsgBox "åœ¨åº«å·¥å ´ãŒé•ã„ã¾ã™", vbCritical, "ç¢ºèª"
+                    GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
                 End If
             End If
             
             If Nz(rst!SD04032, 0) = 3 Then
-                ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                MsgBox "íœÏ‚İ‚Å‚·", vbCritical, "Šm”F"
-                GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+                å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                MsgBox "å‰Šé™¤æ¸ˆã¿ã§ã™", vbCritical, "ç¢ºèª"
+                GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
             End If
             
-'            Me.SUB.Form.ˆ—˜A”Ô = rst!SD04001
-            Me.SUB.Form.»•i‹æ•ª = rst!SD04010
-            Me.SUB.Form.»•iCD = rst!SD04004
-            Me.SUB.Form.»•i–¼ = rst!SD04011
-            Me.SUB.Form.”Ô† = rst!SD04007
-            Me.SUB.Form.ƒƒbƒg”Ô† = rst!SD04006
-            Me.SUB.Form.ƒƒbƒg”Ô†“ú•t = rst!SD04012
-            Me.SUB.Form.ƒ}ƒVƒ“ƒR[ƒh = rst!SD04005
-            Me.SUB.Form.”—Ê = Nz(rst!SD04009, 0)
+'            Me.SUB.Form.å‡¦ç†é€£ç•ª = rst!SD04001
+            Me.SUB.Form.è£½å“åŒºåˆ† = rst!SD04010
+            Me.SUB.Form.è£½å“CD = rst!SD04004
+            Me.SUB.Form.è£½å“å = rst!SD04011
+            Me.SUB.Form.ç•ªå· = rst!SD04007
+            Me.SUB.Form.ãƒ­ãƒƒãƒˆç•ªå· = rst!SD04006
+            Me.SUB.Form.ãƒ­ãƒƒãƒˆç•ªå·æ—¥ä»˜ = rst!SD04012
+            Me.SUB.Form.ãƒã‚·ãƒ³ã‚³ãƒ¼ãƒ‰ = rst!SD04005
+            Me.SUB.Form.æ•°é‡ = Nz(rst!SD04009, 0)
             
-            ' ’P‰¿•ÏX“úˆÈ~‚Í•ÏXŒã’P‰¿‚ğ“K—p
+            ' å˜ä¾¡å¤‰æ›´æ—¥ä»¥é™ã¯å¤‰æ›´å¾Œå˜ä¾¡ã‚’é©ç”¨
             If Nz(rst!SM05006, "") <> "" Then
-                If Val(Format(Me.“ú•t, "yyyymmdd")) >= Val(rst!SM05006) Then
-                    Me.SUB.Form.’P‰¿ = Nz(rst!SM05007, 0) * 1000
+                If Val(Format(Me.æ—¥ä»˜, "yyyymmdd")) >= Val(rst!SM05006) Then
+                    Me.SUB.Form.å˜ä¾¡ = Nz(rst!SM05007, 0) * 1000
                 Else
-                    Me.SUB.Form.’P‰¿ = Nz(rst!SM05004, 0) * 1000
+                    Me.SUB.Form.å˜ä¾¡ = Nz(rst!SM05004, 0) * 1000
                 End If
             Else
-                Me.SUB.Form.’P‰¿ = 0
+                Me.SUB.Form.å˜ä¾¡ = 0
             End If
             
-            Me.SUB.Form.‹àŠz = ROUND(Nz(rst!SD04009, 0) * Nz(Me.SUB.Form.’P‰¿, 0), 5, 0)
-            Me.SUB.Form.o‰×æCD = rst!SD04003
+            Me.SUB.Form.é‡‘é¡ = ROUND(Nz(rst!SD04009, 0) * Nz(Me.SUB.Form.å˜ä¾¡, 0), 5, 0)
+            Me.SUB.Form.å‡ºè·å…ˆCD = rst!SD04003
             
-            ' o‰×
-            If Me.ˆ—‹æ•ª = 3 Then
-                Me.SUB.Form.»‘¢HêƒR[ƒh = rst!SD04002
+            ' å‡ºè·
+            If Me.å‡¦ç†åŒºåˆ† = 3 Then
+                Me.SUB.Form.è£½é€ å·¥å ´ã‚³ãƒ¼ãƒ‰ = rst!SD04002
             End If
         End If
         
-    ' ƒP[ƒX
+    ' ã‚±ãƒ¼ã‚¹
     Else
         Sql = ""
         Sql = Sql & " SELECT SD05.*, "
         Sql = Sql & " SM05.* "
         Sql = Sql & " FROM KSD05KOUT AS SD05 "
         
-        ' ˆÚ“®o‰×EˆÚ“®“ü‰×
-        If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 2 Then
-            ' »•i’P‰¿ƒ}ƒXƒ^@»•i‹æ•ªAo‰×æƒR[ƒhA»•iƒR[ƒh
+        ' ç§»å‹•å‡ºè·ãƒ»ç§»å‹•å…¥è·
+        If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 2 Then
+            ' è£½å“å˜ä¾¡ãƒã‚¹ã‚¿ã€€è£½å“åŒºåˆ†ã€å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰ã€è£½å“ã‚³ãƒ¼ãƒ‰
             Sql = Sql & " LEFT JOIN KSM05STAN AS SM05 ON (CAST(SD05.SD05010 AS INTEGER) = SM05.SM05001 AND CAST(SD05.SD05003 AS INTEGER) = SM05.SM05002 AND SD05.SD05005 = SM05.SM05003) "
         
-        ' o‰×
+        ' å‡ºè·
         Else
-            ' »•i’P‰¿ƒ}ƒXƒ^@»•i‹æ•ªA»•iƒR[ƒh@¦o‰×æ‚Í‰æ–Êã‚ÌƒR[ƒh‚Å’Šo
+            ' è£½å“å˜ä¾¡ãƒã‚¹ã‚¿ã€€è£½å“åŒºåˆ†ã€è£½å“ã‚³ãƒ¼ãƒ‰ã€€â€»å‡ºè·å…ˆã¯ç”»é¢ä¸Šã®ã‚³ãƒ¼ãƒ‰ã§æŠ½å‡º
             subSql = ""
             subSql = subSql & " SELECT * FROM KSM05STAN "
-            subSql = subSql & " WHERE SM05002 = " & Nz(Me.o‰×æCD, 0)
+            subSql = subSql & " WHERE SM05002 = " & Nz(Me.å‡ºè·å…ˆCD, 0)
             Sql = Sql & " LEFT JOIN (" & subSql & ") AS SM05 ON (CAST(SD05.SD05010 AS INTEGER) = SM05.SM05001 AND SD05.SD05005 = SM05.SM05003) "
         End If
         
-        Sql = Sql & " WHERE SD05001 = " & Nz(Me.SUB.Form.ˆ—˜A”Ô, 0)
+        Sql = Sql & " WHERE SD05001 = " & Nz(Me.SUB.Form.å‡¦ç†é€£ç•ª, 0)
         
         rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
         
         If rst.EOF Then
-            ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-            MsgBox "ƒf[ƒ^‚ª1Œ‚à‚ ‚è‚Ü‚¹‚ñB", vbOKOnly, "Šm”F"
-            GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+            å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+            MsgBox "ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚", vbOKOnly, "ç¢ºèª"
+            GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
         Else
             If Nz(rst!SD05027, 0) <> 0 Then
-                ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                MsgBox "o‰×Ï‚İ‚Å‚·", vbCritical, "Šm”F"
-                GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+                å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                MsgBox "å‡ºè·æ¸ˆã¿ã§ã™", vbCritical, "ç¢ºèª"
+                GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
             End If
             
-            ' o‰×
-            If Me.ˆ—‹æ•ª = 1 Or Me.ˆ—‹æ•ª = 3 Then
-                If Nz(rst!SD05016, 0) <> Nz(Me.HêŒ³CD, 0) Then
-                    ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                    MsgBox "İŒÉHê‚ªˆá‚¢‚Ü‚·", vbCritical, "Šm”F"
-                    GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+            ' å‡ºè·
+            If Me.å‡¦ç†åŒºåˆ† = 1 Or Me.å‡¦ç†åŒºåˆ† = 3 Then
+                If Nz(rst!SD05016, 0) <> Nz(Me.å·¥å ´å…ƒCD, 0) Then
+                    å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                    MsgBox "åœ¨åº«å·¥å ´ãŒé•ã„ã¾ã™", vbCritical, "ç¢ºèª"
+                    GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
                 End If
             
-            ' “ü‰×
+            ' å…¥è·
             Else
-                If Nz(rst!SD05016, 0) <> Nz(Me.HêæCD, 0) Then
-                    ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                    MsgBox "İŒÉHê‚ªˆá‚¢‚Ü‚·", vbCritical, "Šm”F"
-                    GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+                If Nz(rst!SD05016, 0) <> Nz(Me.å·¥å ´å…ˆCD, 0) Then
+                    å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                    MsgBox "åœ¨åº«å·¥å ´ãŒé•ã„ã¾ã™", vbCritical, "ç¢ºèª"
+                    GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
                 End If
             End If
             
             If Nz(rst!SD05031, 0) = 3 Then
-                ˆ—˜A”Ôƒf[ƒ^æ“¾ = True
-                MsgBox "íœÏ‚İ‚Å‚·", vbCritical, "Šm”F"
-                GoTo Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+                å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾— = True
+                MsgBox "å‰Šé™¤æ¸ˆã¿ã§ã™", vbCritical, "ç¢ºèª"
+                GoTo Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
             End If
             
-'            Me.SUB.Form.ˆ—˜A”Ô = rst!SD05001
-            Me.SUB.Form.»•i‹æ•ª = rst!SD05010
-            Me.SUB.Form.»•iCD = rst!SD05005
-            Me.SUB.Form.»•i–¼ = rst!SD05011
-            Me.SUB.Form.”Ô† = rst!SD05007
-            Me.SUB.Form.ƒƒbƒg”Ô† = rst!SD05006
-            Me.SUB.Form.ƒƒbƒg”Ô†“ú•t = rst!SD05012
-            Me.SUB.Form.ƒ}ƒVƒ“ƒR[ƒh = rst!SD05004
-            Me.SUB.Form.”—Ê = Nz(rst!SD05009, 0)
+'            Me.SUB.Form.å‡¦ç†é€£ç•ª = rst!SD05001
+            Me.SUB.Form.è£½å“åŒºåˆ† = rst!SD05010
+            Me.SUB.Form.è£½å“CD = rst!SD05005
+            Me.SUB.Form.è£½å“å = rst!SD05011
+            Me.SUB.Form.ç•ªå· = rst!SD05007
+            Me.SUB.Form.ãƒ­ãƒƒãƒˆç•ªå· = rst!SD05006
+            Me.SUB.Form.ãƒ­ãƒƒãƒˆç•ªå·æ—¥ä»˜ = rst!SD05012
+            Me.SUB.Form.ãƒã‚·ãƒ³ã‚³ãƒ¼ãƒ‰ = rst!SD05004
+            Me.SUB.Form.æ•°é‡ = Nz(rst!SD05009, 0)
             
-            ' ’P‰¿•ÏX“úˆÈ~‚Í•ÏXŒã’P‰¿‚ğ“K—p
+            ' å˜ä¾¡å¤‰æ›´æ—¥ä»¥é™ã¯å¤‰æ›´å¾Œå˜ä¾¡ã‚’é©ç”¨
             If Nz(rst!SM05006, "") <> "" Then
-                If Val(Format(Me.“ú•t, "yyyymmdd")) >= Val(rst!SM05006) Then
-                    Me.SUB.Form.’P‰¿ = Nz(rst!SM05007, 0) * 1000
+                If Val(Format(Me.æ—¥ä»˜, "yyyymmdd")) >= Val(rst!SM05006) Then
+                    Me.SUB.Form.å˜ä¾¡ = Nz(rst!SM05007, 0) * 1000
                 Else
-                    Me.SUB.Form.’P‰¿ = Nz(rst!SM05004, 0) * 1000
+                    Me.SUB.Form.å˜ä¾¡ = Nz(rst!SM05004, 0) * 1000
                 End If
             Else
-                Me.SUB.Form.’P‰¿ = 0
+                Me.SUB.Form.å˜ä¾¡ = 0
             End If
             
-            Me.SUB.Form.‹àŠz = ROUND(Nz(rst!SD05009, 0) * Nz(Me.SUB.Form.’P‰¿, 0), 5, 0)
-            Me.SUB.Form.o‰×æCD = rst!SD05003
+            Me.SUB.Form.é‡‘é¡ = ROUND(Nz(rst!SD05009, 0) * Nz(Me.SUB.Form.å˜ä¾¡, 0), 5, 0)
+            Me.SUB.Form.å‡ºè·å…ˆCD = rst!SD05003
             
-            ' o‰×
-            If Me.ˆ—‹æ•ª = 3 Then
-                Me.SUB.Form.»‘¢HêƒR[ƒh = rst!SD05002
+            ' å‡ºè·
+            If Me.å‡¦ç†åŒºåˆ† = 3 Then
+                Me.SUB.Form.è£½é€ å·¥å ´ã‚³ãƒ¼ãƒ‰ = rst!SD05002
             End If
         End If
     End If
     
-Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾:
+Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—:
     Call CloseADORecordset(rst)
     Call CloseADOConnection(cnn)
     Exit Function
 
-Err_ˆ—˜A”Ôƒf[ƒ^æ“¾:
+Err_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "ˆ—˜A”Ôƒf[ƒ^æ“¾"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "ˆ—˜A”Ôƒf[ƒ^æ“¾", Err.Number, Err.Description, "SqlF" & Sql)
-    Resume Exit_ˆ—˜A”Ôƒf[ƒ^æ“¾
+    MsgBox Err.Description, , "å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—", Err.Number, Err.Description, "Sqlï¼š" & Sql)
+    Resume Exit_å‡¦ç†é€£ç•ªãƒ‡ãƒ¼ã‚¿å–å¾—
 End Function
 
-Private Sub “o˜^‚Ö_Enter()
+Private Sub ç™»éŒ²ã¸_Enter()
 On Error Resume Next
 
     Me.P5.SetFocus
 End Sub
 
 ' 2024/12/17
-Private Sub ˆóüÏ‚İ1_Click()
-On Error GoTo Err_ˆóüÏ‚İ1_Click
+Private Sub å°åˆ·æ¸ˆã¿1_Click()
+On Error GoTo Err_å°åˆ·æ¸ˆã¿1_Click
 
-    If Me.ˆ—‹æ•ª <> 3 Then
+    If Me.å‡¦ç†åŒºåˆ† <> 3 Then
         Exit Sub
     End If
     
-'    If MsgBox("•\¦‚³‚ê‚½“`•[‚Ì«•ï–¾×‚ğ‘S‚ÄˆóüÏ‚İ‚É‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H", vbYesNo + vbQuestion + vbDefaultButton2, "Šm”F") = vbNo Then
+'    If MsgBox("è¡¨ç¤ºã•ã‚ŒãŸä¼ç¥¨ã®æ¢±åŒ…æ˜ç´°ã‚’å…¨ã¦å°åˆ·æ¸ˆã¿ã«ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ", vbYesNo + vbQuestion + vbDefaultButton2, "ç¢ºèª") = vbNo Then
 '        Exit Sub
 '    End If
     
-    Call CurrentDb().Execute("UPDATE W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰× SET SD18020 = 1")
+    Call CurrentDb().Execute("UPDATE W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè· SET SD18020 = 1")
     
     Me.SUB.Form.Requery
     
-    Call –¢”­sXV
+    Call æœªç™ºè¡Œæ›´æ–°
     
-'    MsgBox "ˆóüÏ‚İˆ—‚ªŠ®—¹‚µ‚Ü‚µ‚½" & vbNewLine & "“o˜^‚É‚Ä”½‰f‚³‚ê‚Ü‚·", vbOKOnly, "Š®—¹"
+'    MsgBox "å°åˆ·æ¸ˆã¿å‡¦ç†ãŒå®Œäº†ã—ã¾ã—ãŸ" & vbNewLine & "ç™»éŒ²ã«ã¦åæ˜ ã•ã‚Œã¾ã™", vbOKOnly, "å®Œäº†"
     
-Exit_ˆóüÏ‚İ1_Click:
+Exit_å°åˆ·æ¸ˆã¿1_Click:
     DoCmd.Hourglass False
     Exit Sub
 
-Err_ˆóüÏ‚İ1_Click:
+Err_å°åˆ·æ¸ˆã¿1_Click:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "ˆóüÏ‚İ1_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "ˆóüÏ‚İ1_Click", Err.Number, Err.Description)
-    Resume Exit_ˆóüÏ‚İ1_Click
+    MsgBox Err.Description, , "å°åˆ·æ¸ˆã¿1_Click"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å°åˆ·æ¸ˆã¿1_Click", Err.Number, Err.Description)
+    Resume Exit_å°åˆ·æ¸ˆã¿1_Click
 End Sub
 
 ' 2024/12/17
-Private Sub ˆóüÏ‚İ2_Click()
-On Error GoTo Err_ˆóüÏ‚İ2_Click
+Private Sub å°åˆ·æ¸ˆã¿2_Click()
+On Error GoTo Err_å°åˆ·æ¸ˆã¿2_Click
 
-    If Me.ˆ—‹æ•ª <> 3 Then
+    If Me.å‡¦ç†åŒºåˆ† <> 3 Then
         Exit Sub
     End If
     
-'    If MsgBox("•\¦‚³‚ê‚½“`•[‚Ìo‰×–¾×‚ğ‘S‚ÄˆóüÏ‚İ‚É‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H", vbYesNo + vbQuestion + vbDefaultButton2, "Šm”F") = vbNo Then
+'    If MsgBox("è¡¨ç¤ºã•ã‚ŒãŸä¼ç¥¨ã®å‡ºè·æ˜ç´°ã‚’å…¨ã¦å°åˆ·æ¸ˆã¿ã«ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ", vbYesNo + vbQuestion + vbDefaultButton2, "ç¢ºèª") = vbNo Then
 '        Exit Sub
 '    End If
     
-    Call CurrentDb().Execute("UPDATE W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰× SET SD18021 = 1")
+    Call CurrentDb().Execute("UPDATE W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè· SET SD18021 = 1")
     
     Me.SUB.Form.Requery
     
-    Call –¢”­sXV
+    Call æœªç™ºè¡Œæ›´æ–°
     
-'    MsgBox "ˆóüÏ‚İˆ—‚ªŠ®—¹‚µ‚Ü‚µ‚½" & vbNewLine & "“o˜^‚É‚Ä”½‰f‚³‚ê‚Ü‚·", vbOKOnly, "Š®—¹"
+'    MsgBox "å°åˆ·æ¸ˆã¿å‡¦ç†ãŒå®Œäº†ã—ã¾ã—ãŸ" & vbNewLine & "ç™»éŒ²ã«ã¦åæ˜ ã•ã‚Œã¾ã™", vbOKOnly, "å®Œäº†"
     
-Exit_ˆóüÏ‚İ2_Click:
+Exit_å°åˆ·æ¸ˆã¿2_Click:
     DoCmd.Hourglass False
     Exit Sub
 
-Err_ˆóüÏ‚İ2_Click:
+Err_å°åˆ·æ¸ˆã¿2_Click:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "ˆóüÏ‚İ2_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "ˆóüÏ‚İ2_Click", Err.Number, Err.Description)
-    Resume Exit_ˆóüÏ‚İ2_Click
+    MsgBox Err.Description, , "å°åˆ·æ¸ˆã¿2_Click"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å°åˆ·æ¸ˆã¿2_Click", Err.Number, Err.Description)
+    Resume Exit_å°åˆ·æ¸ˆã¿2_Click
 End Sub
 
 ' 2024/12/17
-Private Sub ˆóüÏ‚İ3_Click()
-On Error GoTo Err_ˆóüÏ‚İ3_Click
+Private Sub å°åˆ·æ¸ˆã¿3_Click()
+On Error GoTo Err_å°åˆ·æ¸ˆã¿3_Click
 
-    If Me.ˆ—‹æ•ª <> 3 Then
+    If Me.å‡¦ç†åŒºåˆ† <> 3 Then
         Exit Sub
     End If
     
-'    If MsgBox("•\¦‚³‚ê‚½“`•[‚Ì–{Ğ“`•[‚ğ‘S‚ÄˆóüÏ‚İ‚É‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H", vbYesNo + vbQuestion + vbDefaultButton2, "Šm”F") = vbNo Then
+'    If MsgBox("è¡¨ç¤ºã•ã‚ŒãŸä¼ç¥¨ã®æœ¬ç¤¾ä¼ç¥¨ã‚’å…¨ã¦å°åˆ·æ¸ˆã¿ã«ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ", vbYesNo + vbQuestion + vbDefaultButton2, "ç¢ºèª") = vbNo Then
 '        Exit Sub
 '    End If
     
-    Call CurrentDb().Execute("UPDATE W_o‰×EˆÚ“®ƒf[ƒ^“ü—Í_o‰× SET SD18022 = 1")
+    Call CurrentDb().Execute("UPDATE W_å‡ºè·ãƒ»ç§»å‹•ãƒ‡ãƒ¼ã‚¿å…¥åŠ›_å‡ºè· SET SD18022 = 1")
     
     Me.SUB.Form.Requery
     
-    Call –¢”­sXV
+    Call æœªç™ºè¡Œæ›´æ–°
     
-'    MsgBox "ˆóüÏ‚İˆ—‚ªŠ®—¹‚µ‚Ü‚µ‚½" & vbNewLine & "“o˜^‚É‚Ä”½‰f‚³‚ê‚Ü‚·", vbOKOnly, "Š®—¹"
+'    MsgBox "å°åˆ·æ¸ˆã¿å‡¦ç†ãŒå®Œäº†ã—ã¾ã—ãŸ" & vbNewLine & "ç™»éŒ²ã«ã¦åæ˜ ã•ã‚Œã¾ã™", vbOKOnly, "å®Œäº†"
     
-Exit_ˆóüÏ‚İ3_Click:
+Exit_å°åˆ·æ¸ˆã¿3_Click:
     DoCmd.Hourglass False
     Exit Sub
 
-Err_ˆóüÏ‚İ3_Click:
+Err_å°åˆ·æ¸ˆã¿3_Click:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "ˆóüÏ‚İ3_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "ˆóüÏ‚İ3_Click", Err.Number, Err.Description)
-    Resume Exit_ˆóüÏ‚İ3_Click
+    MsgBox Err.Description, , "å°åˆ·æ¸ˆã¿3_Click"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "å°åˆ·æ¸ˆã¿3_Click", Err.Number, Err.Description)
+    Resume Exit_å°åˆ·æ¸ˆã¿3_Click
 End Sub
 
-Public Function –¢”­sXV()
+Public Function æœªç™ºè¡Œæ›´æ–°()
 On Error Resume Next
     
     Me.MSG1.Requery
     Me.MSG2.Requery
     Me.MSG3.Requery
 End Function
+
