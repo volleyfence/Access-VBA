@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Form_D_ƒŠ[ƒh©“®‘ª’èƒf[ƒ^“ü—Í_‘ª’èˆ—"
+Attribute VB_Name = "Form_D_æ¸¬å®šå‡¦ç†"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = True
@@ -10,24 +10,24 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
-' ‘ª’èŠí‚Ì“¯“ü—Í‚ğs‚¦‚é‚æ‚¤‚É‚·‚é
-' VBA‚Å‚Í•À—ñˆ—(ƒXƒŒƒbƒh)‚ª‚Å‚«‚È‚¢‚Ì‚ÅAŠÔ‚ÅCOMƒ|[ƒg‚ğ•Ï‚¦‚Äˆ—‚ğs‚¢A•À—ñˆ—‚ÉŒ©‚¹‚©‚¯‚Ä‚¢‚é
+' æ¸¬å®šå™¨ã®åŒæ™‚å…¥åŠ›ã‚’è¡Œãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
+' VBAã§ã¯ä¸¦åˆ—å‡¦ç†(ã‚¹ãƒ¬ãƒƒãƒ‰)ãŒã§ããªã„ã®ã§ã€æ™‚é–“ã§COMãƒãƒ¼ãƒˆã‚’å¤‰ãˆã¦å‡¦ç†ã‚’è¡Œã„ã€ä¸¦åˆ—å‡¦ç†ã«è¦‹ã›ã‹ã‘ã¦ã„ã‚‹
 
 Private Const maxPort As Long = 3
 
-' ƒXƒLƒbƒv‚ğ”F‚ß‚é‚©
+' ã‚¹ã‚­ãƒƒãƒ—ã‚’èªã‚ã‚‹ã‹
 Private Const allowSkip As Boolean = False
 
-' ‘O‰ñŒ‹‰Ê‚ÌC³‚ğ”F‚ß‚é‚©
+' å‰å›çµæœã®ä¿®æ­£ã‚’èªã‚ã‚‹ã‹
 Private Const allowEdit As Boolean = False
 
-' è“ü—Í‚ğ”F‚ß‚é‚©(ƒeƒXƒg—p)
+' æ‰‹å…¥åŠ›ã‚’èªã‚ã‚‹ã‹(ãƒ†ã‚¹ãƒˆç”¨)
 Private Const allowInput As Boolean = False
 
-' ƒ|[ƒg”Ô†(1`4)‚©‚çƒAƒ‹ƒtƒ@ƒxƒbƒg‚ğæ“¾‚·‚é—p(FRMCLS‚ÅŠi”[)
+' ãƒãƒ¼ãƒˆç•ªå·(1ï½4)ã‹ã‚‰ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆã‚’å–å¾—ã™ã‚‹ç”¨(FRMCLSã§æ ¼ç´)
 Private portInfo1 As Variant
 
-' ƒ|[ƒg”Ô†(1`4)‚©‚ç‚ğ€–Ú”‚ğæ“¾‚·‚é—p(FRMCLS‚ÅŠi”[)
+' ãƒãƒ¼ãƒˆç•ªå·(1ï½4)ã‹ã‚‰ã‚’é …ç›®æ•°ã‚’å–å¾—ã™ã‚‹ç”¨(FRMCLSã§æ ¼ç´)
 Private portInfo2 As Variant
 
 Private currentPort As Long
@@ -37,17 +37,17 @@ Private Comm(0 To maxPort) As Object
 Private cnn_common As ADODB.Connection
 Private rst_common(0 To maxPort) As ADODB.Recordset           ' Index => 1:A / 2:B / 3:C / 4:D
 
-Private SD06KEY(0 To maxPort, 0 To 3) As SD06KEY_S          ' Index => 1:A / 2:B / 3:C / 4:D, 1:‘O‰ñ / 2:Œ»İ / 3:Ÿ‰ñ
-Private SD06DAT(0 To maxPort, 0 To 4) As SD06_S             ' Index => 1:A / 2:B / 3:C / 4:D, 1:€–Ú1 / 2:€–Ú2 / 3:€–Ú3 / 4:€–Ú4
+Private SD06KEY(0 To maxPort, 0 To 3) As SD06KEY_S          ' Index => 1:A / 2:B / 3:C / 4:D, 1:å‰å› / 2:ç¾åœ¨ / 3:æ¬¡å›
+Private SD06DAT(0 To maxPort, 0 To 4) As SD06_S             ' Index => 1:A / 2:B / 3:C / 4:D, 1:é …ç›®1 / 2:é …ç›®2 / 3:é …ç›®3 / 4:é …ç›®4
 
-Private ZSD06DAT(0 To maxPort, 0 To 4) As SD06_S            ' Index => 1:A / 2:B / 3:C / 4:D, 1:€–Ú1 / 2:€–Ú2 / 3:€–Ú3 / 4:€–Ú4 ‘O‰ñŒ‹‰Ê—p
+Private ZSD06DAT(0 To maxPort, 0 To 4) As SD06_S            ' Index => 1:A / 2:B / 3:C / 4:D, 1:é …ç›®1 / 2:é …ç›®2 / 3:é …ç›®3 / 4:é …ç›®4 å‰å›çµæœç”¨
 
-Private KeisokuFLG(0 To maxPort, 0 To 4) As Boolean         ' Index => 1:A / 2:B / 3:C / 4:D, 1:€–Ú1 / 2:€–Ú2 / 3:€–Ú3 / 4:€–Ú4@True: Œv‘ªI—¹
+Private KeisokuFLG(0 To maxPort, 0 To 4) As Boolean         ' Index => 1:A / 2:B / 3:C / 4:D, 1:é …ç›®1 / 2:é …ç›®2 / 3:é …ç›®3 / 4:é …ç›®4ã€€True: è¨ˆæ¸¬çµ‚äº†
 
 #If Win64 Then
-    Private KeisokuCnt(0 To maxPort, 0 To 2) As LongLong    ' Index => 1:A / 2:B / 3:C / 4:D, 1:‘Œv / 2:Œv‘ª‰ñ”@(‰æ–Ê‚ğŠJ‚¢‚Ä‚©‚çDATAWRITE‚Ì‰ñ”‚ğ‹L˜^‚·‚é)
+    Private KeisokuCnt(0 To maxPort, 0 To 2) As LongLong    ' Index => 1:A / 2:B / 3:C / 4:D, 1:ç·è¨ˆ / 2:è¨ˆæ¸¬å›æ•°ã€€(ç”»é¢ã‚’é–‹ã„ã¦ã‹ã‚‰DATAWRITEã®å›æ•°ã‚’è¨˜éŒ²ã™ã‚‹)
 #Else
-    Private KeisokuCnt(0 To maxPort, 0 To 2) As Long        ' Index => 1:A / 2:B / 3:C / 4:D, 1:‘Œv / 2:Œv‘ª‰ñ”@(‰æ–Ê‚ğŠJ‚¢‚Ä‚©‚çDATAWRITE‚Ì‰ñ”‚ğ‹L˜^‚·‚é)
+    Private KeisokuCnt(0 To maxPort, 0 To 2) As Long        ' Index => 1:A / 2:B / 3:C / 4:D, 1:ç·è¨ˆ / 2:è¨ˆæ¸¬å›æ•°ã€€(ç”»é¢ã‚’é–‹ã„ã¦ã‹ã‚‰DATAWRITEã®å›æ•°ã‚’è¨˜éŒ²ã™ã‚‹)
 #End If
 
 Private Sub Form_Close()
@@ -55,7 +55,7 @@ On Error GoTo Err_Form_Close
     
     Dim port As Long
     
-    ' I—¹ˆ—
+    ' çµ‚äº†å‡¦ç†
     For port = 1 To maxPort
         Call CloseComm(port)
         
@@ -68,7 +68,7 @@ Exit_Form_Close:
     
 Err_Form_Close:
     MsgBox Err.Description, , "Form_Close"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "Form_Close", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Form_Close", Err.Number, Err.Description)
     Resume Exit_Form_Close
 End Sub
 
@@ -76,57 +76,57 @@ Private Sub Form_Open(Cancel As Integer)
 On Error GoTo Err_Form_Open
     
     Dim port As Long
-    Dim ‘ª’èƒf[ƒ^‘¶İ As Boolean
+    Dim æ¸¬å®šãƒ‡ãƒ¼ã‚¿å­˜åœ¨ As Boolean
     
     PreForm = AFNAME
     AFNAME = Me.name
 
-    Application.SetOption KEYMACRO, "“ü—ÍƒL["
+    Application.SetOption KEYMACRO, "å…¥åŠ›ã‚­ãƒ¼"
     Me.Visible = True
 
-    Call ‰Šúİ’è(Me.name)
+    Call åˆæœŸè¨­å®š(Me.name)
     
     Call FRMCLS
     
-    ' ‹¤’ÊcnnƒZƒbƒg
+    ' å…±é€šcnnã‚»ãƒƒãƒˆ
     Set cnn_common = New ADODB.Connection
     
     cnn_common.ConnectionString = ACPASS
     cnn_common.CommandTimeout = Timeout
     cnn_common.Open
     
-    ' rst_commonƒZƒbƒg
-    ‘ª’èƒf[ƒ^‘¶İ = False
+    ' rst_commonã‚»ãƒƒãƒˆ
+    æ¸¬å®šãƒ‡ãƒ¼ã‚¿å­˜åœ¨ = False
     For port = 1 To maxPort
         If setRST(port) Then
-            ‘ª’èƒf[ƒ^‘¶İ = True
+            æ¸¬å®šãƒ‡ãƒ¼ã‚¿å­˜åœ¨ = True
         End If
     Next
     
-    If ‘ª’èƒf[ƒ^‘¶İ = False Then
-        MsgBox "‘ª’èƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ", vbCritical, "ƒGƒ‰["
+    If æ¸¬å®šãƒ‡ãƒ¼ã‚¿å­˜åœ¨ = False Then
+        MsgBox "æ¸¬å®šãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“", vbCritical, "ã‚¨ãƒ©ãƒ¼"
         DoCmd.Close acForm, Me.name
         Exit Sub
     End If
     
-    ' SD06KEY, SD06DATƒZƒbƒg
+    ' SD06KEY, SD06DATã‚»ãƒƒãƒˆ
     For port = 1 To maxPort
         Call DATAREAD(port, True)
     Next
     
-    ' INIƒtƒ@ƒCƒ‹‚©‚çƒ|[ƒgî•ñæ“¾
+    ' INIãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒãƒ¼ãƒˆæƒ…å ±å–å¾—
     Call GETPORT
     
-    ' COMƒ|[ƒg‰Šú‰»
+    ' COMãƒãƒ¼ãƒˆåˆæœŸåŒ–
     Call ClrComm
     
-    ' COMƒ|[ƒgƒI[ƒvƒ“‡@
+    ' COMãƒãƒ¼ãƒˆã‚ªãƒ¼ãƒ—ãƒ³â‘ 
     For port = 1 To maxPort
         Call OpenComm(port)
     Next
     
-    ' COMƒ|[ƒgƒI[ƒvƒ“‡A
-    ' ‡@‚ÅƒGƒ‰[‚ª‹N‚«‚½Û‚Í‘S‚ÄClose‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅÄ“xŠJ‚­
+    ' COMãƒãƒ¼ãƒˆã‚ªãƒ¼ãƒ—ãƒ³â‘¡
+    ' â‘ ã§ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸéš›ã¯å…¨ã¦Closeã—ã¦ã—ã¾ã†ã®ã§å†åº¦é–‹ã
     For port = 1 To maxPort
         Call OpenComm(port)
     Next
@@ -137,7 +137,7 @@ Exit_Form_Open:
     
 Err_Form_Open:
     MsgBox Err.Description, , "Form_Open"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "Form_Open", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Form_Open", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_Form_Open
 End Sub
 
@@ -171,23 +171,23 @@ On Error Resume Next
     
     Set ctl = Nothing
     
-    Me.HêCD = P_CODE
-    Me.“ú•t = P_CODE2
-    Me.ƒ‚[ƒh = P_CODE3 ' 0:’Êí@1:’Ç‰Á@2:‘±‚«@3:ƒXƒLƒbƒv
+    Me.å·¥å ´CD = P_CODE
+    Me.æ—¥ä»˜ = P_CODE2
+    Me.ãƒ¢ãƒ¼ãƒ‰ = P_CODE3 ' 0:é€šå¸¸ã€€1:è¿½åŠ ã€€2:ç¶šãã€€3:ã‚¹ã‚­ãƒƒãƒ—
     
-    ' ‰æ–ÊˆÊ’u•¶š‚Æ€–Ú”(1”Ô–Ú‚Íg—p‚µ‚È‚¢)
+    ' ç”»é¢ä½ç½®æ–‡å­—ã¨é …ç›®æ•°(1ç•ªç›®ã¯ä½¿ç”¨ã—ãªã„)
     portInfo1 = Array("", "A", "B", "C", "D")
     portInfo2 = Array(0, 4, 2, 2, 2)
     
     For i = 1 To maxPort
         alp = portInfo1(i)
         
-        Me("C³“o˜^" & alp).Visible = False
+        Me("ä¿®æ­£ç™»éŒ²" & alp).Visible = False
         
         If allowSkip Then
-            Me("ƒXƒLƒbƒv" & alp).Visible = True
+            Me("ã‚¹ã‚­ãƒƒãƒ—" & alp).Visible = True
         Else
-            Me("ƒXƒLƒbƒv" & alp).Visible = False
+            Me("ã‚¹ã‚­ãƒƒãƒ—" & alp).Visible = False
         End If
     Next
 End Function
@@ -202,14 +202,14 @@ On Error GoTo Err_GETPORT
     For port = 1 To maxPort
         alp = portInfo1(port)
         
-        tmpIni = Nz(ReadIniData("PORT", "ƒ|[ƒg" & alp), 0)
+        tmpIni = Nz(ReadIniData("PORT", "ãƒãƒ¼ãƒˆ" & alp), 0)
         
         If tmpIni = 0 Then
-            MsgBox "INIƒtƒ@ƒCƒ‹‚ª•s³‚Å‚·", vbInformation, "ƒGƒ‰["
+            MsgBox "INIãƒ•ã‚¡ã‚¤ãƒ«ãŒä¸æ­£ã§ã™", vbInformation, "ã‚¨ãƒ©ãƒ¼"
             Exit Function
         End If
         
-        Me("ƒ|[ƒg" & alp) = tmpIni
+        Me("ãƒãƒ¼ãƒˆ" & alp) = tmpIni
     Next
 
 Exit_GETPORT:
@@ -218,7 +218,7 @@ Exit_GETPORT:
 Err_GETPORT:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "GETPORT"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "GETPORT", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "GETPORT", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_GETPORT
 End Function
 
@@ -229,7 +229,7 @@ On Error Resume Next
     
     For port = 1 To maxPort
         Set Comm(port) = CreateObject("MSCommLib.MSComm")
-        Me("COMó‘Ô" & port) = True
+        Me("COMçŠ¶æ…‹" & port) = True
     Next
 End Function
 
@@ -243,34 +243,34 @@ On Error GoTo Err_OpenComm
         Exit Function
     End If
     
-    If Me("COMó‘Ô" & port) = False Then
+    If Me("COMçŠ¶æ…‹" & port) = False Then
         Exit Function
     End If
     
     alp = portInfo1(port)
 
-    ' COMƒ|[ƒg”Ô†‚ğw’è
-    Comm(port).CommPort = Me("ƒ|[ƒg" & alp)
+    ' COMãƒãƒ¼ãƒˆç•ªå·ã‚’æŒ‡å®š
+    Comm(port).CommPort = Me("ãƒãƒ¼ãƒˆ" & alp)
     
-    ' ’ÊMİ’è‚ğw’è
+    ' é€šä¿¡è¨­å®šã‚’æŒ‡å®š
     Comm(port).Settings = "1200,N,8,1"
     
     Comm(port).InputLen = 0
     Comm(port).InBufferSize = 1024
     Comm(port).RThreshold = 1
     
-    ' COMƒ|[ƒg‚ğŠJ‚­
+    ' COMãƒãƒ¼ãƒˆã‚’é–‹ã
     Comm(port).PortOpen = True
     
-    Me("COMó‘Ô" & port) = True
+    Me("COMçŠ¶æ…‹" & port) = True
 
 Exit_OpenComm:
     Exit Function
 
 Err_OpenComm:
-    MsgBox "COMƒ|[ƒg‚ÌOPEN‚É¸”s‚µ‚Ü‚µ‚½B" & vbNewLine & "ƒ|[ƒg”Ô† " & Me("ƒ|[ƒg" & alp), vbCritical, "OpenComm"
-    Me("COMó‘Ô" & port) = False
-    ' ‘S‚ÄClose‚µ‚È‚¢‚Æ‚È‚º‚©‘¼‚ª“®‚©‚È‚¢
+    MsgBox "COMãƒãƒ¼ãƒˆã®OPENã«å¤±æ•—ã—ã¾ã—ãŸã€‚" & vbNewLine & "ãƒãƒ¼ãƒˆç•ªå· " & Me("ãƒãƒ¼ãƒˆ" & alp), vbCritical, "OpenComm"
+    Me("COMçŠ¶æ…‹" & port) = False
+    ' å…¨ã¦Closeã—ãªã„ã¨ãªãœã‹ä»–ãŒå‹•ã‹ãªã„
     Call CloseComm
     Resume Exit_OpenComm
 End Function
@@ -284,8 +284,8 @@ On Error GoTo Err_OnComm
     Dim msgStr As String
     Dim alp As String
     Dim koumokuNum As Long
-    Dim X As Long   ' ‰¡ˆÊ’u(€–Ú)
-    Dim Y As Long   ' cˆÊ’u(‘ª’è’l)
+    Dim X As Long   ' æ¨ªä½ç½®(é …ç›®)
+    Dim Y As Long   ' ç¸¦ä½ç½®(æ¸¬å®šå€¤)
     
     alp = portInfo1(port)
     koumokuNum = portInfo2(port)
@@ -295,64 +295,64 @@ On Error GoTo Err_OnComm
     
     Select Case comEvent
         Case comEventBreak
-            msgStr = "’†’fM†‚ªóM‚³‚ê‚Ü‚µ‚½B"
+            msgStr = "ä¸­æ–­ä¿¡å·ãŒå—ä¿¡ã•ã‚Œã¾ã—ãŸã€‚"
             GoTo BreakComm
         Case ComEventCDTO
-            msgStr = "CD (RLSD) ƒ^ƒCƒ€ƒAƒEƒg‚Å‚·B"
+            msgStr = "CD (RLSD) ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã§ã™ã€‚"
             GoTo BreakComm
         Case comEventCTSTO
-            msgStr = "CTS ƒ^ƒCƒ€ƒAƒEƒg‚Å‚·B"
+            msgStr = "CTS ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã§ã™ã€‚"
             GoTo BreakComm
         Case comEventDSRTO
-            msgStr = "DSR ƒ^ƒCƒ€ƒAƒEƒg‚Å‚·B"
+            msgStr = "DSR ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã§ã™ã€‚"
             GoTo BreakComm
         Case ComEventFrame
-            msgStr = "ƒtƒŒ[ƒ€ ƒGƒ‰[‚Å‚·B"
+            msgStr = "ãƒ•ãƒ¬ãƒ¼ãƒ  ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚"
             GoTo BreakComm
         Case ComEventOverrun
-            msgStr = "ƒf[ƒ^‚ª¸‚í‚ê‚Ü‚µ‚½B"
+            msgStr = "ãƒ‡ãƒ¼ã‚¿ãŒå¤±ã‚ã‚Œã¾ã—ãŸã€‚"
             GoTo BreakComm
         Case ComEventRxOver
-            msgStr = "óMƒoƒbƒtƒ@‚ªƒI[ƒo[ƒtƒ[‚µ‚Ü‚µ‚½B"
+            msgStr = "å—ä¿¡ãƒãƒƒãƒ•ã‚¡ãŒã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼ã—ã¾ã—ãŸã€‚"
             GoTo BreakComm
         Case ComEventRxParity
-            msgStr = "ƒpƒŠƒeƒB ƒGƒ‰[‚Å‚·B"
+            msgStr = "ãƒ‘ãƒªãƒ†ã‚£ ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚"
             GoTo BreakComm
         Case ComEventTxFull
-            msgStr = "‘—Mƒoƒbƒtƒ@‚ª‚¢‚Á‚Ï‚¢‚Å‚·B"
+            msgStr = "é€ä¿¡ãƒãƒƒãƒ•ã‚¡ãŒã„ã£ã±ã„ã§ã™ã€‚"
             GoTo BreakComm
         Case ComEventDCB
-            msgStr = "ƒfƒoƒCƒX ƒRƒ“ƒgƒ[ƒ‹ ƒuƒƒbƒN (DCB)‚ªæ“¾‚³‚ê‚é—\Šú‚µ‚È‚¢ƒGƒ‰[‚Å‚·B"
+            msgStr = "ãƒ‡ãƒã‚¤ã‚¹ ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ« ãƒ–ãƒ­ãƒƒã‚¯ (DCB)ãŒå–å¾—ã•ã‚Œã‚‹äºˆæœŸã—ãªã„ã‚¨ãƒ©ãƒ¼ã§ã™ã€‚"
             GoTo BreakComm
         
-        ' RThreshold ƒvƒƒpƒeƒB‚Åw’è‚³‚ê‚½”‚Ì•¶š‚ğóM‚µ‚Ü‚µ‚½B
+        ' RThreshold ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã§æŒ‡å®šã•ã‚ŒãŸæ•°ã®æ–‡å­—ã‚’å—ä¿¡ã—ã¾ã—ãŸã€‚
         Case comEvReceive
             comInput = Comm(port).Input
             
-            ' 2‰ñ‚É•ª‚¯‚Ä•Ô‚³‚ê‚éê‡‚ª‚ ‚é‚Ì‚Å‚à‚¤1‰ñæ“¾‚·‚é
+            ' 2å›ã«åˆ†ã‘ã¦è¿”ã•ã‚Œã‚‹å ´åˆãŒã‚ã‚‹ã®ã§ã‚‚ã†1å›å–å¾—ã™ã‚‹
             comInput = comInput & Comm(port).Input
             
-            ' ‚±‚Ìƒ|[ƒg‚Ì‘ª’è‚ªI—¹‚µ‚Ä‚¢‚éê‡‚ÍóM‚µ‚È‚¢
-            If Me("‘ª’èFLG_" & alp) = False Then
+            ' ã“ã®ãƒãƒ¼ãƒˆã®æ¸¬å®šãŒçµ‚äº†ã—ã¦ã„ã‚‹å ´åˆã¯å—ä¿¡ã—ãªã„
+            If Me("æ¸¬å®šFLG_" & alp) = False Then
                 GoTo Exit_OnComm
             End If
         
             If Left(comInput, 1) = "9" Then
                 Select Case Mid(comInput, 3, 1)
                     Case 1
-                        Call MsgBox("ƒf[ƒ^‚ª“ü—Í‚Å‚«‚Ü‚¹‚ñB" & vbCrLf & "Œv‘ª‹@Ší‚Ì“dŒ¹‚ğON‚É‚µ‚Ä‰º‚³‚¢B", vbCritical + vbOKOnly, Me.Caption)
+                        Call MsgBox("ãƒ‡ãƒ¼ã‚¿ãŒå…¥åŠ›ã§ãã¾ã›ã‚“ã€‚" & vbCrLf & "è¨ˆæ¸¬æ©Ÿå™¨ã®é›»æºã‚’ONã«ã—ã¦ä¸‹ã•ã„ã€‚", vbCritical + vbOKOnly, Me.Caption)
                     Case 2
-                        Call MsgBox("æ‚è‚ñ‚¾ƒf[ƒ^‚ª‹K’èƒtƒH[ƒ}ƒbƒgŠO", vbCritical + vbOKOnly, Me.Caption)
+                        Call MsgBox("å–ã‚Šè¾¼ã‚“ã ãƒ‡ãƒ¼ã‚¿ãŒè¦å®šãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆå¤–", vbCritical + vbOKOnly, Me.Caption)
                 End Select
                 comInput = ""
             End If
     
             comInput = Right(comInput, 9)
             If IsNumeric(comInput) Then
-                X = ((Nz(Me("‰ñ”" & alp), 0) - 1) Mod koumokuNum) + 1
-                Y = Int((Nz(Me("‰ñ”" & alp), 0) - 1) / koumokuNum) + 1
+                X = ((Nz(Me("å›æ•°" & alp), 0) - 1) Mod koumokuNum) + 1
+                Y = Int((Nz(Me("å›æ•°" & alp), 0) - 1) / koumokuNum) + 1
                 
-                Me("‘ª’è’l" & Y & alp & X) = CDbl(comInput)
+                Me("æ¸¬å®šå€¤" & Y & alp & X) = CDbl(comInput)
                 
                 If CHK_DATA(port, CDbl(comInput)) Then
                     Call NextRead(port)
@@ -368,12 +368,12 @@ Err_OnComm:
     Resume Exit_OnComm
 
 BreakComm:
-    MsgBox msgStr & vbNewLine & "COMF" & port, vbCritical, "OnComm"
+    MsgBox msgStr & vbNewLine & "COMï¼š" & port, vbCritical, "OnComm"
     DoCmd.Close acForm, Me.name
     GoTo Exit_OnComm
 End Function
 
-' port -> 1:A / 2:B / 3:C / 4:D@ˆø”‚È‚µ‚È‚ç‘S‚Ä
+' port -> 1:A / 2:B / 3:C / 4:Dã€€å¼•æ•°ãªã—ãªã‚‰å…¨ã¦
 Private Function CloseComm(Optional port As Long = 0)
 On Error GoTo Err_CloseComm
     
@@ -424,42 +424,42 @@ On Error GoTo Err_setRST
     cnn.Open
     
     Crit = ""
-    Crit = Crit & "       SD06001 = " & Nz(Me.HêCD, 0) & vbNewLine              ' HêƒR[ƒh
-    Crit = Crit & "   AND SD06002 = " & Format(Me.“ú•t, "yyyymmdd") & vbNewLine   ' ˆ—“ú
-    Crit = Crit & "   AND SD06003 = 1 " & vbNewLine                               ' ©“®è“®‹æ•ª
-    Crit = Crit & "   AND SD06004 = " & SQL_MOJICHK(alp) & vbNewLine              ' ‰æ–ÊˆÊ’u
-'    Crit = Crit & "   AND SD06025 = 0 " & vbNewLine                               ' Œv‘ªÏ‚İ‹æ•ª
-    ' ’Êí
-    If Nz(Me.ƒ‚[ƒh, 0) = 0 Then
-        Crit = Crit & "   AND SD06027 = 0 " & vbNewLine                           ' ’Êí’Ç‰Á‹æ•ª
+    Crit = Crit & "       SD06001 = " & Nz(Me.å·¥å ´CD, 0) & vbNewLine              ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+    Crit = Crit & "   AND SD06002 = " & Format(Me.æ—¥ä»˜, "yyyymmdd") & vbNewLine   ' å‡¦ç†æ—¥
+    Crit = Crit & "   AND SD06003 = 1 " & vbNewLine                               ' è‡ªå‹•æ‰‹å‹•åŒºåˆ†
+    Crit = Crit & "   AND SD06004 = " & SQL_MOJICHK(alp) & vbNewLine              ' ç”»é¢ä½ç½®
+'    Crit = Crit & "   AND SD06025 = 0 " & vbNewLine                               ' è¨ˆæ¸¬æ¸ˆã¿åŒºåˆ†
+    ' é€šå¸¸
+    If Nz(Me.ãƒ¢ãƒ¼ãƒ‰, 0) = 0 Then
+        Crit = Crit & "   AND SD06027 = 0 " & vbNewLine                           ' é€šå¸¸è¿½åŠ åŒºåˆ†
         
-    ' ’Ç‰Á
-    ElseIf Nz(Me.ƒ‚[ƒh, 0) = 1 Then
-        Crit = Crit & "   AND SD06027 = 1 " & vbNewLine                           ' ’Êí’Ç‰Á‹æ•ª
+    ' è¿½åŠ 
+    ElseIf Nz(Me.ãƒ¢ãƒ¼ãƒ‰, 0) = 1 Then
+        Crit = Crit & "   AND SD06027 = 1 " & vbNewLine                           ' é€šå¸¸è¿½åŠ åŒºåˆ†
     End If
     
-    ' ƒXƒLƒbƒv
-    If Nz(Me.ƒ‚[ƒh, 0) = 3 Then
-        Crit = Crit & "   AND SD06029 = 1 " & vbNewLine                           ' ƒXƒLƒbƒv‹æ•ª
-        Crit = Crit & "   AND SD06030 = 1 " & vbNewLine                           ' ƒXƒLƒbƒv‘ª’è‹æ•ª
+    ' ã‚¹ã‚­ãƒƒãƒ—
+    If Nz(Me.ãƒ¢ãƒ¼ãƒ‰, 0) = 3 Then
+        Crit = Crit & "   AND SD06029 = 1 " & vbNewLine                           ' ã‚¹ã‚­ãƒƒãƒ—åŒºåˆ†
+        Crit = Crit & "   AND SD06030 = 1 " & vbNewLine                           ' ã‚¹ã‚­ãƒƒãƒ—æ¸¬å®šåŒºåˆ†
     Else
-        Crit = Crit & "   AND SD06029 = 0 " & vbNewLine                           ' ƒXƒLƒbƒv‹æ•ª
+        Crit = Crit & "   AND SD06029 = 0 " & vbNewLine                           ' ã‚¹ã‚­ãƒƒãƒ—åŒºåˆ†
     End If
     
-    ' Œv‘ª‰ñ”‚Ì‡Œv‚ğŒvZ‚·‚é(DATEWRITE‚Ì‰ñ”)
+    ' è¨ˆæ¸¬å›æ•°ã®åˆè¨ˆã‚’è¨ˆç®—ã™ã‚‹(DATEWRITEã®å›æ•°)
     Sql = ""
     Sql = Sql & " SELECT SD06005, SD06006, SD06007, SD06008, SD06009 FROM KSD06KEKA " & vbNewLine
     Sql = Sql & " WHERE " & Crit & vbNewLine
-    Sql = Sql & "   AND SD06025 = 0 " & vbNewLine                               ' Œv‘ªÏ‚İ‹æ•ª
+    Sql = Sql & "   AND SD06025 = 0 " & vbNewLine                               ' è¨ˆæ¸¬æ¸ˆã¿åŒºåˆ†
     Sql = Sql & " GROUP BY SD06005, SD06006, SD06007, SD06008, SD06009 " & vbNewLine
     
     rst.Open Sql, cnn, adOpenKeyset, adLockReadOnly
     
-    ' UPDATE 2024/12/18 ‘ª’èÏ‚İ‰ñ”‚ÌƒJƒEƒ“ƒg
+    ' UPDATE 2024/12/18 æ¸¬å®šæ¸ˆã¿å›æ•°ã®ã‚«ã‚¦ãƒ³ãƒˆ
     Sql = ""
     Sql = Sql & " SELECT SD06005, SD06006, SD06007, SD06008, SD06009 FROM KSD06KEKA " & vbNewLine
     Sql = Sql & " WHERE " & Crit & vbNewLine
-    Sql = Sql & "   AND SD06025 = 1 " & vbNewLine                               ' Œv‘ªÏ‚İ‹æ•ª
+    Sql = Sql & "   AND SD06025 = 1 " & vbNewLine                               ' è¨ˆæ¸¬æ¸ˆã¿åŒºåˆ†
     Sql = Sql & " GROUP BY SD06005, SD06006, SD06007, SD06008, SD06009 " & vbNewLine
     
     rst2.Open Sql, cnn, adOpenKeyset, adLockReadOnly
@@ -473,8 +473,8 @@ On Error GoTo Err_setRST
             rst2.MoveLast
             KeisokuCnt(port, 2) = rst2.RecordCount
         End If
-        Me("–¢‘ª’è" & alp) = KeisokuCnt(port, 1)
-        Me("‘ª’èÏ" & alp) = KeisokuCnt(port, 2)
+        Me("æœªæ¸¬å®š" & alp) = KeisokuCnt(port, 1)
+        Me("æ¸¬å®šæ¸ˆ" & alp) = KeisokuCnt(port, 2)
     End If
     
     rst.Close
@@ -482,21 +482,21 @@ On Error GoTo Err_setRST
     
     Set rst_common(port) = New ADODB.Recordset
     
-    ' ‰æ–Ê‚ğŠJ‚¢‚Ä‚¢‚éŠÔ‚Í‚±‚ÌƒŒƒR[ƒhƒZƒbƒg‚ğg‚¢‘±‚¯‚é
+    ' ç”»é¢ã‚’é–‹ã„ã¦ã„ã‚‹é–“ã¯ã“ã®ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚»ãƒƒãƒˆã‚’ä½¿ã„ç¶šã‘ã‚‹
     Sql = ""
     Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
     Sql = Sql & " WHERE " & Crit & vbNewLine
-    Sql = Sql & "   AND SD06025 = 0 " & vbNewLine                               ' Œv‘ªÏ‚İ‹æ•ª
-    Sql = Sql & " ORDER BY SD06001, SD06002, SD06003, SD06004, SD06005, "       ' HêƒR[ƒh, ˆ—“ú, ©“®è“®‹æ•ª, ‰æ–ÊˆÊ’u, İ’è‡
-    Sql = Sql & "          SD06006, SD06007, SD06008, SD06010 "                 ' ƒ‰ƒCƒ“‡, M/C‡, ƒ‰ƒCƒ“‡‚, €–Ú‡
+    Sql = Sql & "   AND SD06025 = 0 " & vbNewLine                               ' è¨ˆæ¸¬æ¸ˆã¿åŒºåˆ†
+    Sql = Sql & " ORDER BY SD06001, SD06002, SD06003, SD06004, SD06005, "       ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥, è‡ªå‹•æ‰‹å‹•åŒºåˆ†, ç”»é¢ä½ç½®, è¨­å®šé †
+    Sql = Sql & "          SD06006, SD06007, SD06008, SD06010 "                 ' ãƒ©ã‚¤ãƒ³é †, M/Cé †, ãƒ©ã‚¤ãƒ³â„–, é …ç›®é †
     
     rst_common(port).Open Sql, cnn_common, adOpenKeyset, adLockReadOnly
     
     If rst_common(port).EOF Then
-        Me("‘ª’èFLG_" & alp) = False
+        Me("æ¸¬å®šFLG_" & alp) = False
     Else
         setRST = True
-        Me("‘ª’èFLG_" & alp) = True
+        Me("æ¸¬å®šFLG_" & alp) = True
     End If
     
 Exit_setRST:
@@ -508,12 +508,12 @@ Exit_setRST:
 Err_setRST:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "setRST"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "setRST", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "setRST", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_setRST
 End Function
 
 ' port      -> 1:A / 2:B / 3:C / 4:D
-' FirstREAD -> ‰æ–Ê‚ğŠJ‚¢‚ÄÅ‰‚Ì“Ç‚İ‚İ‚©
+' FirstREAD -> ç”»é¢ã‚’é–‹ã„ã¦æœ€åˆã®èª­ã¿è¾¼ã¿ã‹
 Public Function DATAREAD(port As Long, Optional FirstREAD As Boolean = False) As Boolean
 On Error GoTo Err_DATAREAD
     
@@ -537,7 +537,7 @@ On Error GoTo Err_DATAREAD
     cnn.CommandTimeout = Timeout
     cnn.Open
     
-    ' ¡‰ñ¨‘O‰ñ
+    ' ä»Šå›â†’å‰å›
     With SD06KEY(port, 1)
         .S001 = SD06KEY(port, 2).S001
         .S002 = SD06KEY(port, 2).S002
@@ -554,7 +554,7 @@ On Error GoTo Err_DATAREAD
         .S050 = SD06KEY(port, 2).S050
     End With
     
-    ' Ÿ‰ñ¨¡‰ñ
+    ' æ¬¡å›â†’ä»Šå›
     With SD06KEY(port, 2)
         .S001 = SD06KEY(port, 3).S001
         .S002 = SD06KEY(port, 3).S002
@@ -575,32 +575,32 @@ On Error GoTo Err_DATAREAD
     
     If rst_common(port).EOF Then
         SD06KEY(port, 2).S040 = "END"
-        Me("‘ª’èFLG_" & alp) = False
+        Me("æ¸¬å®šFLG_" & alp) = False
     End If
     
-    ' ‰Šú‰»
+    ' åˆæœŸåŒ–
     For iPart = 1 To koumokuNum
         Call CLR_SD06(SD06DAT(port, iPart))
         
-        ' ‘ª’èI—¹‚Í‰Šú‰»‚µ‚È‚¢
-        If Me("‘ª’èFLG_" & alp) = True Then
-            ' ‘ª’èŠ®—¹ƒtƒ‰ƒO‰Šú‰»
+        ' æ¸¬å®šçµ‚äº†æ™‚ã¯åˆæœŸåŒ–ã—ãªã„
+        If Me("æ¸¬å®šFLG_" & alp) = True Then
+            ' æ¸¬å®šå®Œäº†ãƒ•ãƒ©ã‚°åˆæœŸåŒ–
             KeisokuFLG(port, iPart) = False
         End If
         
-        Me("€–Ú–¼" & alp & iPart) = Null
-        Me("‹KŠi" & alp & iPart) = Null
-        Me("Œö·ƒvƒ‰ƒX" & alp & iPart) = Null
-        Me("Œö·ƒ}ƒCƒiƒX" & alp & iPart) = Null
+        Me("é …ç›®å" & alp & iPart) = Null
+        Me("è¦æ ¼" & alp & iPart) = Null
+        Me("å…¬å·®ãƒ—ãƒ©ã‚¹" & alp & iPart) = Null
+        Me("å…¬å·®ãƒã‚¤ãƒŠã‚¹" & alp & iPart) = Null
         For i = 1 To 5
-            Me("‘ª’è’l" & i & alp & iPart) = Null
-            Me("‘ª’è’l" & i & alp & iPart).Enabled = False
-            Me("‘ª’è’l" & i & alp & iPart).Locked = False
+            Me("æ¸¬å®šå€¤" & i & alp & iPart) = Null
+            Me("æ¸¬å®šå€¤" & i & alp & iPart).Enabled = False
+            Me("æ¸¬å®šå€¤" & i & alp & iPart).Locked = False
         Next
     Next
     
-    If Me("‘ª’èFLG_" & alp) = True Then
-        ' ‰‰ñƒf[ƒ^‚ÍŒ»İ‚ÉŠi”[
+    If Me("æ¸¬å®šFLG_" & alp) = True Then
+        ' åˆå›ãƒ‡ãƒ¼ã‚¿ã¯ç¾åœ¨ã«æ ¼ç´
         If FirstREAD Then
             With SD06KEY(port, 2)
                 .S001 = Nz(rst_common(port)!SD06001, 0)
@@ -622,12 +622,12 @@ On Error GoTo Err_DATAREAD
         Do Until rst_common(port).EOF
             rst_common(port).MoveNext
             
-            ' Ÿ‚Ìƒf[ƒ^‚ª–³‚¢ê‡‚ÍEND‚Æ‚·‚é
+            ' æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã„å ´åˆã¯ENDã¨ã™ã‚‹
             If rst_common(port).EOF Then
                 SD06KEY(port, 3).S040 = "END"
                 SD06KEY(port, 3).S050 = ""
             
-            ' ƒf[ƒ^‚ª‚ ‚éê‡‚ÍŸ‰ñƒf[ƒ^‚ÉŠi”[‚·‚é
+            ' ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚‹å ´åˆã¯æ¬¡å›ãƒ‡ãƒ¼ã‚¿ã«æ ¼ç´ã™ã‚‹
             Else
                 With SD06KEY(port, 3)
                     .S001 = Nz(rst_common(port)!SD06001, 0)
@@ -655,47 +655,47 @@ On Error GoTo Err_DATAREAD
             End If
         Loop
         
-        Me("‰ñ”" & alp) = 1
+        Me("å›æ•°" & alp) = 1
         
-        ' €–Ú•Ê‚ÉŒÄ‚Ño‚µ
+        ' é …ç›®åˆ¥ã«å‘¼ã³å‡ºã—
         For iPart = 1 To koumokuNum
             Sql = ""
             Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-            Sql = Sql & " WHERE SD06001 = " & SD06KEY(port, 2).S001 & vbNewLine                 ' HêƒR[ƒh
-            Sql = Sql & "   AND SD06002 = " & SD06KEY(port, 2).S002 & vbNewLine                 ' ˆ—“ú
-            Sql = Sql & "   AND SD06003 = " & SD06KEY(port, 2).S003 & vbNewLine                 ' ©“®è“®‹æ•ª
-            Sql = Sql & "   AND SD06004 = " & SQL_MOJICHK(SD06KEY(port, 2).S004) & vbNewLine    ' ‰æ–ÊˆÊ’u
-            Sql = Sql & "   AND SD06005 = " & SD06KEY(port, 2).L005 & vbNewLine                 ' İ’è‡
-            Sql = Sql & "   AND SD06006 = " & SD06KEY(port, 2).L006 & vbNewLine                 ' ƒ‰ƒCƒ“‡
-            Sql = Sql & "   AND SD06007 = " & SD06KEY(port, 2).L007 & vbNewLine                 ' ‚l^‚b‡
-            Sql = Sql & "   AND SD06008 = " & SD06KEY(port, 2).L008 & vbNewLine                 ' ƒ‰ƒCƒ“‡‚
-            Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(SD06KEY(port, 2).S009) & vbNewLine    ' ‚l^‚bƒR[ƒh
-            Sql = Sql & "   AND SD06010 = " & iPart & vbNewLine                                 ' €–Ú‡
-            Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(SD06KEY(port, 2).S012) & vbNewLine    ' »•iƒR[ƒh
-            Sql = Sql & " ORDER BY SD06001, SD06002, SD06003, SD06004, SD06005, "               ' HêƒR[ƒh, ˆ—“ú, ©“®è“®‹æ•ª, ‰æ–ÊˆÊ’u, İ’è‡
-            Sql = Sql & "          SD06006, SD06007, SD06008, SD06010 "                         ' ƒ‰ƒCƒ“‡, M/C‡, ƒ‰ƒCƒ“‡‚, €–Ú‡
+            Sql = Sql & " WHERE SD06001 = " & SD06KEY(port, 2).S001 & vbNewLine                 ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+            Sql = Sql & "   AND SD06002 = " & SD06KEY(port, 2).S002 & vbNewLine                 ' å‡¦ç†æ—¥
+            Sql = Sql & "   AND SD06003 = " & SD06KEY(port, 2).S003 & vbNewLine                 ' è‡ªå‹•æ‰‹å‹•åŒºåˆ†
+            Sql = Sql & "   AND SD06004 = " & SQL_MOJICHK(SD06KEY(port, 2).S004) & vbNewLine    ' ç”»é¢ä½ç½®
+            Sql = Sql & "   AND SD06005 = " & SD06KEY(port, 2).L005 & vbNewLine                 ' è¨­å®šé †
+            Sql = Sql & "   AND SD06006 = " & SD06KEY(port, 2).L006 & vbNewLine                 ' ãƒ©ã‚¤ãƒ³é †
+            Sql = Sql & "   AND SD06007 = " & SD06KEY(port, 2).L007 & vbNewLine                 ' ï¼­ï¼ï¼£é †
+            Sql = Sql & "   AND SD06008 = " & SD06KEY(port, 2).L008 & vbNewLine                 ' ãƒ©ã‚¤ãƒ³â„–
+            Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(SD06KEY(port, 2).S009) & vbNewLine    ' ï¼­ï¼ï¼£ã‚³ãƒ¼ãƒ‰
+            Sql = Sql & "   AND SD06010 = " & iPart & vbNewLine                                 ' é …ç›®é †
+            Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(SD06KEY(port, 2).S012) & vbNewLine    ' è£½å“ã‚³ãƒ¼ãƒ‰
+            Sql = Sql & " ORDER BY SD06001, SD06002, SD06003, SD06004, SD06005, "               ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥, è‡ªå‹•æ‰‹å‹•åŒºåˆ†, ç”»é¢ä½ç½®, è¨­å®šé †
+            Sql = Sql & "          SD06006, SD06007, SD06008, SD06010 "                         ' ãƒ©ã‚¤ãƒ³é †, M/Cé †, ãƒ©ã‚¤ãƒ³â„–, é …ç›®é †
             
             rst.Open Sql, cnn, adOpenKeyset, adLockReadOnly
             
             If rst.EOF = False Then
                 Call SET_SD06(SD06DAT(port, iPart), rst)
                 
-                ' ‰æ–Ê•\¦
-                Me("€–Ú–¼" & alp & iPart) = SD06DAT(port, iPart).S015
-                Me("‹KŠi" & alp & iPart) = SD06DAT(port, iPart).D016
-                Me("Œö·ƒvƒ‰ƒX" & alp & iPart) = SD06DAT(port, iPart).D017
-                Me("Œö·ƒ}ƒCƒiƒX" & alp & iPart) = SD06DAT(port, iPart).D018
+                ' ç”»é¢è¡¨ç¤º
+                Me("é …ç›®å" & alp & iPart) = SD06DAT(port, iPart).S015
+                Me("è¦æ ¼" & alp & iPart) = SD06DAT(port, iPart).D016
+                Me("å…¬å·®ãƒ—ãƒ©ã‚¹" & alp & iPart) = SD06DAT(port, iPart).D017
+                Me("å…¬å·®ãƒã‚¤ãƒŠã‚¹" & alp & iPart) = SD06DAT(port, iPart).D018
                 
                 For i = 1 To Nz(SD06DAT(port, iPart).L019, 1)
-                    Me("‘ª’è’l" & i & alp & iPart).Enabled = True
+                    Me("æ¸¬å®šå€¤" & i & alp & iPart).Enabled = True
                 Next
             End If
             
-            ' €–Ú‚ª“ü‚Á‚Ä‚¢‚È‚©‚Á‚½‚ç‚»‚Ì€–Ú‚Ì‘ª’è‚ÍŠ®—¹‚Æ‚·‚é
+            ' é …ç›®ãŒå…¥ã£ã¦ã„ãªã‹ã£ãŸã‚‰ãã®é …ç›®ã®æ¸¬å®šã¯å®Œäº†ã¨ã™ã‚‹
             If Nz(SD06DAT(port, iPart).S001, "") = "" Then
                 KeisokuFLG(port, iPart) = True
-                If Nz(Me("‰ñ”" & alp), 0) = iPart Then
-                    Me("‰ñ”" & alp) = Me("‰ñ”" & alp) + 1
+                If Nz(Me("å›æ•°" & alp), 0) = iPart Then
+                    Me("å›æ•°" & alp) = Me("å›æ•°" & alp) + 1
                 End If
             End If
             
@@ -703,10 +703,10 @@ On Error GoTo Err_DATAREAD
         Next
     End If
     
-    Me("‘O‰ñ" & alp) = SD06KEY(port, 1).S040
-    Me("¡‰ñ" & alp) = SD06KEY(port, 2).S040
-    Me("Ÿ‰ñ" & alp) = SD06KEY(port, 3).S040
-    Me("»•i–¼" & alp) = SD06KEY(port, 2).S050
+    Me("å‰å›" & alp) = SD06KEY(port, 1).S040
+    Me("ä»Šå›" & alp) = SD06KEY(port, 2).S040
+    Me("æ¬¡å›" & alp) = SD06KEY(port, 3).S040
+    Me("è£½å“å" & alp) = SD06KEY(port, 2).S050
     
     Call FOCUS(port)
     
@@ -719,13 +719,13 @@ Exit_DATAREAD:
 
 Err_DATAREAD:
     MsgBox Err.Description, , "DATAREAD"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "DATAREAD", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh & ", SqlF" & Sql)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "DATAREAD", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰ & ", Sqlï¼š" & Sql)
     Resume Exit_DATAREAD
 End Function
 
 ' port      -> 1:A / 2:B / 3:C / 4:D
-' EditFLG   -> ‘O‰ñŒ‹‰Ê‚ÌC³
-' SkipFLG   -> ƒXƒLƒbƒv‚·‚éƒf[ƒ^‚©
+' EditFLG   -> å‰å›çµæœã®ä¿®æ­£
+' SkipFLG   -> ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‹
 Public Function DATAWRITE(port As Long, Optional EditFLG As Boolean = False, Optional SkipFLG As Boolean) As Boolean
 On Error GoTo Err_DATAWRITE
     
@@ -744,12 +744,12 @@ On Error GoTo Err_DATAWRITE
     alp = portInfo1(port)
     koumokuNum = portInfo2(port)
     
-    ' ‘O‰ñ
+    ' å‰å›
     If EditFLG = True Then
         KBN = 1
         fieldNmAdd = "Z"
     
-    ' ¡‰ñ
+    ' ä»Šå›
     Else
         KBN = 2
         fieldNmAdd = ""
@@ -764,34 +764,34 @@ On Error GoTo Err_DATAWRITE
     
     cnn.BeginTrans
     
-    ' €–Ú•Ê‚É“o˜^
+    ' é …ç›®åˆ¥ã«ç™»éŒ²
     For iPart = 1 To koumokuNum
-        If Nz(Me(fieldNmAdd & "€–Ú–¼" & alp & iPart), "") <> "" Then
+        If Nz(Me(fieldNmAdd & "é …ç›®å" & alp & iPart), "") <> "" Then
             Sql = ""
             Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-            Sql = Sql & " WHERE SD06001 = " & SD06KEY(port, KBN).S001 & vbNewLine               ' HêƒR[ƒh
-            Sql = Sql & "   AND SD06002 = " & SD06KEY(port, KBN).S002 & vbNewLine               ' ˆ—“ú
-            Sql = Sql & "   AND SD06003 = " & SD06KEY(port, KBN).S003 & vbNewLine               ' ©“®è“®‹æ•ª
-            Sql = Sql & "   AND SD06004 = " & SQL_MOJICHK(SD06KEY(port, KBN).S004) & vbNewLine  ' ‰æ–ÊˆÊ’u
-            Sql = Sql & "   AND SD06005 = " & SD06KEY(port, KBN).L005 & vbNewLine               ' İ’è‡
-            Sql = Sql & "   AND SD06006 = " & SD06KEY(port, KBN).L006 & vbNewLine               ' ƒ‰ƒCƒ“‡
-            Sql = Sql & "   AND SD06007 = " & SD06KEY(port, KBN).L007 & vbNewLine               ' ‚l^‚b‡
-            Sql = Sql & "   AND SD06008 = " & SD06KEY(port, KBN).L008 & vbNewLine               ' ƒ‰ƒCƒ“‡‚
-            Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(SD06KEY(port, KBN).S009) & vbNewLine  ' ‚l^‚bƒR[ƒh
-            Sql = Sql & "   AND SD06010 = " & iPart & vbNewLine                                 ' €–Ú‡
-            Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(SD06KEY(port, KBN).S012) & vbNewLine  ' »•iƒR[ƒh
-            Sql = Sql & " ORDER BY SD06001, SD06002, SD06003, SD06004, SD06005, "               ' HêƒR[ƒh, ˆ—“ú, ©“®è“®‹æ•ª, ‰æ–ÊˆÊ’u, İ’è‡
-            Sql = Sql & "          SD06006, SD06007, SD06008, SD06010 "                         ' ƒ‰ƒCƒ“‡, M/C‡, ƒ‰ƒCƒ“‡‚, €–Ú‡
+            Sql = Sql & " WHERE SD06001 = " & SD06KEY(port, KBN).S001 & vbNewLine               ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+            Sql = Sql & "   AND SD06002 = " & SD06KEY(port, KBN).S002 & vbNewLine               ' å‡¦ç†æ—¥
+            Sql = Sql & "   AND SD06003 = " & SD06KEY(port, KBN).S003 & vbNewLine               ' è‡ªå‹•æ‰‹å‹•åŒºåˆ†
+            Sql = Sql & "   AND SD06004 = " & SQL_MOJICHK(SD06KEY(port, KBN).S004) & vbNewLine  ' ç”»é¢ä½ç½®
+            Sql = Sql & "   AND SD06005 = " & SD06KEY(port, KBN).L005 & vbNewLine               ' è¨­å®šé †
+            Sql = Sql & "   AND SD06006 = " & SD06KEY(port, KBN).L006 & vbNewLine               ' ãƒ©ã‚¤ãƒ³é †
+            Sql = Sql & "   AND SD06007 = " & SD06KEY(port, KBN).L007 & vbNewLine               ' ï¼­ï¼ï¼£é †
+            Sql = Sql & "   AND SD06008 = " & SD06KEY(port, KBN).L008 & vbNewLine               ' ãƒ©ã‚¤ãƒ³â„–
+            Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(SD06KEY(port, KBN).S009) & vbNewLine  ' ï¼­ï¼ï¼£ã‚³ãƒ¼ãƒ‰
+            Sql = Sql & "   AND SD06010 = " & iPart & vbNewLine                                 ' é …ç›®é †
+            Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(SD06KEY(port, KBN).S012) & vbNewLine  ' è£½å“ã‚³ãƒ¼ãƒ‰
+            Sql = Sql & " ORDER BY SD06001, SD06002, SD06003, SD06004, SD06005, "               ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥, è‡ªå‹•æ‰‹å‹•åŒºåˆ†, ç”»é¢ä½ç½®, è¨­å®šé †
+            Sql = Sql & "          SD06006, SD06007, SD06008, SD06010 "                         ' ãƒ©ã‚¤ãƒ³é †, M/Cé †, ãƒ©ã‚¤ãƒ³â„–, é …ç›®é †
                 
             rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
             
             If rst.EOF = False Then
                     If SkipFLG = False Then
-                        rst!SD06020 = Nz(Me(fieldNmAdd & "‘ª’è’l1" & alp & iPart), 0)
-                        rst!SD06021 = Nz(Me(fieldNmAdd & "‘ª’è’l2" & alp & iPart), 0)
-                        rst!SD06022 = Nz(Me(fieldNmAdd & "‘ª’è’l3" & alp & iPart), 0)
-                        rst!SD06023 = Nz(Me(fieldNmAdd & "‘ª’è’l4" & alp & iPart), 0)
-                        rst!SD06024 = Nz(Me(fieldNmAdd & "‘ª’è’l5" & alp & iPart), 0)
+                        rst!SD06020 = Nz(Me(fieldNmAdd & "æ¸¬å®šå€¤1" & alp & iPart), 0)
+                        rst!SD06021 = Nz(Me(fieldNmAdd & "æ¸¬å®šå€¤2" & alp & iPart), 0)
+                        rst!SD06022 = Nz(Me(fieldNmAdd & "æ¸¬å®šå€¤3" & alp & iPart), 0)
+                        rst!SD06023 = Nz(Me(fieldNmAdd & "æ¸¬å®šå€¤4" & alp & iPart), 0)
+                        rst!SD06024 = Nz(Me(fieldNmAdd & "æ¸¬å®šå€¤5" & alp & iPart), 0)
                         
                         rst!SD06025 = 1
                         rst!SD06029 = 0
@@ -800,7 +800,7 @@ On Error GoTo Err_DATAWRITE
                         rst!SD06029 = 1
                     End If
                     
-                    rst!•ÏX“ú = Now()
+                    rst!å¤‰æ›´æ—¥ = Now()
                 
                 rst.Update
             End If
@@ -815,8 +815,8 @@ On Error GoTo Err_DATAWRITE
     If SkipFLG = False Then
         KeisokuCnt(port, 2) = KeisokuCnt(port, 2) + 1
     End If
-    Me("–¢‘ª’è" & alp) = KeisokuCnt(port, 1)
-    Me("‘ª’èÏ" & alp) = KeisokuCnt(port, 2)
+    Me("æœªæ¸¬å®š" & alp) = KeisokuCnt(port, 1)
+    Me("æ¸¬å®šæ¸ˆ" & alp) = KeisokuCnt(port, 2)
     
     DATAWRITE = True
     
@@ -828,17 +828,17 @@ Exit_DATAWRITE:
 Err_DATAWRITE:
     cnn.RollbackTrans
     MsgBox Err.Description, , "DATAWRITE"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "DATAWRITE", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh & ", SqlF" & Sql)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "DATAWRITE", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰ & ", Sqlï¼š" & Sql)
     Resume Exit_DATAWRITE
 End Function
 
-' ƒtƒH[ƒJƒX‚ğ‰Šú‰»‚µ‚ÄŒ»İ‚Ì‘ª’è€–Ú‚Ì”wŒiF‚ğ•Ï‚¦‚é
+' ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’åˆæœŸåŒ–ã—ã¦ç¾åœ¨ã®æ¸¬å®šé …ç›®ã®èƒŒæ™¯è‰²ã‚’å¤‰ãˆã‚‹
 ' port -> 1:A / 2:B / 3:C / 4:D
 Private Function FOCUS(port As Long)
 On Error Resume Next
 
-    Dim X As Long   ' ‰¡ˆÊ’u(€–Ú)
-    Dim Y As Long   ' cˆÊ’u(‘ª’è’l)
+    Dim X As Long   ' æ¨ªä½ç½®(é …ç›®)
+    Dim Y As Long   ' ç¸¦ä½ç½®(æ¸¬å®šå€¤)
     Dim alp As String
     Dim koumokuNum As Long
     Dim EndFlg As Boolean
@@ -850,38 +850,38 @@ On Error Resume Next
     
     EndFlg = True
     For X = 1 To koumokuNum
-        ' –¢‘ª’è‚Ì€–Ú‚ª‚ ‚ê‚Îƒtƒ‰ƒO‚ğ—§‚Ä‚é
+        ' æœªæ¸¬å®šã®é …ç›®ãŒã‚ã‚Œã°ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
         If KeisokuFLG(port, X) = False Then
             EndFlg = False
         End If
         
         If Nz(SD06DAT(port, X).L019, 1) <> 0 Then
             For Y = 1 To Nz(SD06DAT(port, X).L019, 1)
-                Me("‘ª’è’l" & Y & alp & X).BackColor = RGB(255, 255, 255)
-                Me("‘ª’è’l" & Y & alp & X).ForeColor = RGB(0, 0, 0)
-                Me("‘ª’è’l" & Y & alp & X).Enabled = False
-                Me("‘ª’è’l" & Y & alp & X).Locked = True
+                Me("æ¸¬å®šå€¤" & Y & alp & X).BackColor = RGB(255, 255, 255)
+                Me("æ¸¬å®šå€¤" & Y & alp & X).ForeColor = RGB(0, 0, 0)
+                Me("æ¸¬å®šå€¤" & Y & alp & X).Enabled = False
+                Me("æ¸¬å®šå€¤" & Y & alp & X).Locked = True
             Next
         Else
             For Y = 1 To 5
-                Me("‘ª’è’l" & Y & alp & X).BackColor = RGB(255, 255, 255)
-                Me("‘ª’è’l" & Y & alp & X).ForeColor = RGB(0, 0, 0)
-                Me("‘ª’è’l" & Y & alp & X).Enabled = False
-                Me("‘ª’è’l" & Y & alp & X).Locked = True
+                Me("æ¸¬å®šå€¤" & Y & alp & X).BackColor = RGB(255, 255, 255)
+                Me("æ¸¬å®šå€¤" & Y & alp & X).ForeColor = RGB(0, 0, 0)
+                Me("æ¸¬å®šå€¤" & Y & alp & X).Enabled = False
+                Me("æ¸¬å®šå€¤" & Y & alp & X).Locked = True
             Next
         End If
     Next
     
-    ' Œv‘ª’†‚Ìê‡‚Ì‚İ
+    ' è¨ˆæ¸¬ä¸­ã®å ´åˆã®ã¿
     If EndFlg = False Then
-        X = ((Nz(Me("‰ñ”" & alp), 0) - 1) Mod koumokuNum) + 1
-        Y = Int((Nz(Me("‰ñ”" & alp), 0) - 1) / koumokuNum) + 1
+        X = ((Nz(Me("å›æ•°" & alp), 0) - 1) Mod koumokuNum) + 1
+        Y = Int((Nz(Me("å›æ•°" & alp), 0) - 1) / koumokuNum) + 1
         
-        Me("‘ª’è’l" & Y & alp & X).BackColor = RGB(0, 255, 255)
+        Me("æ¸¬å®šå€¤" & Y & alp & X).BackColor = RGB(0, 255, 255)
         If allowInput Then
-            Me("‘ª’è’l" & Y & alp & X).Enabled = True
-            Me("‘ª’è’l" & Y & alp & X).Locked = False
-            Me("‘ª’è’l" & Y & alp & X).SetFocus
+            Me("æ¸¬å®šå€¤" & Y & alp & X).Enabled = True
+            Me("æ¸¬å®šå€¤" & Y & alp & X).Locked = False
+            Me("æ¸¬å®šå€¤" & Y & alp & X).SetFocus
             Call GETACTIVE
         End If
     End If
@@ -891,8 +891,8 @@ End Function
 Public Function CHK_DATA(port As Long, impData As Double) As Boolean
 On Error GoTo Err_CHK_DATA
     
-    Dim X As Long   ' ‰¡ˆÊ’u(€–Ú)
-    Dim Y As Long   ' cˆÊ’u(‘ª’è’l)
+    Dim X As Long   ' æ¨ªä½ç½®(é …ç›®)
+    Dim Y As Long   ' ç¸¦ä½ç½®(æ¸¬å®šå€¤)
     Dim alp As String
     Dim koumokuNum As Long
     Dim i As Long
@@ -902,14 +902,14 @@ On Error GoTo Err_CHK_DATA
     alp = portInfo1(port)
     koumokuNum = portInfo2(port)
     
-    X = ((Nz(Me("‰ñ”" & alp), 0) - 1) Mod koumokuNum) + 1
-    Y = Int((Nz(Me("‰ñ”" & alp), 0) - 1) / koumokuNum) + 1
+    X = ((Nz(Me("å›æ•°" & alp), 0) - 1) Mod koumokuNum) + 1
+    Y = Int((Nz(Me("å›æ•°" & alp), 0) - 1) / koumokuNum) + 1
     
-    ' (‹KŠi + Œö·ƒ}ƒCƒiƒX) ` (‹KŠi + Œö·ƒvƒ‰ƒX)‚Ì”ÍˆÍ“à‚©
+    ' (è¦æ ¼ + å…¬å·®ãƒã‚¤ãƒŠã‚¹) ï½ (è¦æ ¼ + å…¬å·®ãƒ—ãƒ©ã‚¹)ã®ç¯„å›²å†…ã‹
     If ((SD06DAT(port, X).D016 + SD06DAT(port, X).D018) <= impData) And (impData <= (SD06DAT(port, X).D016 + SD06DAT(port, X).D017)) Then
         CHK_DATA = True
     Else
-        Me("‘ª’è’l" & Y & alp & X).ForeColor = RGB(255, 0, 0)
+        Me("æ¸¬å®šå€¤" & Y & alp & X).ForeColor = RGB(255, 0, 0)
         
         ' 2024/12/09
         Call Beep
@@ -920,17 +920,17 @@ Exit_CHK_DATA:
 
 Err_CHK_DATA:
     MsgBox Err.Description, , "CHK_DATA"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "CHK_DATA", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "CHK_DATA", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_CHK_DATA
 End Function
 
-' ‘ª’è’l‚ª³í‚Ìê‡‚ÌŸ‚Ìˆ—
+' æ¸¬å®šå€¤ãŒæ­£å¸¸ã®å ´åˆã®æ¬¡ã®å‡¦ç†
 ' port -> 1:A / 2:B / 3:C / 4:D
 Public Function NextRead(port As Long) As Boolean
 On Error GoTo Err_NextRead
     
-    Dim X As Long   ' ‰¡ˆÊ’u(€–Ú)
-    Dim Y As Long   ' cˆÊ’u(‘ª’è’l)
+    Dim X As Long   ' æ¨ªä½ç½®(é …ç›®)
+    Dim Y As Long   ' ç¸¦ä½ç½®(æ¸¬å®šå€¤)
     Dim alp As String
     Dim koumokuNum As Long
     Dim i As Long
@@ -940,16 +940,16 @@ On Error GoTo Err_NextRead
     alp = portInfo1(port)
     koumokuNum = portInfo2(port)
     
-    X = ((Nz(Me("‰ñ”" & alp), 0) - 1) Mod koumokuNum) + 1
-    Y = Int((Nz(Me("‰ñ”" & alp), 0) - 1) / koumokuNum) + 1
+    X = ((Nz(Me("å›æ•°" & alp), 0) - 1) Mod koumokuNum) + 1
+    Y = Int((Nz(Me("å›æ•°" & alp), 0) - 1) / koumokuNum) + 1
     
-    ' Œv‘ª‰ñ”•ª‚Ì‘ª’è‚ªŠ®—¹‚µ‚½‚ç‚±‚Ì€–Ú‚ÍŠ®—¹‚Æ‚·‚é
+    ' è¨ˆæ¸¬å›æ•°åˆ†ã®æ¸¬å®šãŒå®Œäº†ã—ãŸã‚‰ã“ã®é …ç›®ã¯å®Œäº†ã¨ã™ã‚‹
     If SD06DAT(port, X).L019 <= Y Then
         KeisokuFLG(port, X) = True
         
-        ' ƒ|[ƒg“à‚Ì‘S€–Ú‚Ì‘ª’è‚ªŠ®—¹‚µ‚½‚ç‘‚«‚Ş
+        ' ãƒãƒ¼ãƒˆå†…ã®å…¨é …ç›®ã®æ¸¬å®šãŒå®Œäº†ã—ãŸã‚‰æ›¸ãè¾¼ã‚€
         For i = 1 To koumokuNum
-            ' Š®—¹‚µ‚Ä‚¢‚È‚¢€–Ú‚ª‚ ‚éê‡
+            ' å®Œäº†ã—ã¦ã„ãªã„é …ç›®ãŒã‚ã‚‹å ´åˆ
             If KeisokuFLG(port, i) = False Then
                 Call COUNTUP(port)
                 Call FOCUS(port)
@@ -959,10 +959,10 @@ On Error GoTo Err_NextRead
         
         Call DATAWRITE(port)
         
-        ' ‘O‰ñŒ‹‰Êƒ^ƒu‚É“]‹L
+        ' å‰å›çµæœã‚¿ãƒ–ã«è»¢è¨˜
         Call ZENKAI_SET(port)
         
-        ' Ÿ‚Ìƒf[ƒ^‚Ì“Ç‚İ‚İ
+        ' æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
         Call DATAREAD(port)
     Else
         Call COUNTUP(port)
@@ -974,17 +974,17 @@ Exit_NextRead:
 
 Err_NextRead:
     MsgBox Err.Description, , "NextRead"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "NextRead", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "NextRead", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_NextRead
 End Function
 
-' ‘ª’è‰ñ”‚ğƒJƒEƒ“ƒgƒAƒbƒv‚·‚é(Ÿ‚Ì‘ª’è€–Ú‚Í‰½‰ñ–Ú‚©‚ğŒvZ)
+' æ¸¬å®šå›æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã™ã‚‹(æ¬¡ã®æ¸¬å®šé …ç›®ã¯ä½•å›ç›®ã‹ã‚’è¨ˆç®—)
 ' port -> 1:A / 2:B / 3:C / 4:D
 Private Function COUNTUP(port As Long)
 On Error Resume Next
 
-    Dim X As Long   ' ‰¡ˆÊ’u(€–Ú)
-    Dim Y As Long   ' cˆÊ’u(‘ª’è’l)
+    Dim X As Long   ' æ¨ªä½ç½®(é …ç›®)
+    Dim Y As Long   ' ç¸¦ä½ç½®(æ¸¬å®šå€¤)
     Dim alp As String
     Dim koumokuNum As Long
     
@@ -993,18 +993,18 @@ On Error Resume Next
     
     Me.P1.SetFocus
     
-    Me("‰ñ”" & alp) = Nz(Me("‰ñ”" & alp), 0) + 1
+    Me("å›æ•°" & alp) = Nz(Me("å›æ•°" & alp), 0) + 1
     
-    X = ((Nz(Me("‰ñ”" & alp), 0) - 1) Mod koumokuNum) + 1
-    Y = Int((Nz(Me("‰ñ”" & alp), 0) - 1) / koumokuNum) + 1
+    X = ((Nz(Me("å›æ•°" & alp), 0) - 1) Mod koumokuNum) + 1
+    Y = Int((Nz(Me("å›æ•°" & alp), 0) - 1) / koumokuNum) + 1
     Do Until Y > 5
         Do Until X > koumokuNum
-            ' –¢Š®—¹‚Ì€–Ú‚Ü‚Åi‚ñ‚¾‚ç”²‚¯‚é
+            ' æœªå®Œäº†ã®é …ç›®ã¾ã§é€²ã‚“ã ã‚‰æŠœã‘ã‚‹
             If KeisokuFLG(port, X) = False And Trim(Nz(SD06DAT(port, X).S001, "")) <> "" Then
                 Exit Function
             End If
             
-            Me("‰ñ”" & alp) = Nz(Me("‰ñ”" & alp), 0) + 1
+            Me("å›æ•°" & alp) = Nz(Me("å›æ•°" & alp), 0) + 1
             
             X = X + 1
         Loop
@@ -1014,7 +1014,7 @@ On Error Resume Next
     Loop
 End Function
 
-' ‘ª’è’l‚ÌXV‘Oˆ—(è“ü—Í—p)
+' æ¸¬å®šå€¤ã®æ›´æ–°å‰å‡¦ç†(æ‰‹å…¥åŠ›ç”¨)
 Public Function SOKUTEI_BU() As Boolean
 On Error GoTo Err_SOKUTEI_BU
     
@@ -1047,11 +1047,11 @@ Exit_SOKUTEI_BU:
 
 Err_SOKUTEI_BU:
     MsgBox Err.Description, , "SOKUTEI_BU"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "SOKUTEI_BU", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "SOKUTEI_BU", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_SOKUTEI_BU
 End Function
 
-' ‘ª’è’l‚ÌXVŒãˆ—(è“ü—Í—p)
+' æ¸¬å®šå€¤ã®æ›´æ–°å¾Œå‡¦ç†(æ‰‹å…¥åŠ›ç”¨)
 Public Function SOKUTEI_AU() As Boolean
 On Error GoTo Err_SOKUTEI_AU
     
@@ -1081,11 +1081,11 @@ Exit_SOKUTEI_AU:
 
 Err_SOKUTEI_AU:
     MsgBox Err.Description, , "SOKUTEI_AU"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "SOKUTEI_AU", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "SOKUTEI_AU", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_SOKUTEI_AU
 End Function
 
-' ‘ª’è’l‚ÌXVŒãˆ—(‘O‰ñŒ‹‰Ê—p)
+' æ¸¬å®šå€¤ã®æ›´æ–°å¾Œå‡¦ç†(å‰å›çµæœç”¨)
 Public Function ZSOKUTEI_BU() As Boolean
 On Error GoTo Err_ZSOKUTEI_BU
     
@@ -1108,11 +1108,11 @@ On Error GoTo Err_ZSOKUTEI_BU
         port = 4
     End If
     
-    If Nz(Me("Z€–Ú–¼" & alp & koumokuNum), "") = "" Then
+    If Nz(Me("Zé …ç›®å" & alp & koumokuNum), "") = "" Then
         Exit Function
     End If
     
-    ' (‹KŠi + Œö·ƒ}ƒCƒiƒX) ` (‹KŠi + Œö·ƒvƒ‰ƒX)‚Ì”ÍˆÍ“à‚©
+    ' (è¦æ ¼ + å…¬å·®ãƒã‚¤ãƒŠã‚¹) ï½ (è¦æ ¼ + å…¬å·®ãƒ—ãƒ©ã‚¹)ã®ç¯„å›²å†…ã‹
     If ((ZSD06DAT(port, koumokuNum).D016 + ZSD06DAT(port, koumokuNum).D018) <= Nz(Me(ActCon), 0)) And (Nz(Me(ActCon), 0) <= (ZSD06DAT(port, koumokuNum).D016 + ZSD06DAT(port, koumokuNum).D017)) Then
         Me(ActCon).BackColor = RGB(255, 255, 255)
         Me(ActCon).ForeColor = RGB(0, 0, 0)
@@ -1132,7 +1132,7 @@ Exit_ZSOKUTEI_BU:
 
 Err_ZSOKUTEI_BU:
     MsgBox Err.Description, , "ZSOKUTEI_BU"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "ZSOKUTEI_BU", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "ZSOKUTEI_BU", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_ZSOKUTEI_BU
 End Function
 
@@ -1156,7 +1156,7 @@ Exit_SOKUTEI_ENT:
 
 Err_SOKUTEI_ENT:
     MsgBox Err.Description, , "SOKUTEI_ENT"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "SOKUTEI_ENT", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "SOKUTEI_ENT", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_SOKUTEI_ENT
 End Function
 
@@ -1178,13 +1178,13 @@ Exit_SOKUTEI_EXT:
 
 Err_SOKUTEI_EXT:
     MsgBox Err.Description, , "SOKUTEI_EXT"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "SOKUTEI_EXT", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "SOKUTEI_EXT", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_SOKUTEI_EXT
 End Function
 
-' ‘O‰ñŒ‹‰Êƒ^ƒu‚É“]‹L‚·‚é
+' å‰å›çµæœã‚¿ãƒ–ã«è»¢è¨˜ã™ã‚‹
 ' port      -> 1:A / 2:B / 3:C / 4:D
-' SkipFLG   -> ƒXƒLƒbƒv‚·‚éƒf[ƒ^‚©
+' SkipFLG   -> ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‹
 Private Function ZENKAI_SET(port As Long, Optional SkipFLG As Boolean)
 On Error GoTo Err_ZENKAI_SET
     
@@ -1199,31 +1199,31 @@ On Error GoTo Err_ZENKAI_SET
     Dim tmpR As Double
     Dim tmpSTD As Double
     Dim tmpCpk As Double
-    Dim tmp‹KŠiãŒÀ As Double
-    Dim tmp‹KŠi‰ºŒÀ As Double
+    Dim tmpè¦æ ¼ä¸Šé™ As Double
+    Dim tmpè¦æ ¼ä¸‹é™ As Double
     
     alp = portInfo1(port)
     koumokuNum = portInfo2(port)
     
-    Me("Z¡‰ñ" & alp) = Me("¡‰ñ" & alp)
-    Me("Z»•i–¼" & alp) = Me("»•i–¼" & alp)
+    Me("Zä»Šå›" & alp) = Me("ä»Šå›" & alp)
+    Me("Zè£½å“å" & alp) = Me("è£½å“å" & alp)
     
     For iPart = 1 To koumokuNum
-        ' ‰Šú‰»
+        ' åˆæœŸåŒ–
         Call CLR_SD06(ZSD06DAT(port, iPart))
         
-        Me("Z€–Ú–¼" & alp & iPart) = Null
-        Me("Z‹KŠi" & alp & iPart) = Null
-        Me("ZŒö·ƒvƒ‰ƒX" & alp & iPart) = Null
-        Me("ZŒö·ƒ}ƒCƒiƒX" & alp & iPart) = Null
+        Me("Zé …ç›®å" & alp & iPart) = Null
+        Me("Zè¦æ ¼" & alp & iPart) = Null
+        Me("Zå…¬å·®ãƒ—ãƒ©ã‚¹" & alp & iPart) = Null
+        Me("Zå…¬å·®ãƒã‚¤ãƒŠã‚¹" & alp & iPart) = Null
         For i = 1 To 5
-            Me("Z‘ª’è’l" & i & alp & iPart) = Null
-            Me("Z‘ª’è’l" & i & alp & iPart).Enabled = False
-            Me("Z‘ª’è’l" & i & alp & iPart).Locked = False
+            Me("Zæ¸¬å®šå€¤" & i & alp & iPart) = Null
+            Me("Zæ¸¬å®šå€¤" & i & alp & iPart).Enabled = False
+            Me("Zæ¸¬å®šå€¤" & i & alp & iPart).Locked = False
         Next
         Me("CPK" & alp & iPart) = Null
         
-        ' ƒXƒLƒbƒv‚³‚ê‚½ƒf[ƒ^‚Í“]‹L‚µ‚È‚¢
+        ' ã‚¹ã‚­ãƒƒãƒ—ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã¯è»¢è¨˜ã—ãªã„
         If SkipFLG = False Then
             With ZSD06DAT(port, iPart)
                 .S001 = SD06DAT(port, iPart).S001
@@ -1256,18 +1256,18 @@ On Error GoTo Err_ZENKAI_SET
                 .S028 = SD06DAT(port, iPart).S028
             End With
             
-            If Nz(Me("€–Ú–¼" & alp & iPart), "") <> "" Then
-                Me("Z€–Ú–¼" & alp & iPart) = Me("€–Ú–¼" & alp & iPart)
-                Me("Z‹KŠi" & alp & iPart) = Me("‹KŠi" & alp & iPart)
-                Me("ZŒö·ƒvƒ‰ƒX" & alp & iPart) = Me("Œö·ƒvƒ‰ƒX" & alp & iPart)
-                Me("ZŒö·ƒ}ƒCƒiƒX" & alp & iPart) = Me("Œö·ƒ}ƒCƒiƒX" & alp & iPart)
+            If Nz(Me("é …ç›®å" & alp & iPart), "") <> "" Then
+                Me("Zé …ç›®å" & alp & iPart) = Me("é …ç›®å" & alp & iPart)
+                Me("Zè¦æ ¼" & alp & iPart) = Me("è¦æ ¼" & alp & iPart)
+                Me("Zå…¬å·®ãƒ—ãƒ©ã‚¹" & alp & iPart) = Me("å…¬å·®ãƒ—ãƒ©ã‚¹" & alp & iPart)
+                Me("Zå…¬å·®ãƒã‚¤ãƒŠã‚¹" & alp & iPart) = Me("å…¬å·®ãƒã‚¤ãƒŠã‚¹" & alp & iPart)
                 For i = 1 To Nz(SD06DAT(port, iPart).L019, 1)
-                    Me("Z‘ª’è’l" & i & alp & iPart) = Me("‘ª’è’l" & i & alp & iPart)
+                    Me("Zæ¸¬å®šå€¤" & i & alp & iPart) = Me("æ¸¬å®šå€¤" & i & alp & iPart)
                     If allowEdit Then
-                        Me("Z‘ª’è’l" & i & alp & iPart).Enabled = True
-                        Me("Z‘ª’è’l" & i & alp & iPart).Locked = False
+                        Me("Zæ¸¬å®šå€¤" & i & alp & iPart).Enabled = True
+                        Me("Zæ¸¬å®šå€¤" & i & alp & iPart).Locked = False
                     Else
-                        Me("Z‘ª’è’l" & i & alp & iPart).Locked = True
+                        Me("Zæ¸¬å®šå€¤" & i & alp & iPart).Locked = True
                     End If
                 Next
             End If
@@ -1275,16 +1275,16 @@ On Error GoTo Err_ZENKAI_SET
             Me("MSG_" & alp) = Null
             
             If allowEdit Then
-                Me("C³“o˜^" & alp).Visible = True
+                Me("ä¿®æ­£ç™»éŒ²" & alp).Visible = True
             Else
-                Me("C³“o˜^" & alp).Visible = False
+                Me("ä¿®æ­£ç™»éŒ²" & alp).Visible = False
             End If
             
             Call ZKEISAN(port, iPart)
         Else
-            Me("C³“o˜^" & alp).Visible = False
+            Me("ä¿®æ­£ç™»éŒ²" & alp).Visible = False
             
-            Me("MSG_" & alp) = "ƒXƒLƒbƒv"
+            Me("MSG_" & alp) = "ã‚¹ã‚­ãƒƒãƒ—"
         End If
     Next
     
@@ -1293,12 +1293,12 @@ Exit_ZENKAI_SET:
 
 Err_ZENKAI_SET:
     MsgBox Err.Description, , "ZENKAI_SET"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "ZENKAI_SET", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "ZENKAI_SET", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_ZENKAI_SET
 End Function
 
 ' port  -> 1:A / 2:B / 3:C / 4:D
-' iPart -> 1:€–Ú1 / 2:€–Ú2 / 3:€–Ú3 / 4:€–Ú4
+' iPart -> 1:é …ç›®1 / 2:é …ç›®2 / 3:é …ç›®3 / 4:é …ç›®4
 Private Function ZKEISAN(port As Long, iPart As Long)
 On Error GoTo Err_ZKEISAN
     
@@ -1312,60 +1312,60 @@ On Error GoTo Err_ZKEISAN
     Dim tmpCpk As String
     Dim tmpCpk1 As Double
     Dim tmpCpk2 As Double
-    Dim tmp‹KŠiãŒÀ As Double
-    Dim tmp‹KŠi‰ºŒÀ As Double
+    Dim tmpè¦æ ¼ä¸Šé™ As Double
+    Dim tmpè¦æ ¼ä¸‹é™ As Double
     Dim arr As Variant
     
     alp = portInfo1(port)
     
-    If Nz(Me("Z€–Ú–¼" & alp & iPart), "") <> "" Then
+    If Nz(Me("Zé …ç›®å" & alp & iPart), "") <> "" Then
         ReDim arr(1 To Nz(ZSD06DAT(port, iPart).L019, 1)) As Double
         For i = 1 To Nz(ZSD06DAT(port, iPart).L019, 1)
-            arr(i) = Nz(Me("Z‘ª’è’l" & i & alp & iPart), 0)
+            arr(i) = Nz(Me("Zæ¸¬å®šå€¤" & i & alp & iPart), 0)
         Next
         
-        ' Å‘å’l
+        ' æœ€å¤§å€¤
         tmpMAX = getMaxValue(arr)
-        Me("Å‘å’l" & alp & iPart) = tmpMAX
+        Me("æœ€å¤§å€¤" & alp & iPart) = tmpMAX
         
-        ' Å¬’l
+        ' æœ€å°å€¤
         tmpMIN = getMinValue(arr)
-        Me("Å¬’l" & alp & iPart) = tmpMIN
+        Me("æœ€å°å€¤" & alp & iPart) = tmpMIN
         
-        ' •½‹Ï’l
+        ' å¹³å‡å€¤
         tmpAVE = getAverage(arr)
-        Me("•½‹Ï’l" & alp & iPart) = tmpAVE
+        Me("å¹³å‡å€¤" & alp & iPart) = tmpAVE
         
-        ' ·
+        ' å·®
         tmpR = tmpMAX - tmpMIN
-        Me("·" & alp & iPart) = tmpR
+        Me("å·®" & alp & iPart) = tmpR
         
-        ' Œv‘ª‰ñ”‚ª1‰ñ‚Ìê‡‚ÍŒvZ‚µ‚È‚¢
+        ' è¨ˆæ¸¬å›æ•°ãŒ1å›ã®å ´åˆã¯è¨ˆç®—ã—ãªã„
         If Nz(ZSD06DAT(port, iPart).L019, 1) = 1 Then
-            ' •W€•Î·
+            ' æ¨™æº–åå·®
             tmpSTD = " /  "
             
             ' CPK
             tmpCpk = " /  "
         Else
-            ' •W€•Î·
+            ' æ¨™æº–åå·®
             tmpSTD = getStandardDeviation(arr)
             
             ' CPK
-            ' ‹KŠi’l‚ª0‚Ì‚Í•\¦‚µ‚È‚¢
-            If Nz(Me("Z‹KŠi" & alp & iPart), 0) = 0 Then
+            ' è¦æ ¼å€¤ãŒ0ã®æ™‚ã¯è¡¨ç¤ºã—ãªã„
+            If Nz(Me("Zè¦æ ¼" & alp & iPart), 0) = 0 Then
                 tmpCpk = " /  "
             Else
-                If IsNumeric(Nz(Me("Z‹KŠi" & alp & iPart), 0)) Then
-                    tmp‹KŠiãŒÀ = CDbl(Nz(Me("Z‹KŠi" & alp & iPart), 0)) + CDbl(Nz(Me("ZŒö·ƒvƒ‰ƒX" & alp & iPart), 0))
-                    tmp‹KŠi‰ºŒÀ = CDbl(Nz(Me("Z‹KŠi" & alp & iPart), 0)) + CDbl(Nz(Me("ZŒö·ƒ}ƒCƒiƒX" & alp & iPart), 0))
+                If IsNumeric(Nz(Me("Zè¦æ ¼" & alp & iPart), 0)) Then
+                    tmpè¦æ ¼ä¸Šé™ = CDbl(Nz(Me("Zè¦æ ¼" & alp & iPart), 0)) + CDbl(Nz(Me("Zå…¬å·®ãƒ—ãƒ©ã‚¹" & alp & iPart), 0))
+                    tmpè¦æ ¼ä¸‹é™ = CDbl(Nz(Me("Zè¦æ ¼" & alp & iPart), 0)) + CDbl(Nz(Me("Zå…¬å·®ãƒã‚¤ãƒŠã‚¹" & alp & iPart), 0))
                     
-                    If tmp‹KŠiãŒÀ = tmp‹KŠi‰ºŒÀ Or CDbl(tmpSTD) = 0 Then
+                    If tmpè¦æ ¼ä¸Šé™ = tmpè¦æ ¼ä¸‹é™ Or CDbl(tmpSTD) = 0 Then
                         tmpCpk = " /  "
                     Else
-                        ' iUSL\Xj/3~ƒĞ‚Ü‚½‚ÍiX\LSLj/3~ƒĞ‚Ì‚¢‚¸‚ê‚©‚Ì¬‚³‚¢’l
-                        tmpCpk1 = (tmp‹KŠiãŒÀ - CDbl(tmpAVE)) / (3 * CDbl(tmpSTD))
-                        tmpCpk2 = (CDbl(tmpAVE) - tmp‹KŠi‰ºŒÀ) / (3 * CDbl(tmpSTD))
+                        ' ï¼ˆUSLâ€•Xï¼‰/3Ã—Ïƒã¾ãŸã¯ï¼ˆXâ€•LSLï¼‰/3Ã—Ïƒã®ã„ãšã‚Œã‹ã®å°ã•ã„å€¤
+                        tmpCpk1 = (tmpè¦æ ¼ä¸Šé™ - CDbl(tmpAVE)) / (3 * CDbl(tmpSTD))
+                        tmpCpk2 = (CDbl(tmpAVE) - tmpè¦æ ¼ä¸‹é™) / (3 * CDbl(tmpSTD))
                         
                         If tmpCpk1 <= tmpCpk2 Then
                             tmpCpk = Format(tmpCpk1, "0.000")
@@ -1379,7 +1379,7 @@ On Error GoTo Err_ZKEISAN
             End If
         End If
         
-        Me("•W€•Î·" & alp & iPart) = tmpSTD
+        Me("æ¨™æº–åå·®" & alp & iPart) = tmpSTD
         Me("CPK1" & alp & iPart) = tmpCpk1
         Me("CPK2" & alp & iPart) = tmpCpk2
         Me("CPK" & alp & iPart) = tmpCpk
@@ -1390,7 +1390,7 @@ Exit_ZKEISAN:
 
 Err_ZKEISAN:
     MsgBox Err.Description, , "ZKEISAN"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "ZKEISAN", Err.Number, Err.Description, "alpF" & alp & ", iPartF" & iPart & ", M/CF" & Me("Z¡‰ñ" & alp) & ", »•iCDF" & ZSD06DAT(port, iPart).S012 & ", »•i–¼F" & Trim(Nz(Me("Z»•i–¼" & alp), "")) & ", €–Ú–¼F" & Me("Z€–Ú–¼" & alp & iPart))
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "ZKEISAN", Err.Number, Err.Description, "alpï¼š" & alp & ", iPartï¼š" & iPart & ", M/Cï¼š" & Me("Zä»Šå›" & alp) & ", è£½å“CDï¼š" & ZSD06DAT(port, iPart).S012 & ", è£½å“åï¼š" & Trim(Nz(Me("Zè£½å“å" & alp), "")) & ", é …ç›®åï¼š" & Me("Zé …ç›®å" & alp & iPart))
     Resume Exit_ZKEISAN
 End Function
 
@@ -1405,7 +1405,7 @@ On Error GoTo Err_KOUMOKU_DC
     Dim ZENKAIFLG As Boolean
     Dim name As String
     
-    If Not ActCon Like "*€–Ú–¼*" Then
+    If Not ActCon Like "*é …ç›®å*" Then
         Exit Function
     End If
     
@@ -1420,7 +1420,7 @@ On Error GoTo Err_KOUMOKU_DC
     Else
         ZENKAIFLG = True
         
-        ' Å‰‚ÌZ‚ğæ‚ç‚È‚¢‚Æ”Ô†‚ÌŒvZ‚ª‹¶‚¤‚½‚ß
+        ' æœ€åˆã®Zã‚’å–ã‚‰ãªã„ã¨ç•ªå·ã®è¨ˆç®—ãŒç‹‚ã†ãŸã‚
         name = Mid(ActCon, 2)
     End If
     
@@ -1439,21 +1439,21 @@ On Error GoTo Err_KOUMOKU_DC
     
     MSG = ""
     
-    ' ¡‰ñ
+    ' ä»Šå›
     If ZENKAIFLG = False Then
-        ' »•i
-        MSG = MSG & "»•iF" & SD06DAT(port, iPart).S012 & " " & SD06DAT(port, iPart).S013 & vbNewLine
+        ' è£½å“
+        MSG = MSG & "è£½å“ï¼š" & SD06DAT(port, iPart).S012 & " " & SD06DAT(port, iPart).S013 & vbNewLine
         
-        ' €–Ú–¼
-        MSG = MSG & "»•iF" & SD06DAT(port, iPart).S015 & vbNewLine
+        ' é …ç›®å
+        MSG = MSG & "è£½å“ï¼š" & SD06DAT(port, iPart).S015 & vbNewLine
         
-        ' Œv‘ª‰ñ”
-        MSG = MSG & "Œv‘ª‰ñ”F" & SD06DAT(port, iPart).L019
+        ' è¨ˆæ¸¬å›æ•°
+        MSG = MSG & "è¨ˆæ¸¬å›æ•°ï¼š" & SD06DAT(port, iPart).L019
     Else
         
     End If
     
-    MsgBox MSG, vbOKOnly, "€–Úî•ñ"
+    MsgBox MSG, vbOKOnly, "é …ç›®æƒ…å ±"
     
 Exit_KOUMOKU_DC:
     Exit Function
@@ -1472,12 +1472,12 @@ On Error GoTo Err_CPK_DC
     Dim tmpCpk As Double
     Dim tmpCpk1 As Double
     Dim tmpCpk2 As Double
-    Dim tmp‹KŠiãŒÀ As Double
-    Dim tmp‹KŠi‰ºŒÀ As Double
+    Dim tmpè¦æ ¼ä¸Šé™ As Double
+    Dim tmpè¦æ ¼ä¸‹é™ As Double
     Dim i As Long
     Dim name As String
     
-    name = Replace(ActCon, "_‘O‰ñ", "")
+    name = Replace(ActCon, "_å‰å›", "")
     
     alp = Mid(name, 4, 1)
     iPart = Right(name, 1)
@@ -1492,59 +1492,59 @@ On Error GoTo Err_CPK_DC
         port = 4
     End If
     
-    If Nz(Me("Z€–Ú–¼" & alp & iPart), "") = "" Then
+    If Nz(Me("Zé …ç›®å" & alp & iPart), "") = "" Then
         Exit Function
     End If
     
-    If IsNumeric(Nz(Me("Z‹KŠi" & alp & iPart), 0)) = False Then
+    If IsNumeric(Nz(Me("Zè¦æ ¼" & alp & iPart), 0)) = False Then
         Exit Function
     End If
-    tmp‹KŠiãŒÀ = CDbl(Nz(Me("Z‹KŠi" & alp & iPart), 0)) + CDbl(Nz(Me("ZŒö·ƒvƒ‰ƒX" & alp & iPart), 0))
-    tmp‹KŠi‰ºŒÀ = CDbl(Nz(Me("Z‹KŠi" & alp & iPart), 0)) + CDbl(Nz(Me("ZŒö·ƒ}ƒCƒiƒX" & alp & iPart), 0))
+    tmpè¦æ ¼ä¸Šé™ = CDbl(Nz(Me("Zè¦æ ¼" & alp & iPart), 0)) + CDbl(Nz(Me("Zå…¬å·®ãƒ—ãƒ©ã‚¹" & alp & iPart), 0))
+    tmpè¦æ ¼ä¸‹é™ = CDbl(Nz(Me("Zè¦æ ¼" & alp & iPart), 0)) + CDbl(Nz(Me("Zå…¬å·®ãƒã‚¤ãƒŠã‚¹" & alp & iPart), 0))
     
     MSG = ""
     
-    MSG = MSG & "M/C‡‚F"
-    MSG = MSG & Me("Z¡‰ñ" & alp) & vbNewLine & vbNewLine
+    MSG = MSG & "M/Câ„–ï¼š"
+    MSG = MSG & Me("Zä»Šå›" & alp) & vbNewLine & vbNewLine
     
-    MSG = MSG & "»•i–¼F"
-    MSG = MSG & Me("Z»•i–¼" & alp) & vbNewLine & vbNewLine
+    MSG = MSG & "è£½å“åï¼š"
+    MSG = MSG & Me("Zè£½å“å" & alp) & vbNewLine & vbNewLine
     
     For i = 1 To Nz(ZSD06DAT(port, iPart).L019, 1)
-        MSG = MSG & "‘ª’è’l" & i & "F"
-        MSG = MSG & Format(Me("Z‘ª’è’l" & i & alp & iPart), "0.000") & vbNewLine & vbNewLine
+        MSG = MSG & "æ¸¬å®šå€¤" & i & "ï¼š"
+        MSG = MSG & Format(Me("Zæ¸¬å®šå€¤" & i & alp & iPart), "0.000") & vbNewLine & vbNewLine
     Next
     
-    MSG = MSG & "‹KŠiãŒÀF"
-    MSG = MSG & Format(tmp‹KŠiãŒÀ, "0.000") & vbNewLine & vbNewLine
+    MSG = MSG & "è¦æ ¼ä¸Šé™ï¼š"
+    MSG = MSG & Format(tmpè¦æ ¼ä¸Šé™, "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "‹KŠi‰ºŒÀF"
-    MSG = MSG & Format(tmp‹KŠi‰ºŒÀ, "0.000") & vbNewLine & vbNewLine
+    MSG = MSG & "è¦æ ¼ä¸‹é™ï¼š"
+    MSG = MSG & Format(tmpè¦æ ¼ä¸‹é™, "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "Å‘å’lF"
-    MSG = MSG & Format(Me("Å‘å’l" & alp & iPart), "0.000") & vbNewLine & vbNewLine
+    MSG = MSG & "æœ€å¤§å€¤ï¼š"
+    MSG = MSG & Format(Me("æœ€å¤§å€¤" & alp & iPart), "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "Å¬’lF"
-    MSG = MSG & Format(Me("Å¬’l" & alp & iPart), "0.000") & vbNewLine & vbNewLine
+    MSG = MSG & "æœ€å°å€¤ï¼š"
+    MSG = MSG & Format(Me("æœ€å°å€¤" & alp & iPart), "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "•½‹Ï’lF"
-    MSG = MSG & Format(Me("•½‹Ï’l" & alp & iPart), "0.000") & vbNewLine & vbNewLine
+    MSG = MSG & "å¹³å‡å€¤ï¼š"
+    MSG = MSG & Format(Me("å¹³å‡å€¤" & alp & iPart), "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "·F"
-    MSG = MSG & Format(Me("·" & alp & iPart), "0.000") & vbNewLine & vbNewLine
+    MSG = MSG & "å·®ï¼š"
+    MSG = MSG & Format(Me("å·®" & alp & iPart), "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "•W€•Î·F"
-    MSG = MSG & Format(Me("•W€•Î·" & alp & iPart), "0.000") & vbNewLine & vbNewLine
+    MSG = MSG & "æ¨™æº–åå·®ï¼š"
+    MSG = MSG & Format(Me("æ¨™æº–åå·®" & alp & iPart), "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "CPK1Fy(‹KŠiãŒÀ - •½‹Ï’l) / 3 ~ •W€•Î·z" & vbNewLine
+    MSG = MSG & "CPK1ï¼šã€(è¦æ ¼ä¸Šé™ - å¹³å‡å€¤) / 3 Ã— æ¨™æº–åå·®ã€‘" & vbNewLine
     tmpCpk1 = Nz(Me("CPK1" & alp & iPart), 0)
     MSG = MSG & Format(tmpCpk1, "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "CPK2Fy(•½‹Ï’l - ‹KŠi‰ºŒÀ) / 3 ~ •W€•Î·z" & vbNewLine
+    MSG = MSG & "CPK2ï¼šã€(å¹³å‡å€¤ - è¦æ ¼ä¸‹é™) / 3 Ã— æ¨™æº–åå·®ã€‘" & vbNewLine
     tmpCpk2 = Nz(Me("CPK2" & alp & iPart), 0)
     MSG = MSG & Format(tmpCpk2, "0.000") & vbNewLine & vbNewLine
     
-    MSG = MSG & "CPKFyCPK1‚ÆCPK2‚Ì‚¢‚¸‚ê‚©‚Ì¬‚³‚¢’lz" & vbNewLine
+    MSG = MSG & "CPKï¼šã€CPK1ã¨CPK2ã®ã„ãšã‚Œã‹ã®å°ã•ã„å€¤ã€‘" & vbNewLine
     If tmpCpk1 <= tmpCpk2 Then
         tmpCpk = tmpCpk1
     Else
@@ -1552,7 +1552,7 @@ On Error GoTo Err_CPK_DC
     End If
     MSG = MSG & Format(tmpCpk, "0.000") & vbNewLine & vbNewLine
     
-    MsgBox MSG, vbOKOnly, "‘O‰ñ‘ª’èŒ‹‰Ê"
+    MsgBox MSG, vbOKOnly, "å‰å›æ¸¬å®šçµæœ"
     
 Exit_CPK_DC:
     Exit Function
@@ -1564,11 +1564,11 @@ End Function
 Private Sub P12_Click()
 On Error GoTo Err_P12_Click
     
-    If MsgBox("I—¹‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H", vbYesNo + vbInformation + vbDefaultButton2, "Šm”F") = vbNo Then
+    If MsgBox("çµ‚äº†ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ", vbYesNo + vbInformation + vbDefaultButton2, "ç¢ºèª") = vbNo Then
         Exit Sub
     End If
     
-    Call •Â‚¶‚é
+    Call é–‰ã˜ã‚‹
 
 Exit_P12_Click:
     Exit Sub
@@ -1576,7 +1576,7 @@ Exit_P12_Click:
 Err_P12_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P12_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P12_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P12_Click", Err.Number, Err.Description)
     Resume Exit_P12_Click
 End Sub
 
@@ -1584,35 +1584,35 @@ End Sub
 Private Sub Skip(port As Long)
 On Error GoTo Err_Skip
     
-    Dim X As Long   ' ‰¡ˆÊ’u(€–Ú)
-    Dim Y As Long   ' cˆÊ’u(‘ª’è’l)
+    Dim X As Long   ' æ¨ªä½ç½®(é …ç›®)
+    Dim Y As Long   ' ç¸¦ä½ç½®(æ¸¬å®šå€¤)
     Dim alp As String
     Dim koumokuNum As Long
     
     alp = portInfo1(port)
     koumokuNum = portInfo2(port)
     
-    If Me("‘ª’èFLG_" & alp) = False Then
+    If Me("æ¸¬å®šFLG_" & alp) = False Then
         Exit Sub
     End If
     
-    If MsgBox("ƒXƒLƒbƒv‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H", vbYesNo + vbInformation + vbDefaultButton2, "Šm”F") = vbNo Then
+    If MsgBox("ã‚¹ã‚­ãƒƒãƒ—ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ", vbYesNo + vbInformation + vbDefaultButton2, "ç¢ºèª") = vbNo Then
         Exit Sub
     End If
     
     Me.P1.SetFocus
     
-    X = ((Nz(Me("‰ñ”" & alp), 0) - 1) Mod koumokuNum) + 1
-    Y = Int((Nz(Me("‰ñ”" & alp), 0) - 1) / koumokuNum) + 1
+    X = ((Nz(Me("å›æ•°" & alp), 0) - 1) Mod koumokuNum) + 1
+    Y = Int((Nz(Me("å›æ•°" & alp), 0) - 1) / koumokuNum) + 1
     
     KeisokuFLG(port, X) = True
     
     Call DATAWRITE(port, , True)
     
-    ' ‘O‰ñŒ‹‰Êƒ^ƒu‚É“]‹L
+    ' å‰å›çµæœã‚¿ãƒ–ã«è»¢è¨˜
     Call ZENKAI_SET(port, True)
     
-    ' Ÿ‚Ìƒf[ƒ^‚Ì“Ç‚İ‚İ
+    ' æ¬¡ã®ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
     Call DATAREAD(port)
 
 Exit_Skip:
@@ -1621,36 +1621,37 @@ Exit_Skip:
 Err_Skip:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "Skip"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "Skip", Err.Number, Err.Description, "ƒ‚[ƒhF" & Me.ƒ‚[ƒh)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Skip", Err.Number, Err.Description, "ãƒ¢ãƒ¼ãƒ‰ï¼š" & Me.ãƒ¢ãƒ¼ãƒ‰)
     Resume Exit_Skip
 End Sub
 
-Private Sub ƒXƒLƒbƒvA_Click()
+Private Sub ã‚¹ã‚­ãƒƒãƒ—A_Click()
     Call Skip(1)
 End Sub
 
-Private Sub ƒXƒLƒbƒvB_Click()
+Private Sub ã‚¹ã‚­ãƒƒãƒ—B_Click()
     Call Skip(2)
 End Sub
 
-Private Sub ƒXƒLƒbƒvC_Click()
+Private Sub ã‚¹ã‚­ãƒƒãƒ—C_Click()
     Call Skip(3)
 End Sub
 
-Private Sub C³“o˜^A_Click()
+Private Sub ä¿®æ­£ç™»éŒ²A_Click()
     If DATAWRITE(1, True) Then
-        MsgBox "C³“o˜^‚µ‚Ü‚µ‚½", vbOKOnly, "Šm”F"
+        MsgBox "ä¿®æ­£ç™»éŒ²ã—ã¾ã—ãŸ", vbOKOnly, "ç¢ºèª"
     End If
 End Sub
 
-Private Sub C³“o˜^B_Click()
+Private Sub ä¿®æ­£ç™»éŒ²B_Click()
     If DATAWRITE(2, True) Then
-        MsgBox "C³“o˜^‚µ‚Ü‚µ‚½", vbOKOnly, "Šm”F"
+        MsgBox "ä¿®æ­£ç™»éŒ²ã—ã¾ã—ãŸ", vbOKOnly, "ç¢ºèª"
     End If
 End Sub
 
-Private Sub C³“o˜^C_Click()
+Private Sub ä¿®æ­£ç™»éŒ²C_Click()
     If DATAWRITE(3, True) Then
-        MsgBox "C³“o˜^‚µ‚Ü‚µ‚½", vbOKOnly, "Šm”F"
+        MsgBox "ä¿®æ­£ç™»éŒ²ã—ã¾ã—ãŸ", vbOKOnly, "ç¢ºèª"
     End If
 End Sub
+
