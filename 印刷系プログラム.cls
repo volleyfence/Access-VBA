@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Form_P_ŒŸ¸¬Ñ•\_ƒŠ[ƒh"
+Attribute VB_Name = "Form_å°åˆ·å‡¦ç†"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = True
@@ -12,7 +12,7 @@ Option Explicit
 
 Private Const maxKoumoku As Long = 13
 
-' Œx•\¦‚·‚éŒ”
+' è­¦å‘Šè¡¨ç¤ºã™ã‚‹ä»¶æ•°
 Private Const keikokuCnt As Long = 50
 
 Private SM17 As SM17_S
@@ -23,14 +23,14 @@ Private WSM17(0 To maxKoumoku) As SM17_S
 Private WSM18(0 To maxKoumoku) As SM18_S
 Private WSD06(0 To maxKoumoku) As SD06_S
 
-Private sSD06002 As String  ' ˆ—“ú
-Private sSD06009 As String  ' M/CƒR[ƒh
-Private sSD06012 As String  ' »•iƒR[ƒh
-Private sSD06027 As String  ' ’Êí’Ç‰Á‹æ•ª
+Private sSD06002 As String  ' å‡¦ç†æ—¥
+Private sSD06009 As String  ' M/Cã‚³ãƒ¼ãƒ‰
+Private sSD06012 As String  ' è£½å“ã‚³ãƒ¼ãƒ‰
+Private sSD06027 As String  ' é€šå¸¸è¿½åŠ åŒºåˆ†
 
-' ‹ó—“€–Ú‚É•\¦‚·‚é•¶š
-Private Const nullStr As String = "\"
-Private Const nullStr2 As String = "Q"
+' ç©ºæ¬„é …ç›®ã«è¡¨ç¤ºã™ã‚‹æ–‡å­—
+Private Const nullStr As String = "â€•"
+Private Const nullStr2 As String = "ï¼¿"
 
 Private Sub Form_Open(Cancel As Integer)
 On Error GoTo Err_Form_Open
@@ -38,10 +38,10 @@ On Error GoTo Err_Form_Open
     PreForm = AFNAME
     AFNAME = Me.name
 
-    Application.SetOption KEYMACRO, "“ü—ÍƒL["
+    Application.SetOption KEYMACRO, "å…¥åŠ›ã‚­ãƒ¼"
     Me.Visible = True
 
-    Call ‰Šúİ’è(Me.name)
+    Call åˆæœŸè¨­å®š(Me.name)
 
     Call FRMCLS
 
@@ -49,7 +49,7 @@ Exit_Form_Open:
     Exit Sub
 
 Err_Form_Open:
-    MsgBox Err.Description, , "ƒtƒH[ƒ€ƒI[ƒvƒ“"
+    MsgBox Err.Description, , "ãƒ•ã‚©ãƒ¼ãƒ ã‚ªãƒ¼ãƒ—ãƒ³"
     Resume Exit_Form_Open
 End Sub
 
@@ -68,12 +68,12 @@ On Error Resume Next
 
     Set ctl = Nothing
     
-    Me.SHêCD = FACTORY
-    Me.EHêCD = FACTORY
-    Me.S“ú•t = Date
-    Me.E“ú•t = Date
+    Me.Så·¥å ´CD = FACTORY
+    Me.Eå·¥å ´CD = FACTORY
+    Me.Sæ—¥ä»˜ = Date
+    Me.Eæ—¥ä»˜ = Date
     
-    Call D_DEL(CurrentDb(), "W_ŒŸ¸¬Ñ•\_ƒŠ[ƒh")
+    Call D_DEL(CurrentDb(), "W_æ¤œæŸ»æˆç¸¾è¡¨_ãƒªãƒ¼ãƒ‰")
     
     Me.SUB.Form.Requery
 End Function
@@ -104,16 +104,16 @@ On Error GoTo Err_PRT
     Dim tmpSum As Double
     Dim i As Long
     Dim arr() As Double
-    Dim tmp‹KŠiãŒÀ As Double
-    Dim tmp‹KŠi‰ºŒÀ As Double
+    Dim tmpè¦æ ¼ä¸Šé™ As Double
+    Dim tmpè¦æ ¼ä¸‹é™ As Double
     Dim tmpCpk1 As Double
     Dim tmpCpk2 As Double
-    Dim tmp‘ª’è’l As Double
+    Dim tmpæ¸¬å®šå€¤ As Double
     Dim tmpKeta As Long
     Dim tmpHasuu As Long
-    Dim tmpŒŸ¸“ú As Long
+    Dim tmpæ¤œæŸ»æ—¥ As Long
     Dim DTCNT As Long
-    Dim tmp€–Ú‡ As Long
+    Dim tmpé …ç›®é † As Long
     Dim HEADSW As Boolean
     Dim bSkipFlg As Boolean
     Dim k As Long
@@ -128,10 +128,10 @@ On Error GoTo Err_PRT
 
     Set MyDB = CurrentDb
     
-    Call D_DEL(MyDB, "W_ŒŸ¸¬Ñ•\_ƒŠ[ƒh")
+    Call D_DEL(MyDB, "W_æ¤œæŸ»æˆç¸¾è¡¨_ãƒªãƒ¼ãƒ‰")
     Me.SUB.Form.Requery
     
-    Set WKDB = MyDB.OpenRecordset("W_ŒŸ¸¬Ñ•\_ƒŠ[ƒh")
+    Set WKDB = MyDB.OpenRecordset("W_æ¤œæŸ»æˆç¸¾è¡¨_ãƒªãƒ¼ãƒ‰")
 
     Set cnn = New ADODB.Connection
     Set rst = New ADODB.Recordset
@@ -142,23 +142,23 @@ On Error GoTo Err_PRT
     cnn.CommandTimeout = Timeout
     cnn.Open
     
-    Call ShowProgressBar(0, "o—Íˆ—", "o—Í‘Oˆ—’†", True)
+    Call ShowProgressBar(0, "å‡ºåŠ›å‡¦ç†", "å‡ºåŠ›å‰å‡¦ç†ä¸­", True)
     
     Crit = "" & vbNewLine
     
-    ' HêƒR[ƒh
-    SCODE = Nz(Me.SHêCD, 0)
-    ECODE = Nz(Me.EHêCD, 99)
+    ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+    SCODE = Nz(Me.Så·¥å ´CD, 0)
+    ECODE = Nz(Me.Eå·¥å ´CD, 99)
     Crit = Crit & " SD04002 BETWEEN " & SCODE & " AND " & ECODE & vbNewLine
     
-    ' BOXƒ‰ƒxƒ‹”­s“ú
-    SDATE = Nz(Me.S“ú•t, "1900/01/01")
-    EDATE = Nz(Me.E“ú•t, "9999/12/31")
+    ' BOXãƒ©ãƒ™ãƒ«ç™ºè¡Œæ—¥
+    SDATE = Nz(Me.Sæ—¥ä»˜, "1900/01/01")
+    EDATE = Nz(Me.Eæ—¥ä»˜, "9999/12/31")
     Crit = Crit & "   AND SD04037 BETWEEN " & Format(SDATE, "yyyymmdd") & " AND " & Format(EDATE, "yyyymmdd") & vbNewLine
     
-    ' »•i
-    SCODE2 = Nz(StrConv(Me.S»•iCD, vbUpperCase), "00000")
-    ECODE2 = Nz(StrConv(Me.E»•iCD, vbUpperCase), "zzzzz")
+    ' è£½å“
+    SCODE2 = Nz(StrConv(Me.Sè£½å“CD, vbUpperCase), "00000")
+    ECODE2 = Nz(StrConv(Me.Eè£½å“CD, vbUpperCase), "zzzzz")
     Crit = Crit & "   AND SD04004 BETWEEN " & SQL_MOJICHK(SCODE2) & " AND " & SQL_MOJICHK(ECODE2) & vbNewLine
     
     ' M/C
@@ -166,16 +166,16 @@ On Error GoTo Err_PRT
     ECODE3 = Nz(Me.EMCCD, "zzzz")
     Crit = Crit & "   AND SD04005 BETWEEN " & SQL_MOJICHK(SCODE3) & " AND " & SQL_MOJICHK(ECODE3) & vbNewLine
     
-    ' V‹K”­s
-    If Nz(Me.FL_”­s‹æ•ª, 0) = 0 Then
+    ' æ–°è¦ç™ºè¡Œ
+    If Nz(Me.FL_ç™ºè¡ŒåŒºåˆ†, 0) = 0 Then
         Crit = Crit & "   AND SD04016 = 0 " & vbNewLine
     
-    ' Ä”­s
+    ' å†ç™ºè¡Œ
     Else
         Crit = Crit & "   AND SD04016 <> 0 " & vbNewLine
     End If
     
-    ' íœ‚Íœ‚­
+    ' å‰Šé™¤ã¯é™¤ã
     Crit = Crit & "   AND SD04032 <> 3 " & vbNewLine
     
     Sql = "" & vbNewLine
@@ -186,36 +186,36 @@ On Error GoTo Err_PRT
     Sql = Sql & " SM04.*, " & vbNewLine
     Sql = Sql & " SM06.* " & vbNewLine
     
-    ' ƒŠ[ƒhH’öŠÇ—ƒtƒ@ƒCƒ‹
+    ' ãƒªãƒ¼ãƒ‰å·¥ç¨‹ç®¡ç†ãƒ•ã‚¡ã‚¤ãƒ«
     subSql = "" & vbNewLine
     subSql = subSql & " SELECT * FROM KSD04KOUT " & vbNewLine
     subSql = subSql & " WHERE " & Crit & vbNewLine
     
     Sql = Sql & " FROM (" & subSql & ") AS SD04 " & vbNewLine
     
-    ' Hêƒ}ƒXƒ^@HêƒR[ƒh
+    ' å·¥å ´ãƒã‚¹ã‚¿ã€€å·¥å ´ã‚³ãƒ¼ãƒ‰
     Sql = Sql & " LEFT JOIN KSM01KOJY AS SM01 ON (SD04.SD04002 = SM01.SM01001) " & vbNewLine
     
-    ' “¾ˆÓæƒ}ƒXƒ^@“¾ˆÓæƒR[ƒh(o‰×æƒR[ƒh‚Ì¶2Œ…)@¦o‰×æƒR[ƒh‚Í4Œ…ŒÅ’è‚Å‚Í‚È‚¢‚½‚ß4Œ…‚É‡‚í‚¹‚Ä‚©‚çØ‚èæ‚é
+    ' å¾—æ„å…ˆãƒã‚¹ã‚¿ã€€å¾—æ„å…ˆã‚³ãƒ¼ãƒ‰(å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰ã®å·¦2æ¡)ã€€â€»å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰ã¯4æ¡å›ºå®šã§ã¯ãªã„ãŸã‚4æ¡ã«åˆã‚ã›ã¦ã‹ã‚‰åˆ‡ã‚Šå–ã‚‹
     Sql = Sql & " LEFT JOIN KSM02TOKU AS SM02 ON (CAST(LEFT(FORMAT(SD04.SD04003, '0000'), 2) AS INTEGER) = SM02.SM02001) " & vbNewLine
     
-    ' o‰×æƒ}ƒXƒ^@o‰×æƒR[ƒh
+    ' å‡ºè·å…ˆãƒã‚¹ã‚¿ã€€å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰
     Sql = Sql & " LEFT JOIN KSM03SYUK AS SM03 ON (SD04.SD04003 = SM03.SM03001) " & vbNewLine
     
-    ' »•iƒ}ƒXƒ^@»•i‹æ•ªA»•iƒR[ƒh
+    ' è£½å“ãƒã‚¹ã‚¿ã€€è£½å“åŒºåˆ†ã€è£½å“ã‚³ãƒ¼ãƒ‰
     Sql = Sql & " LEFT JOIN KSM04SEIH AS SM04 ON (SD04.SD04010 = SM04.SM04001 AND SD04.SD04004 = SM04.SM04002) " & vbNewLine
     
-    ' ŒŸ¸¬Ñ•\”õlƒ}ƒXƒ^@»•i‹æ•ªA»•iƒR[ƒh
+    ' æ¤œæŸ»æˆç¸¾è¡¨å‚™è€ƒãƒã‚¹ã‚¿ã€€è£½å“åŒºåˆ†ã€è£½å“ã‚³ãƒ¼ãƒ‰
     Sql = Sql & " LEFT JOIN KSM06BIKO AS SM06 ON (SD04.SD04010 = SM06.SM06001 AND SD04.SD04004 = SM06.SM06002) " & vbNewLine
     
-    ' HêƒR[ƒh, “o˜^“ú, »•iƒR[ƒh, M/CƒR[ƒh
+    ' å·¥å ´ã‚³ãƒ¼ãƒ‰, ç™»éŒ²æ—¥, è£½å“ã‚³ãƒ¼ãƒ‰, M/Cã‚³ãƒ¼ãƒ‰
     Sql = Sql & " ORDER BY SD04.SD04002, SD04.SD04037, SD04.SD04004, SD04.SD04005 " & vbNewLine
     
     rst.Open Sql, cnn, adOpenKeyset, adLockOptimistic
     
     If rst.EOF Then
         Call ShowProgressBar(, , , False)
-        MsgBox "ƒf[ƒ^‚ª1Œ‚à‚ ‚è‚Ü‚¹‚ñB", vbOKOnly, "Šm”F"
+        MsgBox "ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã‚‚ã‚ã‚Šã¾ã›ã‚“ã€‚", vbOKOnly, "ç¢ºèª"
         GoTo Exit_PRT
     End If
     
@@ -223,7 +223,7 @@ On Error GoTo Err_PRT
     maxCnt = rst.RecordCount
     
     If maxCnt > keikokuCnt Then
-        If MsgBox(keikokuCnt & "Œ‚ğ’´‚¦‚éƒf[ƒ^‚ª‘I‘ğ‚³‚ê‚Ü‚µ‚½‚ªAˆ—‚ğŒp‘±‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H", vbQuestion + vbYesNo + vbDefaultButton2, "Šm”F") = vbNo Then
+        If MsgBox(keikokuCnt & "ä»¶ã‚’è¶…ãˆã‚‹ãƒ‡ãƒ¼ã‚¿ãŒé¸æŠã•ã‚Œã¾ã—ãŸãŒã€å‡¦ç†ã‚’ç¶™ç¶šã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ", vbQuestion + vbYesNo + vbDefaultButton2, "ç¢ºèª") = vbNo Then
             GoTo Exit_PRT
         End If
     End If
@@ -232,13 +232,13 @@ On Error GoTo Err_PRT
         If ProgressBarCancelFlag = True Then
             DoCmd.Hourglass False
             Call ShowProgressBar(, , , False)
-            MsgBox "ˆ—‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½B", vbCritical, "ƒLƒƒƒ“ƒZƒ‹"
+            MsgBox "å‡¦ç†ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸã€‚", vbCritical, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«"
             GoTo Exit_PRT
         End If
         
-        Call ShowProgressBar((DTCNT / maxCnt) * 100, "o—Íˆ— (" & DTCNT & " / " & maxCnt & ")", "o—Í’†", True, True)
+        Call ShowProgressBar((DTCNT / maxCnt) * 100, "å‡ºåŠ›å‡¦ç† (" & DTCNT & " / " & maxCnt & ")", "å‡ºåŠ›ä¸­", True, True)
         
-        ' ‰Šú‰»
+        ' åˆæœŸåŒ–
         For i = 1 To maxKoumoku
             Call CLR_SM17(WSM17(i))
             Call CLR_SM18(WSM18(i))
@@ -248,19 +248,19 @@ On Error GoTo Err_PRT
         HEADSW = False
         bSkipFlg = False
         
-        ' Ä”­s‚Íƒ`ƒFƒbƒN‚È‚µ
-        If Nz(Me.FL_”­s‹æ•ª, 0) = 1 Then
+        ' å†ç™ºè¡Œã¯ãƒã‚§ãƒƒã‚¯ãªã—
+        If Nz(Me.FL_ç™ºè¡ŒåŒºåˆ†, 0) = 1 Then
             GoTo MRED_050
         End If
         
-        ' D04‚Æ“¯‚¶M/CA»•i‚ÅŒŸ¸“ú<=ƒƒbƒg‡‚“ú•t‚ÅÅ‘å‚Ì‚à‚Ì
+        ' D04ã¨åŒã˜M/Cã€è£½å“ã§æ¤œæŸ»æ—¥<=ãƒ­ãƒƒãƒˆâ„–æ—¥ä»˜ã§æœ€å¤§ã®ã‚‚ã®
         Sql = "" & vbNewLine
         Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' HêƒR[ƒh
-        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/CƒR[ƒh
-        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' »•iƒR[ƒh
-        Sql = Sql & "   AND SD06002 <= " & Nz(rst!SD04012, 0) & vbNewLine       ' ˆ—“ú
-        Sql = Sql & " ORDER BY SD06001, SD06002 DESC, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' HêƒR[ƒh, ˆ—“ú~‡, »•iƒR[ƒh, M/CƒR[ƒh, ŒŸ¸€–Ú‡‚, €–Ú‡, ’Êí’Ç‰Á‹æ•ª~‡
+        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/Cã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' è£½å“ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06002 <= " & Nz(rst!SD04012, 0) & vbNewLine       ' å‡¦ç†æ—¥
+        Sql = Sql & " ORDER BY SD06001, SD06002 DESC, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥é™é †, è£½å“ã‚³ãƒ¼ãƒ‰, M/Cã‚³ãƒ¼ãƒ‰, æ¤œæŸ»é …ç›®â„–, é …ç›®é †, é€šå¸¸è¿½åŠ åŒºåˆ†é™é †
         
         rst2.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
         
@@ -274,14 +274,14 @@ On Error GoTo Err_PRT
         Else
             Call SET_SD06(SD06, rst2)
             
-            sSD06002 = Nz(rst2!SD06002, 0)  ' ˆ—“ú
-            sSD06009 = Nz(rst2!SD06009, "") ' M/CƒR[ƒh
-            sSD06012 = Nz(rst2!SD06012, "") ' »•iƒR[ƒh
-            sSD06027 = Nz(rst2!sd06027, 0)  ' ’Êí’Ç‰Á‹æ•ª
+            sSD06002 = Nz(rst2!SD06002, 0)  ' å‡¦ç†æ—¥
+            sSD06009 = Nz(rst2!SD06009, "") ' M/Cã‚³ãƒ¼ãƒ‰
+            sSD06012 = Nz(rst2!SD06012, "") ' è£½å“ã‚³ãƒ¼ãƒ‰
+            sSD06027 = Nz(rst2!sd06027, 0)  ' é€šå¸¸è¿½åŠ åŒºåˆ†
             
             rst2.Close
             
-            ' ŒŸ¸“ú = ƒƒbƒg‡‚“ú•t
+            ' æ¤œæŸ»æ—¥ = ãƒ­ãƒƒãƒˆâ„–æ—¥ä»˜
             If CLng(SD06.S002) = Nz(rst!SD04012, 0) Then
                 GoTo MRED_040
             Else
@@ -294,11 +294,11 @@ MRED_022:
         
         Sql = "" & vbNewLine
         Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' HêƒR[ƒh
-        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/CƒR[ƒh
-        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' »•iƒR[ƒh
-        Sql = Sql & "   AND SD06002 < " & Nz(sSD06002, 0) & vbNewLine           ' ˆ—“ú
-        Sql = Sql & " ORDER BY SD06001, SD06002 DESC, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' HêƒR[ƒh, ˆ—“ú~‡, »•iƒR[ƒh, M/CƒR[ƒh, ŒŸ¸€–Ú‡‚, €–Ú‡, ’Êí’Ç‰Á‹æ•ª~‡
+        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/Cã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' è£½å“ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06002 < " & Nz(sSD06002, 0) & vbNewLine           ' å‡¦ç†æ—¥
+        Sql = Sql & " ORDER BY SD06001, SD06002 DESC, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥é™é †, è£½å“ã‚³ãƒ¼ãƒ‰, M/Cã‚³ãƒ¼ãƒ‰, æ¤œæŸ»é …ç›®â„–, é …ç›®é †, é€šå¸¸è¿½åŠ åŒºåˆ†é™é †
         
         rst2.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
         
@@ -312,10 +312,10 @@ MRED_022:
         Else
             Call SET_SD06(SD06, rst2)
             
-            sSD06002 = Nz(rst2!SD06002, 0)  ' ˆ—“ú
-            sSD06009 = Nz(rst2!SD06009, "") ' M/CƒR[ƒh
-            sSD06012 = Nz(rst2!SD06012, "") ' »•iƒR[ƒh
-            sSD06027 = Nz(rst2!sd06027, 0)  ' ’Êí’Ç‰Á‹æ•ª
+            sSD06002 = Nz(rst2!SD06002, 0)  ' å‡¦ç†æ—¥
+            sSD06009 = Nz(rst2!SD06009, "") ' M/Cã‚³ãƒ¼ãƒ‰
+            sSD06012 = Nz(rst2!SD06012, "") ' è£½å“ã‚³ãƒ¼ãƒ‰
+            sSD06027 = Nz(rst2!sd06027, 0)  ' é€šå¸¸è¿½åŠ åŒºåˆ†
             
             rst2.Close
         End If
@@ -323,14 +323,14 @@ MRED_022:
 MRED_030:
         DoEvents
         
-        ' D04‚Æ“¯‚¶M/CAˆá‚¤»•i‚ÅŒŸ¸“ú<=ƒƒbƒg‡‚“ú•t‚ÅÅ‘å‚Ì‚à‚Ì
+        ' D04ã¨åŒã˜M/Cã€é•ã†è£½å“ã§æ¤œæŸ»æ—¥<=ãƒ­ãƒƒãƒˆâ„–æ—¥ä»˜ã§æœ€å¤§ã®ã‚‚ã®
         Sql = "" & vbNewLine
         Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' HêƒR[ƒh
-        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/CƒR[ƒh
-        Sql = Sql & "   AND SD06012 <> " & SQL_MOJICHK(rst!SD04004) & vbNewLine ' »•iƒR[ƒh
-        Sql = Sql & "   AND SD06002 <= " & Nz(rst!SD04012, 0) & vbNewLine       ' ˆ—“ú
-        Sql = Sql & " ORDER BY SD06001, SD06002 DESC, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' HêƒR[ƒh, ˆ—“ú~‡, »•iƒR[ƒh, M/CƒR[ƒh, ŒŸ¸€–Ú‡‚, €–Ú‡, ’Êí’Ç‰Á‹æ•ª~‡
+        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/Cã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06012 <> " & SQL_MOJICHK(rst!SD04004) & vbNewLine ' è£½å“ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06002 <= " & Nz(rst!SD04012, 0) & vbNewLine       ' å‡¦ç†æ—¥
+        Sql = Sql & " ORDER BY SD06001, SD06002 DESC, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥é™é †, è£½å“ã‚³ãƒ¼ãƒ‰, M/Cã‚³ãƒ¼ãƒ‰, æ¤œæŸ»é …ç›®â„–, é …ç›®é †, é€šå¸¸è¿½åŠ åŒºåˆ†é™é †
         
         rst2.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
         
@@ -341,7 +341,7 @@ MRED_030:
             
             rst2.Close
             
-            ' ˆ—“ú
+            ' å‡¦ç†æ—¥
             If SD06.S002 > sSD06002 Then
                 HEADSW = True
                 GoTo MRED_050
@@ -351,23 +351,23 @@ MRED_030:
 MRED_040:
         DoEvents
         
-        ' ‘ÎÛƒf[ƒ^‚ªŒv‘ªÏ‚İ‚©’²‚×‚é
+        ' å¯¾è±¡ãƒ‡ãƒ¼ã‚¿ãŒè¨ˆæ¸¬æ¸ˆã¿ã‹èª¿ã¹ã‚‹
         Sql = "" & vbNewLine
         Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' HêƒR[ƒh
-        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(sSD06009) & vbNewLine     ' M/CƒR[ƒh
-        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(sSD06012) & vbNewLine     ' »•iƒR[ƒh
-        Sql = Sql & "   AND SD06002 = " & Nz(sSD06002, 0) & vbNewLine           ' ˆ—“ú
-        Sql = Sql & "   AND SD06027 = " & Nz(sSD06027, 0) & vbNewLine           ' ’Êí’Ç‰Á‹æ•ª
-        Sql = Sql & "   AND SD06025 = 0 " & vbNewLine                           ' Œv‘ªÏ‚İ‹æ•ª
-        Sql = Sql & " ORDER BY SD06001, SD06002, SD06012, SD06009, SD06014, SD06010 " & vbNewLine ' HêƒR[ƒh, ˆ—“ú, »•iƒR[ƒh, M/CƒR[ƒh, ŒŸ¸€–Ú‡‚, €–Ú‡
+        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(sSD06009) & vbNewLine     ' M/Cã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(sSD06012) & vbNewLine     ' è£½å“ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & "   AND SD06002 = " & Nz(sSD06002, 0) & vbNewLine           ' å‡¦ç†æ—¥
+        Sql = Sql & "   AND SD06027 = " & Nz(sSD06027, 0) & vbNewLine           ' é€šå¸¸è¿½åŠ åŒºåˆ†
+        Sql = Sql & "   AND SD06025 = 0 " & vbNewLine                           ' è¨ˆæ¸¬æ¸ˆã¿åŒºåˆ†
+        Sql = Sql & " ORDER BY SD06001, SD06002, SD06012, SD06009, SD06014, SD06010 " & vbNewLine ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥, è£½å“ã‚³ãƒ¼ãƒ‰, M/Cã‚³ãƒ¼ãƒ‰, æ¤œæŸ»é …ç›®â„–, é …ç›®é †
         
         rst2.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
         
         If rst2.EOF Then
             rst2.Close
         
-        ' –¢Œv‘ª‚È‚çŒv‘ªÏ‚İ‚Ìƒf[ƒ^‚É‚È‚é‚Ü‚Å’T‚µ‘±‚¯‚é
+        ' æœªè¨ˆæ¸¬ãªã‚‰è¨ˆæ¸¬æ¸ˆã¿ã®ãƒ‡ãƒ¼ã‚¿ã«ãªã‚‹ã¾ã§æ¢ã—ç¶šã‘ã‚‹
         Else
             Call SET_SD06(SD06, rst2)
             
@@ -379,12 +379,12 @@ MRED_040:
 MRED_050:
         DoEvents
         
-        ' ŒŸ¸’lƒ}ƒXƒ^‚Ìæ“¾
+        ' æ¤œæŸ»å€¤ãƒã‚¹ã‚¿ã®å–å¾—
         Sql = "" & vbNewLine
         Sql = Sql & " SELECT * FROM KSM18KSCH " & vbNewLine
-        Sql = Sql & " WHERE SM18001 = " & SQL_MOJICHK(Me.»•i‹æ•ª) & vbNewLine  ' »•i‹æ•ª
-        Sql = Sql & "   AND SM18002 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' »•iƒR[ƒh
-        Sql = Sql & " ORDER BY SM18003 " & vbNewLine    ' €–Ú‡
+        Sql = Sql & " WHERE SM18001 = " & SQL_MOJICHK(Me.è£½å“åŒºåˆ†) & vbNewLine  ' è£½å“åŒºåˆ†
+        Sql = Sql & "   AND SM18002 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' è£½å“ã‚³ãƒ¼ãƒ‰
+        Sql = Sql & " ORDER BY SM18003 " & vbNewLine    ' é …ç›®é †
         
         rst2.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
         
@@ -396,25 +396,25 @@ MRED_050:
             Call CLR_SM17(SM17)
             Call CLR_SD06(SD06)
             
-            ' ŒŸ¸€–Ú–¼‚ª“ü‚Á‚Ä‚¢‚ÄAŒŸ¸’l‚ª0ˆÈŠO‚Å‚ ‚ê‚Î•\¦‚·‚é
+            ' æ¤œæŸ»é …ç›®åãŒå…¥ã£ã¦ã„ã¦ã€æ¤œæŸ»å€¤ãŒ0ä»¥å¤–ã§ã‚ã‚Œã°è¡¨ç¤ºã™ã‚‹
             If Trim(SM18.S004) <> "" And SM18.D005 <> 0 Then
                 If HEADSW = False Then
-                    ' V‹K”­s
-                    If Nz(Me.FL_”­s‹æ•ª, 0) = 0 Then
+                    ' æ–°è¦ç™ºè¡Œ
+                    If Nz(Me.FL_ç™ºè¡ŒåŒºåˆ†, 0) = 0 Then
                         Sql = "" & vbNewLine
                         Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-                        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' HêƒR[ƒh
-                        Sql = Sql & "   AND SD06002 = " & Nz(sSD06002, 0) & vbNewLine           ' ˆ—“ú
-                        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' »•iƒR[ƒh
-                        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/CƒR[ƒh
-                        Sql = Sql & "   AND SD06011 = " & Nz(Me.»•i‹æ•ª, 0) & vbNewLine        ' »•i‹æ•ª
-                        Sql = Sql & "   AND SD06014 = " & SQL_MOJICHK(SM18.L003) & vbNewLine    ' ŒŸ¸€–Ú‡‚
+                        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+                        Sql = Sql & "   AND SD06002 = " & Nz(sSD06002, 0) & vbNewLine           ' å‡¦ç†æ—¥
+                        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' è£½å“ã‚³ãƒ¼ãƒ‰
+                        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/Cã‚³ãƒ¼ãƒ‰
+                        Sql = Sql & "   AND SD06011 = " & Nz(Me.è£½å“åŒºåˆ†, 0) & vbNewLine        ' è£½å“åŒºåˆ†
+                        Sql = Sql & "   AND SD06014 = " & SQL_MOJICHK(SM18.L003) & vbNewLine    ' æ¤œæŸ»é …ç›®â„–
                         
-                        ' UPDATE 2025/01/20 SUZUKI ’Êí‚Æ’Ç‰Á‚ª¬İ‚·‚éê‡‚É’Êí‚ª•\¦‚³‚ê‚Ä‚µ‚Ü‚¤BsSD06027‚ğo‚µ‚Ä‚¢‚é‚Ì‚ÅƒCƒR[ƒ‹‚Å‚¢‚¢‚Í‚¸
-'                        Sql = Sql & "   AND SD06027 <= " & Nz(sSD06027, 0) & vbNewLine          ' ’Êí’Ç‰Á‹æ•ª
-                        Sql = Sql & "   AND SD06027 = " & Nz(sSD06027, 0) & vbNewLine          ' ’Êí’Ç‰Á‹æ•ª
+                        ' UPDATE 2025/01/20 SUZUKI é€šå¸¸ã¨è¿½åŠ ãŒæ··åœ¨ã™ã‚‹å ´åˆã«é€šå¸¸ãŒè¡¨ç¤ºã•ã‚Œã¦ã—ã¾ã†ã€‚sSD06027ã‚’å‡ºã—ã¦ã„ã‚‹ã®ã§ã‚¤ã‚³ãƒ¼ãƒ«ã§ã„ã„ã¯ãš
+'                        Sql = Sql & "   AND SD06027 <= " & Nz(sSD06027, 0) & vbNewLine          ' é€šå¸¸è¿½åŠ åŒºåˆ†
+                        Sql = Sql & "   AND SD06027 = " & Nz(sSD06027, 0) & vbNewLine          ' é€šå¸¸è¿½åŠ åŒºåˆ†
 
-                        Sql = Sql & " ORDER BY SD06001, SD06002, SD06012, SD06009, SD06014, SD06010 " & vbNewLine ' HêƒR[ƒh, ˆ—“ú, »•iƒR[ƒh, M/CƒR[ƒh, ŒŸ¸€–Ú‡‚, €–Ú‡
+                        Sql = Sql & " ORDER BY SD06001, SD06002, SD06012, SD06009, SD06014, SD06010 " & vbNewLine ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥, è£½å“ã‚³ãƒ¼ãƒ‰, M/Cã‚³ãƒ¼ãƒ‰, æ¤œæŸ»é …ç›®â„–, é …ç›®é †
                         
                         rst3.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
                         
@@ -424,17 +424,17 @@ MRED_050:
                         
                         rst3.Close
                         
-                    ' Ä”­s
+                    ' å†ç™ºè¡Œ
                     Else
                         Sql = "" & vbNewLine
                         Sql = Sql & " SELECT * FROM KSD06KEKA " & vbNewLine
-                        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' HêƒR[ƒh
-                        Sql = Sql & "   AND SD06002 = " & Nz(rst!SD04016, 0) & vbNewLine        ' ˆ—“ú
-                        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' »•iƒR[ƒh
-                        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/CƒR[ƒh
-                        Sql = Sql & "   AND SD06011 = " & Nz(Me.»•i‹æ•ª, 0) & vbNewLine        ' »•i‹æ•ª
-                        Sql = Sql & "   AND SD06014 = " & SQL_MOJICHK(SM18.L003) & vbNewLine    ' ŒŸ¸€–Ú‡‚
-                        Sql = Sql & " ORDER BY SD06001, SD06002, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' HêƒR[ƒh, ˆ—“ú, »•iƒR[ƒh, M/CƒR[ƒh, ŒŸ¸€–Ú‡‚, €–Ú‡, ’Êí’Ç‰Á‹æ•ª~‡
+                        Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0) & vbNewLine        ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+                        Sql = Sql & "   AND SD06002 = " & Nz(rst!SD04016, 0) & vbNewLine        ' å‡¦ç†æ—¥
+                        Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004) & vbNewLine  ' è£½å“ã‚³ãƒ¼ãƒ‰
+                        Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005) & vbNewLine  ' M/Cã‚³ãƒ¼ãƒ‰
+                        Sql = Sql & "   AND SD06011 = " & Nz(Me.è£½å“åŒºåˆ†, 0) & vbNewLine        ' è£½å“åŒºåˆ†
+                        Sql = Sql & "   AND SD06014 = " & SQL_MOJICHK(SM18.L003) & vbNewLine    ' æ¤œæŸ»é …ç›®â„–
+                        Sql = Sql & " ORDER BY SD06001, SD06002, SD06012, SD06009, SD06014, SD06010, SD06027 DESC " & vbNewLine ' å·¥å ´ã‚³ãƒ¼ãƒ‰, å‡¦ç†æ—¥, è£½å“ã‚³ãƒ¼ãƒ‰, M/Cã‚³ãƒ¼ãƒ‰, æ¤œæŸ»é …ç›®â„–, é …ç›®é †, é€šå¸¸è¿½åŠ åŒºåˆ†é™é †
                         
                         rst3.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
                         
@@ -445,12 +445,12 @@ MRED_050:
                         rst3.Close
                     End If
                     
-                    ' ŒŸ¸€–Úƒ}ƒXƒ^‚Ìæ“¾
+                    ' æ¤œæŸ»é …ç›®ãƒã‚¹ã‚¿ã®å–å¾—
                     Sql = "" & vbNewLine
                     Sql = Sql & " SELECT * FROM KSM17KSKM " & vbNewLine
-                    Sql = Sql & " WHERE SM17001 = " & SQL_MOJICHK(Me.»•i‹æ•ª) & vbNewLine                      ' »•i‹æ•ª
-                    Sql = Sql & "   AND SM17002 = " & CInt(Left(Format(rst!SD04003, "0000"), 2)) & vbNewLine    ' “¾ˆÓæƒR[ƒh
-                    Sql = Sql & "   AND SM17003 = " & SQL_MOJICHK(SM18.L003) & vbNewLine                        ' €–Ú‡
+                    Sql = Sql & " WHERE SM17001 = " & SQL_MOJICHK(Me.è£½å“åŒºåˆ†) & vbNewLine                      ' è£½å“åŒºåˆ†
+                    Sql = Sql & "   AND SM17002 = " & CInt(Left(Format(rst!SD04003, "0000"), 2)) & vbNewLine    ' å¾—æ„å…ˆã‚³ãƒ¼ãƒ‰
+                    Sql = Sql & "   AND SM17003 = " & SQL_MOJICHK(SM18.L003) & vbNewLine                        ' é …ç›®é †
                     
                     rst3.Open Sql, cnn, adOpenForwardOnly, adLockReadOnly
                     
@@ -460,9 +460,9 @@ MRED_050:
                     
                     rst3.Close
                     
-                    ' ŒŸ¸Œ‹‰Êƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+                    ' æ¤œæŸ»çµæœãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
                     If Nz(SD06.S001, "") = "" Then
-                        ' ‘ª’è‹æ•ª‚ª•¶š€–Ú‚Ìê‡
+                        ' æ¸¬å®šåŒºåˆ†ãŒæ–‡å­—é …ç›®ã®å ´åˆ
                         If SM18.S008 = "0" Then
                             If k >= maxKoumoku Then
                                 GoTo SM18_END
@@ -497,150 +497,150 @@ MRED_050:
 SM18_END:
         rst2.Close
         
-        ' •\¦‚·‚éŒŸ¸€–Ú‚ª1‚Â‚à‚È‚¢ê‡
+        ' è¡¨ç¤ºã™ã‚‹æ¤œæŸ»é …ç›®ãŒ1ã¤ã‚‚ãªã„å ´åˆ
         If k = 0 Then
             GoTo NextLoop
         End If
         
         WKDB.AddNew
             
-            ' UPDATE 2025/02/17 SUZUKI –¢‘ª’è‚Ì€–Ú‚ª‚ ‚éê‡‚Íˆóü‚µ‚È‚¢
-            WKDB!ˆóüFLG = Not HEADSW
+            ' UPDATE 2025/02/17 SUZUKI æœªæ¸¬å®šã®é …ç›®ãŒã‚ã‚‹å ´åˆã¯å°åˆ·ã—ãªã„
+            WKDB!å°åˆ·FLG = Not HEADSW
             
-            WKDB!ˆóš‹æ•ª = rst!SM03012
-            WKDB!ˆ—˜A”Ô = rst!SD04001
-            WKDB!HêƒR[ƒh = rst!SD04002
-            WKDB!o‰×æƒR[ƒh = rst!SD04003
-            WKDB!“¾ˆÓæƒR[ƒh = Left(Format(rst!SD04003, "0000"), 2)
-            WKDB!“¾ˆÓæ–¼ = RTrim(Nz(rst!SM02002, "")) & "@“a"
-            WKDB!o‰×æ–¼1 = RTrim(rst!SM02010)
-            WKDB!o‰×æ–¼2 = RTrim(rst!SM02011)
-            WKDB!o‰×æ–¼3 = RTrim(rst!SM02012)
-            WKDB!o‰×æ–¼4 = RTrim(rst!SM02013)
-            WKDB!¬Ñ•\ƒ^ƒCƒgƒ‹ = rst!SM02014
-            WKDB!»•iƒR[ƒh = rst!SD04004
-            WKDB!ƒ}ƒVƒ“ƒR[ƒh = rst!SD04005
-            WKDB!•i–¼ = RTrim(rst!SD04011)
-            WKDB!•t‰Á‹L† = RTrim(rst!SM04022)
-            WKDB!”—Ê = rst!SD04009 * 1000
+            WKDB!å°å­—åŒºåˆ† = rst!SM03012
+            WKDB!å‡¦ç†é€£ç•ª = rst!SD04001
+            WKDB!å·¥å ´ã‚³ãƒ¼ãƒ‰ = rst!SD04002
+            WKDB!å‡ºè·å…ˆã‚³ãƒ¼ãƒ‰ = rst!SD04003
+            WKDB!å¾—æ„å…ˆã‚³ãƒ¼ãƒ‰ = Left(Format(rst!SD04003, "0000"), 2)
+            WKDB!å¾—æ„å…ˆå = RTrim(Nz(rst!SM02002, "")) & "ã€€æ®¿"
+            WKDB!å‡ºè·å…ˆå1 = RTrim(rst!SM02010)
+            WKDB!å‡ºè·å…ˆå2 = RTrim(rst!SM02011)
+            WKDB!å‡ºè·å…ˆå3 = RTrim(rst!SM02012)
+            WKDB!å‡ºè·å…ˆå4 = RTrim(rst!SM02013)
+            WKDB!æˆç¸¾è¡¨ã‚¿ã‚¤ãƒˆãƒ« = rst!SM02014
+            WKDB!è£½å“ã‚³ãƒ¼ãƒ‰ = rst!SD04004
+            WKDB!ãƒã‚·ãƒ³ã‚³ãƒ¼ãƒ‰ = rst!SD04005
+            WKDB!å“å = RTrim(rst!SD04011)
+            WKDB!ä»˜åŠ è¨˜å· = RTrim(rst!SM04022)
+            WKDB!æ•°é‡ = rst!SD04009 * 1000
             If Nz(rst!SD04039, 0) = 0 Then
-                ' UPDATE 2024/12/20 ”N‚Ì‰º1Œ…‚ª0‚Ì‚ÉŒ…”‚ª‚¸‚ê‚é‚½‚ß
-'                WKDB!ƒƒbƒg‡‚ = Right(rst!SD04005, 3) & " " & rst!SD04006
-                WKDB!ƒƒbƒg‡‚ = Right(rst!SD04005, 3) & " " & Format(rst!SD04006, "00000")
+                ' UPDATE 2024/12/20 å¹´ã®ä¸‹1æ¡ãŒ0ã®æ™‚ã«æ¡æ•°ãŒãšã‚Œã‚‹ãŸã‚
+'                WKDB!ãƒ­ãƒƒãƒˆâ„– = Right(rst!SD04005, 3) & " " & rst!SD04006
+                WKDB!ãƒ­ãƒƒãƒˆâ„– = Right(rst!SD04005, 3) & " " & Format(rst!SD04006, "00000")
             Else
-                ' UPDATE 2024/12/20 ”N‚Ì‰º1Œ…‚ª0‚Ì‚ÉŒ…”‚ª‚¸‚ê‚é‚½‚ß
-'                WKDB!ƒƒbƒg‡‚ = Right(rst!SD04005, 3) & " " & rst!SD04006 & "-" & Format(rst!SD04039, "00")
-                WKDB!ƒƒbƒg‡‚ = Right(rst!SD04005, 3) & " " & Format(rst!SD04006, "00000") & "-" & Format(rst!SD04039, "00")
+                ' UPDATE 2024/12/20 å¹´ã®ä¸‹1æ¡ãŒ0ã®æ™‚ã«æ¡æ•°ãŒãšã‚Œã‚‹ãŸã‚
+'                WKDB!ãƒ­ãƒƒãƒˆâ„– = Right(rst!SD04005, 3) & " " & rst!SD04006 & "-" & Format(rst!SD04039, "00")
+                WKDB!ãƒ­ãƒƒãƒˆâ„– = Right(rst!SD04005, 3) & " " & Format(rst!SD04006, "00000") & "-" & Format(rst!SD04039, "00")
             End If
-            WKDB!ŒŸ¸”NŒ“ú = DateSerial(Left(rst!SD04037, 4), Mid(rst!SD04037, 5, 2), Right(rst!SD04037, 2))
+            WKDB!æ¤œæŸ»å¹´æœˆæ—¥ = DateSerial(Left(rst!SD04037, 4), Mid(rst!SD04037, 5, 2), Right(rst!SD04037, 2))
             
-            WKDB!” ”Ô† = rst!SD04007
-            WKDB!”õl = rst!SM06015
+            WKDB!ç®±ç•ªå· = rst!SD04007
+            WKDB!å‚™è€ƒ = rst!SM06015
             
-            ' UPDATE 2025/03/05 SUZUKI ‡Šiˆó’Ç‰Á
-            WKDB!‡Šiˆóˆóš‹æ•ª = Nz(rst!SM03029, 0)
+            ' UPDATE 2025/03/05 SUZUKI åˆæ ¼å°è¿½åŠ 
+            WKDB!åˆæ ¼å°å°å­—åŒºåˆ† = Nz(rst!SM03029, 0)
             
-            ' UPDATE 2025/03/05 SUZUKI Šm”FÒˆóš
-            WKDB!Šm”FÒˆóš‹æ•ª = Nz(rst!SM03031, 0)
+            ' UPDATE 2025/03/05 SUZUKI ç¢ºèªè€…å°å­—
+            WKDB!ç¢ºèªè€…å°å­—åŒºåˆ† = Nz(rst!SM03031, 0)
             
-            ' €–Ú
+            ' é …ç›®
             For cnt = 1 To maxKoumoku
                 ReDim arr(0)
                 
-                ' €–Ú–¼
-                WKDB("€–Ú" & cnt) = Trim(WSM18(cnt).S004)
+                ' é …ç›®å
+                WKDB("é …ç›®" & cnt) = Trim(WSM18(cnt).S004)
                 
                 If Trim(WSM18(cnt).S004) <> "" Then
-                    ' ‹KŠiiã’ij
-                    WKDB("‹KŠi1-" & cnt) = Trim(WSM18(cnt).S006)
+                    ' è¦æ ¼ï¼ˆä¸Šæ®µï¼‰
+                    WKDB("è¦æ ¼1-" & cnt) = Trim(WSM18(cnt).S006)
                     
-                    ' ‹KŠii‰º’ij
-                    WKDB("‹KŠi2-" & cnt) = Trim(WSM18(cnt).S007)
+                    ' è¦æ ¼ï¼ˆä¸‹æ®µï¼‰
+                    WKDB("è¦æ ¼2-" & cnt) = Trim(WSM18(cnt).S007)
                     
-                    ' ‘ÎŠOŒö·{, ‘ÎŠOŒö·|
+                    ' å¯¾å¤–å…¬å·®ï¼‹, å¯¾å¤–å…¬å·®ï¼
                     If WSM18(cnt).D009 = 0 And WSM18(cnt).D010 = 0 Then
                     Else
-                        ' Œö·{
+                        ' å…¬å·®ï¼‹
                         If WSM18(cnt).D009 >= 0 Then
-                            WKDB("Œö·ƒvƒ‰ƒX" & cnt) = "+" & Abs(WSM18(cnt).D009)
+                            WKDB("å…¬å·®ãƒ—ãƒ©ã‚¹" & cnt) = "+" & Abs(WSM18(cnt).D009)
                         Else
-                            WKDB("Œö·ƒvƒ‰ƒX" & cnt) = "-" & Abs(WSM18(cnt).D009)
+                            WKDB("å…¬å·®ãƒ—ãƒ©ã‚¹" & cnt) = "-" & Abs(WSM18(cnt).D009)
                         End If
                         
-                        ' Œö·|
+                        ' å…¬å·®ï¼
                         If WSM18(cnt).D010 > 0 Then
-                            WKDB("Œö·ƒ}ƒCƒiƒX" & cnt) = "+" & Abs(WSM18(cnt).D010)
+                            WKDB("å…¬å·®ãƒã‚¤ãƒŠã‚¹" & cnt) = "+" & Abs(WSM18(cnt).D010)
                         Else
-                            WKDB("Œö·ƒ}ƒCƒiƒX" & cnt) = "-" & Abs(WSM18(cnt).D010)
+                            WKDB("å…¬å·®ãƒã‚¤ãƒŠã‚¹" & cnt) = "-" & Abs(WSM18(cnt).D010)
                         End If
                     End If
                     
-                    ' Œ‹‰Êƒtƒ@ƒCƒ‹‚ª‚È‚¢ê‡‚Í•\¦‚µ‚È‚¢
+                    ' çµæœãƒ•ã‚¡ã‚¤ãƒ«ãŒãªã„å ´åˆã¯è¡¨ç¤ºã—ãªã„
                     If WSD06(cnt).S001 <> "" Then
-                        ' ‘ª’è’l(Œv‘ª‰ñ”•ª)
+                        ' æ¸¬å®šå€¤(è¨ˆæ¸¬å›æ•°åˆ†)
                         For i = 1 To WSD06(cnt).L019
                             Select Case WSM18(cnt).S008
-                                ' ”š€–Ú
+                                ' æ•°å­—é …ç›®
                                 Case "1"
                                     Select Case i
                                         Case 1
-                                            tmp‘ª’è’l = WSD06(cnt).D020
+                                            tmpæ¸¬å®šå€¤ = WSD06(cnt).D020
                                         Case 2
-                                            tmp‘ª’è’l = WSD06(cnt).D021
+                                            tmpæ¸¬å®šå€¤ = WSD06(cnt).D021
                                         Case 3
-                                            tmp‘ª’è’l = WSD06(cnt).D022
+                                            tmpæ¸¬å®šå€¤ = WSD06(cnt).D022
                                         Case 4
-                                            tmp‘ª’è’l = WSD06(cnt).D023
+                                            tmpæ¸¬å®šå€¤ = WSD06(cnt).D023
                                         Case 5
-                                            tmp‘ª’è’l = WSD06(cnt).D024
+                                            tmpæ¸¬å®šå€¤ = WSD06(cnt).D024
                                     End Select
                                     
-                                    tmp‘ª’è’l = tmp‘ª’è’l + WSM18(cnt).D014
+                                    tmpæ¸¬å®šå€¤ = tmpæ¸¬å®šå€¤ + WSM18(cnt).D014
                                     
                                     tmpKeta = WSM17(cnt).L007
                                     tmpHasuu = WSM17(cnt).S008
                                     
-                                    ' ’PˆÊ•ÏŠ·
+                                    ' å˜ä½å¤‰æ›
                                     Select Case WSM17(cnt).S012
-                                        ' –³‚µ
+                                        ' ç„¡ã—
                                         Case "0"
-                                            WKDB("K" & cnt & "-" & i) = tmp‘ª’è’l
+                                            WKDB("K" & cnt & "-" & i) = tmpæ¸¬å®šå€¤
                                             
                                         ' N
                                         Case "1"
-                                            WKDB("K" & cnt & "-" & i) = tmp‘ª’è’l * 9.8
+                                            WKDB("K" & cnt & "-" & i) = tmpæ¸¬å®šå€¤ * 9.8
                                             tmpKeta = 1
                                             tmpHasuu = 0
                                             
                                         ' Pa
                                         Case "2"
-                                            WKDB("K" & cnt & "-" & i) = tmp‘ª’è’l * 9.8
+                                            WKDB("K" & cnt & "-" & i) = tmpæ¸¬å®šå€¤ * 9.8
                                             tmpKeta = 0
                                             tmpHasuu = 0
                                             
                                         ' Mpa
                                         Case "3"
-                                            WKDB("K" & cnt & "-" & i) = tmp‘ª’è’l * 0.098
+                                            WKDB("K" & cnt & "-" & i) = tmpæ¸¬å®šå€¤ * 0.098
                                             tmpKeta = 2
                                             tmpHasuu = 0
                                     End Select
                                     
-                                    ' ƒoƒŠ‚Ìê‡‚Í1000‚ÅŠ„‚é
-                                    If WKDB("€–Ú" & cnt) = "ƒoƒŠ" Then
+                                    ' ãƒãƒªã®å ´åˆã¯1000ã§å‰²ã‚‹
+                                    If WKDB("é …ç›®" & cnt) = "ãƒãƒª" Then
                                         WKDB("K" & cnt & "-" & i) = WKDB("K" & cnt & "-" & i) / 1000
                                     End If
                                     
-                                    ' ’[”ˆ—
+                                    ' ç«¯æ•°å‡¦ç†
                                     Select Case tmpHasuu
-                                        ' Ø‚èÌ‚Ä
+                                        ' åˆ‡ã‚Šæ¨ã¦
                                         Case 0
                                             WKDB("K" & cnt & "-" & i) = ROUND(WKDB("K" & cnt & "-" & i), 5 + tmpKeta, 2)
                                         
-                                        ' Ø‚èã‚°
+                                        ' åˆ‡ã‚Šä¸Šã’
                                         Case 1
                                             WKDB("K" & cnt & "-" & i) = ROUND(WKDB("K" & cnt & "-" & i), 5 + tmpKeta, 1)
                                             
-                                        ' lÌŒÜ“ü
+                                        ' å››æ¨äº”å…¥
                                         Case 2
                                             WKDB("K" & cnt & "-" & i) = ROUND(WKDB("K" & cnt & "-" & i), 5 + tmpKeta, 0)
                                     End Select
@@ -652,71 +652,71 @@ SM18_END:
                                     End If
                                     arr(UBound(arr)) = WKDB("K" & cnt & "-" & i)
                                     
-                                    ' •\¦Œ…İ’è
+                                    ' è¡¨ç¤ºæ¡è¨­å®š
                                     If tmpKeta > 0 Then
                                         WKDB("K" & cnt & "-" & i) = Format(WKDB("K" & cnt & "-" & i), "0." & String(tmpKeta, "0"))
                                     End If
                                 
-                                ' •¶š€–Ú
+                                ' æ–‡å­—é …ç›®
                                 Case "0"
                                     
                             End Select
                         Next
                         
                         Select Case WSM18(cnt).S008
-                            ' ”š€–Ú
+                            ' æ•°å­—é …ç›®
                             Case "1"
-                                ' Å‘å’l
+                                ' æœ€å¤§å€¤
                                 WKDB("MAX" & cnt) = getMaxValue(arr)
                                 If tmpKeta > 0 Then
                                     WKDB("MAX" & cnt) = Format(WKDB("MAX" & cnt), "0." & String(tmpKeta, "0"))
                                 End If
                                 
-                                ' Å¬’l
+                                ' æœ€å°å€¤
                                 WKDB("MIN" & cnt) = getMinValue(arr)
                                 If tmpKeta > 0 Then
                                     WKDB("MIN" & cnt) = Format(WKDB("MIN" & cnt), "0." & String(tmpKeta, "0"))
                                 End If
                                 
-                                ' •½‹Ï’l
+                                ' å¹³å‡å€¤
                                 WKDB("AVE" & cnt) = Format(getAverage(arr), "0.000")
                                 
-                                ' ·
+                                ' å·®
                                 WKDB("R" & cnt) = WKDB("MAX" & cnt) - WKDB("MIN" & cnt)
                                 If tmpKeta > 0 Then
                                     WKDB("R" & cnt) = Format(WKDB("R" & cnt), "0." & String(tmpKeta, "0"))
                                 End If
                                 
-                                ' ŒŸ¸€–Ú‡‚‚ª1‚Æ3‚Ì‚İŒvZ‚·‚é
+                                ' æ¤œæŸ»é …ç›®â„–ãŒ1ã¨3ã®ã¿è¨ˆç®—ã™ã‚‹
                                 If WSD06(cnt).S014 = "1" Or WSD06(cnt).S014 = "3" Then
-                                    ' Œv‘ª‰ñ”‚ª1‰ñ‚Ìê‡‚ÍŒvZ‚µ‚È‚¢
+                                    ' è¨ˆæ¸¬å›æ•°ãŒ1å›ã®å ´åˆã¯è¨ˆç®—ã—ãªã„
                                     If WSD06(cnt).L019 = 1 Then
-                                        ' •W€•Î·
+                                        ' æ¨™æº–åå·®
 '                                        WKDB("STD" & cnt) = " /  "
                                         
                                         ' CPK
 '                                        WKDB("CPK" & cnt) = " /  "
                                     Else
-                                        ' •W€•Î·
+                                        ' æ¨™æº–åå·®
                                         WKDB("STD" & cnt) = Format(getStandardDeviation(arr), "0.0000")
                                         
                                         ' CPK
-                                        ' ‹KŠi’l1s–Ú‚ª0‚Ì‚Í•\¦‚µ‚È‚¢
-                                        ' UPDATE 2025/01/08 •¶š‚Ì‚ÉƒGƒ‰[”­¶‚·‚é‚½‚ß
+                                        ' è¦æ ¼å€¤1è¡Œç›®ãŒ0ã®æ™‚ã¯è¡¨ç¤ºã—ãªã„
+                                        ' UPDATE 2025/01/08 æ–‡å­—ã®æ™‚ã«ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿã™ã‚‹ãŸã‚
 '                                        If WSM18(cnt).S006 = 0 Then
                                         If Val(WSM18(cnt).S006) = 0 Then
 '                                            WKDB("CPK" & cnt) = " /  "
                                         Else
                                             If IsNumeric(WSM18(cnt).S006) Then
-                                                tmp‹KŠiãŒÀ = CDbl(Trim(Nz(WSM18(cnt).S006, ""))) + WSM18(cnt).D009
-                                                tmp‹KŠi‰ºŒÀ = CDbl(Trim(Nz(WSM18(cnt).S006, ""))) + WSM18(cnt).D010
+                                                tmpè¦æ ¼ä¸Šé™ = CDbl(Trim(Nz(WSM18(cnt).S006, ""))) + WSM18(cnt).D009
+                                                tmpè¦æ ¼ä¸‹é™ = CDbl(Trim(Nz(WSM18(cnt).S006, ""))) + WSM18(cnt).D010
                                                 
-                                                If tmp‹KŠiãŒÀ = tmp‹KŠi‰ºŒÀ Or CDbl(WKDB("STD" & cnt)) = 0 Then
+                                                If tmpè¦æ ¼ä¸Šé™ = tmpè¦æ ¼ä¸‹é™ Or CDbl(WKDB("STD" & cnt)) = 0 Then
 '                                                    WKDB("CPK" & cnt) = " /  "
                                                 Else
-                                                    ' iUSL\Xj/3~ƒĞ‚Ü‚½‚ÍiX\LSLj/3~ƒĞ‚Ì‚¢‚¸‚ê‚©‚Ì¬‚³‚¢’l
-                                                    tmpCpk1 = (tmp‹KŠiãŒÀ - CDbl(WKDB("AVE" & cnt))) / (3 * CDbl(WKDB("STD" & cnt)))
-                                                    tmpCpk2 = (CDbl(WKDB("AVE" & cnt)) - tmp‹KŠi‰ºŒÀ) / (3 * CDbl(WKDB("STD" & cnt)))
+                                                    ' ï¼ˆUSLâ€•Xï¼‰/3Ã—Ïƒã¾ãŸã¯ï¼ˆXâ€•LSLï¼‰/3Ã—Ïƒã®ã„ãšã‚Œã‹ã®å°ã•ã„å€¤
+                                                    tmpCpk1 = (tmpè¦æ ¼ä¸Šé™ - CDbl(WKDB("AVE" & cnt))) / (3 * CDbl(WKDB("STD" & cnt)))
+                                                    tmpCpk2 = (CDbl(WKDB("AVE" & cnt)) - tmpè¦æ ¼ä¸‹é™) / (3 * CDbl(WKDB("STD" & cnt)))
                                                     
                                                     If tmpCpk1 <= tmpCpk2 Then
                                                         WKDB("CPK" & cnt) = Format(tmpCpk1, "0.00")
@@ -735,31 +735,31 @@ SM18_END:
                 End If
                 
                 Select Case WSM18(cnt).S008
-                    ' •¶š€–Ú
+                    ' æ–‡å­—é …ç›®
                     Case "0"
-                        ' Œv‘ª‰ñ”‚ª0‚Ìê‡
+                        ' è¨ˆæ¸¬å›æ•°ãŒ0ã®å ´åˆ
                         If WSD06(cnt).L019 = 0 Then
                             WKDB("K" & cnt & "-1") = WSM18(cnt).S013
                         End If
                 End Select
             Next
             
-            ' UPDATE 2025/03/05 SUZUKI ‹ó—“ƒ`ƒFƒbƒN
+            ' UPDATE 2025/03/05 SUZUKI ç©ºæ¬„ãƒã‚§ãƒƒã‚¯
             For cnt = 1 To maxKoumoku
-                If Nz(WKDB("€–Ú" & cnt), "") = "" Then
-                    WKDB("€–Ú" & cnt) = nullStr
+                If Nz(WKDB("é …ç›®" & cnt), "") = "" Then
+                    WKDB("é …ç›®" & cnt) = nullStr
                 End If
                 
-                If Nz(WKDB("‹KŠi1-" & cnt), "") = "" And Nz(WKDB("‹KŠi2-" & cnt), "") = "" Then
-                    WKDB("‹KŠi1-" & cnt) = nullStr2
+                If Nz(WKDB("è¦æ ¼1-" & cnt), "") = "" And Nz(WKDB("è¦æ ¼2-" & cnt), "") = "" Then
+                    WKDB("è¦æ ¼1-" & cnt) = nullStr2
                 End If
                 
-                If Nz(WKDB("Œö·ƒvƒ‰ƒX" & cnt), "") = "" Then
-                    WKDB("Œö·ƒvƒ‰ƒX" & cnt) = nullStr
+                If Nz(WKDB("å…¬å·®ãƒ—ãƒ©ã‚¹" & cnt), "") = "" Then
+                    WKDB("å…¬å·®ãƒ—ãƒ©ã‚¹" & cnt) = nullStr
                 End If
                 
-                If Nz(WKDB("Œö·ƒ}ƒCƒiƒX" & cnt), "") = "" Then
-                    WKDB("Œö·ƒ}ƒCƒiƒX" & cnt) = nullStr
+                If Nz(WKDB("å…¬å·®ãƒã‚¤ãƒŠã‚¹" & cnt), "") = "" Then
+                    WKDB("å…¬å·®ãƒã‚¤ãƒŠã‚¹" & cnt) = nullStr
                 End If
                 
                 For i = 1 To 5
@@ -795,32 +795,32 @@ SM18_END:
             
         WKDB.Update
         
-        ' UPDATE 2025/02/17 SUZUKI –¢‘ª’è€–Ú‚ª‚È‚¢ê‡‚Ì‚İXV‚·‚é
+        ' UPDATE 2025/02/17 SUZUKI æœªæ¸¬å®šé …ç›®ãŒãªã„å ´åˆã®ã¿æ›´æ–°ã™ã‚‹
         If HEADSW = False Then
-            ' ˆóü‚Í‹æ•ª‚ÌXV‚ğs‚¤
+            ' å°åˆ·æ™‚ã¯åŒºåˆ†ã®æ›´æ–°ã‚’è¡Œã†
             If PFLG = 1 Then
-                ' ƒŠ[ƒhH’öŠÇ—ƒtƒ@ƒCƒ‹
+                ' ãƒªãƒ¼ãƒ‰å·¥ç¨‹ç®¡ç†ãƒ•ã‚¡ã‚¤ãƒ«
                 Sql = ""
                 Sql = Sql & " UPDATE KSD04KOUT "
-                Sql = Sql & " SET SD04016 = " & IIf(IsNumeric(WSD06(1).S002), WSD06(1).S002, 0) ' ‘ª’è“ú
-                Sql = Sql & " WHERE SD04002 = " & Nz(rst!SD04002, 0)                            ' HêƒR[ƒh
-                Sql = Sql & "   AND SD04037 = " & Nz(rst!SD04037, 0)                            ' “o˜^“ú
-                Sql = Sql & "   AND SD04004 = " & SQL_MOJICHK(rst!SD04004)                      ' »•iƒR[ƒh
-                Sql = Sql & "   AND SD04005 = " & SQL_MOJICHK(rst!SD04005)                      ' M/CƒR[ƒh
-                Sql = Sql & "   AND SD04001 = " & Nz(rst!SD04001, 0)                            ' ˆ—˜A”Ô
+                Sql = Sql & " SET SD04016 = " & IIf(IsNumeric(WSD06(1).S002), WSD06(1).S002, 0) ' æ¸¬å®šæ—¥
+                Sql = Sql & " WHERE SD04002 = " & Nz(rst!SD04002, 0)                            ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+                Sql = Sql & "   AND SD04037 = " & Nz(rst!SD04037, 0)                            ' ç™»éŒ²æ—¥
+                Sql = Sql & "   AND SD04004 = " & SQL_MOJICHK(rst!SD04004)                      ' è£½å“ã‚³ãƒ¼ãƒ‰
+                Sql = Sql & "   AND SD04005 = " & SQL_MOJICHK(rst!SD04005)                      ' M/Cã‚³ãƒ¼ãƒ‰
+                Sql = Sql & "   AND SD04001 = " & Nz(rst!SD04001, 0)                            ' å‡¦ç†é€£ç•ª
 
                 Call cnn.Execute(Sql)
 
-                ' ¡‚ÍXV‚©‚¯‚Ä‚¢‚È‚¢–Í—l
-    '            ' ŒŸ¸Œ‹‰Êƒtƒ@ƒCƒ‹
+                ' ä»Šã¯æ›´æ–°ã‹ã‘ã¦ã„ãªã„æ¨¡æ§˜
+    '            ' æ¤œæŸ»çµæœãƒ•ã‚¡ã‚¤ãƒ«
     '            Sql = ""
     '            Sql = Sql & " UPDATE KSD06KEKA "
     '            Sql = Sql & " SET SD06028 = 1 "
-    '            Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0)        ' HêƒR[ƒh
-    '            Sql = Sql & "   AND SD06002 = " & tmpŒŸ¸“ú                 ' ŒŸ¸“ú<=ƒƒbƒg‡‚“ú•t‚ÅÅ‘å‚Ì‚à‚Ì
-    '            Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004)  ' »•iƒR[ƒh
-    '            Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005)  ' M/CƒR[ƒh
-    '            Sql = Sql & "   AND SD06011 = 1 "                           ' »•i‹æ•ª
+    '            Sql = Sql & " WHERE SD06001 = " & Nz(rst!SD04002, 0)        ' å·¥å ´ã‚³ãƒ¼ãƒ‰
+    '            Sql = Sql & "   AND SD06002 = " & tmpæ¤œæŸ»æ—¥                 ' æ¤œæŸ»æ—¥<=ãƒ­ãƒƒãƒˆâ„–æ—¥ä»˜ã§æœ€å¤§ã®ã‚‚ã®
+    '            Sql = Sql & "   AND SD06012 = " & SQL_MOJICHK(rst!SD04004)  ' è£½å“ã‚³ãƒ¼ãƒ‰
+    '            Sql = Sql & "   AND SD06009 = " & SQL_MOJICHK(rst!SD04005)  ' M/Cã‚³ãƒ¼ãƒ‰
+    '            Sql = Sql & "   AND SD06011 = 1 "                           ' è£½å“åŒºåˆ†
     '
     '            Call cnn.Execute(Sql)
             End If
@@ -835,11 +835,11 @@ NextLoop:
     
     Call ShowProgressBar(, , , False)
     
-    stDocName = "R_ŒŸ¸¬Ñ•\_ƒŠ[ƒh"
+    stDocName = "R_æ¤œæŸ»æˆç¸¾è¡¨_ãƒªãƒ¼ãƒ‰"
     
-    ' UPDATE 2025/02/17 SUZUKI –¢‘ª’è‚Ì€–Ú‚ª‚ ‚éê‡‚Íˆóü‚µ‚È‚¢
-'    Call ˆóüˆ—(Me.name, stDocName, PFLG)
-    Call ˆóüˆ—(Me.name, stDocName, PFLG, "ˆóüFLG = TRUE")
+    ' UPDATE 2025/02/17 SUZUKI æœªæ¸¬å®šã®é …ç›®ãŒã‚ã‚‹å ´åˆã¯å°åˆ·ã—ãªã„
+'    Call å°åˆ·å‡¦ç†(Me.name, stDocName, PFLG)
+    Call å°åˆ·å‡¦ç†(Me.name, stDocName, PFLG, "å°åˆ·FLG = TRUE")
 
 '    If PFLG = 0 Then
 '        DoCmd.OpenReport stDocName, acPreview
@@ -864,10 +864,10 @@ Exit_PRT:
     Exit Function
 
 Err_PRT:
-    ' ƒf[ƒ^‚ª1Œ‚à‚È‚©‚Á‚½ê‡‚Íœ‚­
+    ' ãƒ‡ãƒ¼ã‚¿ãŒ1ä»¶ã‚‚ãªã‹ã£ãŸå ´åˆã¯é™¤ã
     If Err.Number <> 2501 Then
         MsgBox Err.Description, , "PRT"
-        Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "PRT", Err.Number, Err.Description, "“ú•tF" & Me.S“ú•t & "`" & Me.E“ú•t & ", »•iCDF" & Me.S»•iCD & "`" & Me.E»•iCD & ", M/CF" & Me.SMCCD & "`" & Me.EMCCD & ", SqlF" & Sql)
+        Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "PRT", Err.Number, Err.Description, "æ—¥ä»˜ï¼š" & Me.Sæ—¥ä»˜ & "ï½" & Me.Eæ—¥ä»˜ & ", è£½å“CDï¼š" & Me.Sè£½å“CD & "ï½" & Me.Eè£½å“CD & ", M/Cï¼š" & Me.SMCCD & "ï½" & Me.EMCCD & ", Sqlï¼š" & Sql)
     End If
     Resume Exit_PRT
 End Function
@@ -883,7 +883,7 @@ Exit_P3_Click:
 Err_P3_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P3_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P3_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P3_Click", Err.Number, Err.Description)
     Resume Exit_P3_Click
 End Sub
 
@@ -891,14 +891,14 @@ Private Sub P4_Click()
 On Error GoTo Err_P4_Click
 
     Select Case ActCon
-        Case "SHêCD"
-            Call SHêCD_DblClick(False)
-        Case "EHêCD"
-            Call EHêCD_DblClick(False)
-        Case "S»•iCD"
-            Call S»•iCD_DblClick(False)
-        Case "E»•iCD"
-            Call E»•iCD_DblClick(False)
+        Case "Så·¥å ´CD"
+            Call Så·¥å ´CD_DblClick(False)
+        Case "Eå·¥å ´CD"
+            Call Eå·¥å ´CD_DblClick(False)
+        Case "Sè£½å“CD"
+            Call Sè£½å“CD_DblClick(False)
+        Case "Eè£½å“CD"
+            Call Eè£½å“CD_DblClick(False)
         Case "SMCCD"
             Call SMCCD_DblClick(False)
         Case "EMCCD"
@@ -911,7 +911,7 @@ Exit_P4_Click:
 Err_P4_Click:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "P4_Click"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "P4_Click", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "P4_Click", Err.Number, Err.Description)
     Resume Exit_P4_Click
 End Sub
 
@@ -928,122 +928,122 @@ Private Sub P11_Click()
 End Sub
 
 Private Sub P12_Click()
-    Call •Â‚¶‚é
+    Call é–‰ã˜ã‚‹
 End Sub
 
-Private Sub SHêCD_DblClick(Cancel As Integer)
-On Error GoTo Err_SHêCD_DblClick
+Private Sub Så·¥å ´CD_DblClick(Cancel As Integer)
+On Error GoTo Err_Så·¥å ´CD_DblClick
 
-    ŒŸõCD = Null
-    DoCmd.OpenForm "K_HêŒŸõ", , , , , acDialog
+    æ¤œç´¢CD = Null
+    DoCmd.OpenForm "K_å·¥å ´æ¤œç´¢", , , , , acDialog
 
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.SHêCD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.Så·¥å ´CD.SetFocus
     Else
-        Me.SHêCD = CLng(ŒŸõCD)
-        Me.SHêCD.SetFocus
-        Call SHêCD_AfterUpdate
+        Me.Så·¥å ´CD = CLng(æ¤œç´¢CD)
+        Me.Så·¥å ´CD.SetFocus
+        Call Så·¥å ´CD_AfterUpdate
     End If
 
-Exit_SHêCD_DblClick:
+Exit_Så·¥å ´CD_DblClick:
     Exit Sub
 
-Err_SHêCD_DblClick:
+Err_Så·¥å ´CD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "SHêCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "SHêCD_DblClick", Err.Number, Err.Description)
-    Resume Exit_SHêCD_DblClick
+    MsgBox Err.Description, , "Så·¥å ´CD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Så·¥å ´CD_DblClick", Err.Number, Err.Description)
+    Resume Exit_Så·¥å ´CD_DblClick
 End Sub
 
-Private Sub EHêCD_DblClick(Cancel As Integer)
-On Error GoTo Err_EHêCD_DblClick
+Private Sub Eå·¥å ´CD_DblClick(Cancel As Integer)
+On Error GoTo Err_Eå·¥å ´CD_DblClick
 
-    ŒŸõCD = Null
-    DoCmd.OpenForm "K_HêŒŸõ", , , , , acDialog
+    æ¤œç´¢CD = Null
+    DoCmd.OpenForm "K_å·¥å ´æ¤œç´¢", , , , , acDialog
 
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.EHêCD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.Eå·¥å ´CD.SetFocus
     Else
-        Me.EHêCD = CLng(ŒŸõCD)
-        Me.EHêCD.SetFocus
+        Me.Eå·¥å ´CD = CLng(æ¤œç´¢CD)
+        Me.Eå·¥å ´CD.SetFocus
     End If
 
-Exit_EHêCD_DblClick:
+Exit_Eå·¥å ´CD_DblClick:
     Exit Sub
 
-Err_EHêCD_DblClick:
+Err_Eå·¥å ´CD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "EHêCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "EHêCD_DblClick", Err.Number, Err.Description)
-    Resume Exit_EHêCD_DblClick
+    MsgBox Err.Description, , "Eå·¥å ´CD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Eå·¥å ´CD_DblClick", Err.Number, Err.Description)
+    Resume Exit_Eå·¥å ´CD_DblClick
 End Sub
 
-Private Sub S»•iCD_DblClick(Cancel As Integer)
-On Error GoTo Err_S»•iCD_DblClick
+Private Sub Sè£½å“CD_DblClick(Cancel As Integer)
+On Error GoTo Err_Sè£½å“CD_DblClick
 
-    ŒŸõCD = Null
-    P_CODE = Me.»•i‹æ•ª
+    æ¤œç´¢CD = Null
+    P_CODE = Me.è£½å“åŒºåˆ†
 
-    DoCmd.OpenForm "K_»•iŒŸõ", , , , , acDialog
+    DoCmd.OpenForm "K_è£½å“æ¤œç´¢", , , , , acDialog
 
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.S»•iCD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.Sè£½å“CD.SetFocus
     Else
-        Me.S»•iCD = ŒŸõCD
-        Me.S»•iCD.SetFocus
-        Call S»•iCD_AfterUpdate
+        Me.Sè£½å“CD = æ¤œç´¢CD
+        Me.Sè£½å“CD.SetFocus
+        Call Sè£½å“CD_AfterUpdate
     End If
 
-Exit_S»•iCD_DblClick:
+Exit_Sè£½å“CD_DblClick:
     Exit Sub
 
-Err_S»•iCD_DblClick:
+Err_Sè£½å“CD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "S»•iCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "S»•iCD_DblClick", Err.Number, Err.Description)
-    Resume Exit_S»•iCD_DblClick
+    MsgBox Err.Description, , "Sè£½å“CD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Sè£½å“CD_DblClick", Err.Number, Err.Description)
+    Resume Exit_Sè£½å“CD_DblClick
 End Sub
 
-Private Sub E»•iCD_DblClick(Cancel As Integer)
-On Error GoTo Err_E»•iCD_DblClick
+Private Sub Eè£½å“CD_DblClick(Cancel As Integer)
+On Error GoTo Err_Eè£½å“CD_DblClick
 
-    ŒŸõCD = Null
-    P_CODE = Me.»•i‹æ•ª
+    æ¤œç´¢CD = Null
+    P_CODE = Me.è£½å“åŒºåˆ†
 
-    DoCmd.OpenForm "K_»•iŒŸõ", , , , , acDialog
+    DoCmd.OpenForm "K_è£½å“æ¤œç´¢", , , , , acDialog
 
-    If Nz(ŒŸõCD, "") = "" Then
-        Me.E»•iCD.SetFocus
+    If Nz(æ¤œç´¢CD, "") = "" Then
+        Me.Eè£½å“CD.SetFocus
     Else
-        Me.E»•iCD = ŒŸõCD
-        Me.E»•iCD.SetFocus
+        Me.Eè£½å“CD = æ¤œç´¢CD
+        Me.Eè£½å“CD.SetFocus
     End If
 
-Exit_E»•iCD_DblClick:
+Exit_Eè£½å“CD_DblClick:
     Exit Sub
 
-Err_E»•iCD_DblClick:
+Err_Eè£½å“CD_DblClick:
     DoCmd.Hourglass False
-    MsgBox Err.Description, , "E»•iCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "E»•iCD_DblClick", Err.Number, Err.Description)
-    Resume Exit_E»•iCD_DblClick
+    MsgBox Err.Description, , "Eè£½å“CD_DblClick"
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "Eè£½å“CD_DblClick", Err.Number, Err.Description)
+    Resume Exit_Eè£½å“CD_DblClick
 End Sub
 
 Private Sub SMCCD_DblClick(Cancel As Integer)
 On Error GoTo Err_SMCCD_DblClick
 
-    ŒŸõCD = Null
-    If Nz(Me.SHêCD, "") = "" Then
-        MsgBox "HêƒR[ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
+    æ¤œç´¢CD = Null
+    If Nz(Me.Så·¥å ´CD, "") = "" Then
+        MsgBox "å·¥å ´ã‚³ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
         Exit Sub
     End If
-    P_CODE = Me.SHêCD
-    DoCmd.OpenForm "K_ƒ}ƒVƒ“ŒŸõ", , , , , acDialog
+    P_CODE = Me.Så·¥å ´CD
+    DoCmd.OpenForm "K_ãƒã‚·ãƒ³æ¤œç´¢", , , , , acDialog
     
-    If Nz(ŒŸõCD, "") = "" Then
+    If Nz(æ¤œç´¢CD, "") = "" Then
         Me(ActCon).SetFocus
     Else
-        Me(ActCon) = ŒŸõCD
+        Me(ActCon) = æ¤œç´¢CD
         Call SMCCD_AfterUpdate
     End If
 
@@ -1053,25 +1053,25 @@ Exit_SMCCD_DblClick:
 Err_SMCCD_DblClick:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "SMCCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "SMCCD_DblClick", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "SMCCD_DblClick", Err.Number, Err.Description)
     Resume Exit_SMCCD_DblClick
 End Sub
 
 Private Sub EMCCD_DblClick(Cancel As Integer)
 On Error GoTo Err_EMCCD_DblClick
 
-    ŒŸõCD = Null
-    If Nz(Me.EHêCD, "") = "" Then
-        MsgBox "HêƒR[ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢", vbCritical, "ƒGƒ‰["
+    æ¤œç´¢CD = Null
+    If Nz(Me.Eå·¥å ´CD, "") = "" Then
+        MsgBox "å·¥å ´ã‚³ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„", vbCritical, "ã‚¨ãƒ©ãƒ¼"
         Exit Sub
     End If
-    P_CODE = Me.EHêCD
-    DoCmd.OpenForm "K_ƒ}ƒVƒ“ŒŸõ", , , , , acDialog
+    P_CODE = Me.Eå·¥å ´CD
+    DoCmd.OpenForm "K_ãƒã‚·ãƒ³æ¤œç´¢", , , , , acDialog
     
-    If Nz(ŒŸõCD, "") = "" Then
+    If Nz(æ¤œç´¢CD, "") = "" Then
         Me(ActCon).SetFocus
     Else
-        Me(ActCon) = ŒŸõCD
+        Me(ActCon) = æ¤œç´¢CD
     End If
 
 Exit_EMCCD_DblClick:
@@ -1080,25 +1080,25 @@ Exit_EMCCD_DblClick:
 Err_EMCCD_DblClick:
     DoCmd.Hourglass False
     MsgBox Err.Description, , "EMCCD_DblClick"
-    Call ƒGƒ‰[ƒƒO‹L˜^(Me.name, "EMCCD_DblClick", Err.Number, Err.Description)
+    Call ã‚¨ãƒ©ãƒ¼ãƒ­ã‚°è¨˜éŒ²(Me.name, "EMCCD_DblClick", Err.Number, Err.Description)
     Resume Exit_EMCCD_DblClick
 End Sub
 
-Private Sub SHêCD_AfterUpdate()
-    If Nz(Me.SHêCD, "") <> "" Then
-        Me.EHêCD = Me.SHêCD
+Private Sub Så·¥å ´CD_AfterUpdate()
+    If Nz(Me.Så·¥å ´CD, "") <> "" Then
+        Me.Eå·¥å ´CD = Me.Så·¥å ´CD
     End If
 End Sub
 
-Private Sub S“ú•t_AfterUpdate()
-    If Nz(Me.S“ú•t, "") <> "" Then
-        Me.E“ú•t = Me.S“ú•t
+Private Sub Sæ—¥ä»˜_AfterUpdate()
+    If Nz(Me.Sæ—¥ä»˜, "") <> "" Then
+        Me.Eæ—¥ä»˜ = Me.Sæ—¥ä»˜
     End If
 End Sub
 
-Private Sub S»•iCD_AfterUpdate()
-    If Nz(Me.S»•iCD, "") <> "" Then
-        Me.E»•iCD = Me.S»•iCD
+Private Sub Sè£½å“CD_AfterUpdate()
+    If Nz(Me.Sè£½å“CD, "") <> "" Then
+        Me.Eè£½å“CD = Me.Sè£½å“CD
     End If
 End Sub
 
@@ -1108,23 +1108,24 @@ Private Sub SMCCD_AfterUpdate()
     End If
 End Sub
 
-Private Sub S“ú•t_DblClick(Cancel As Integer)
+Private Sub Sæ—¥ä»˜_DblClick(Cancel As Integer)
 On Error Resume Next
 
     Call CallCalendar
     
-    Call S“ú•t_AfterUpdate
+    Call Sæ—¥ä»˜_AfterUpdate
 End Sub
 
-Private Sub E“ú•t_DblClick(Cancel As Integer)
+Private Sub Eæ—¥ä»˜_DblClick(Cancel As Integer)
 On Error Resume Next
 
     Call CallCalendar
 End Sub
 
-Private Sub –¾×‚Ö_Enter()
+Private Sub æ˜ç´°ã¸_Enter()
 On Error Resume Next
 
     Me.P9.SetFocus
 End Sub
+
 
